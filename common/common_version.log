@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.12)  20 MAR 2018 13:57
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.12)  20 MAR 2018 14:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -519,8 +519,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [1
 
-] [2] [3] [4] [5] [6] [7]
-[8] (./common_version.aux) ) 
+] [2] [3]
+Overfull \hbox (34.52151pt too wide) in paragraph at lines 39--39
+|[]\TU/Arial(0)/bx/n/20 Engineering-related and scientific con-
+ []
+
+[4] [5] [6] [7] (./common_version.aux) ) 
 Here is how much of TeX's memory you used:
  10212 strings out of 493005
  226603 string characters out of 6134596
@@ -530,4 +534,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  35i,4n,76p,10375b,309s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on common_version.pdf (8 pages).
+Output written on common_version.pdf (7 pages).
