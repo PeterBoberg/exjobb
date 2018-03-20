@@ -1,0 +1,16 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduktion}{2}
+\contentsline {subsection}{\numberline {1.1}Bakgrund}{2}
+\contentsline {subsection}{\numberline {1.2}Problem}{2}
+\contentsline {subsection}{\numberline {1.3}Syfte}{2}
+\contentsline {subsection}{\numberline {1.4}Mål}{2}
+\contentsline {subsubsection}{\numberline {1.4.1}Sammhällsnytta, Etik, Hållbarhet}{2}
+\contentsline {subsection}{\numberline {1.5}Metodologier / Metoder}{2}
+\contentsline {subsection}{\numberline {1.6}Avgränsningar}{2}
+\contentsline {subsection}{\numberline {1.7}Disposition}{2}
+\contentsline {section}{\numberline {2}Teoretisk Bakgrund}{3}
+\contentsline {section}{\numberline {3}Ingenjörsrelaterat innehåll}{4}
+\contentsline {section}{\numberline {4}Arbetet}{5}
+\contentsline {section}{\numberline {5}Resultat}{6}
+\contentsline {section}{\numberline {6}Slutsatser}{7}
+\contentsline {section}{\numberline {7}Fortsatt arbete}{8}
