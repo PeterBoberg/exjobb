@@ -1,12 +1,36 @@
 \documentclass[12pt, a4paper, onecolumn]{article}
 \usepackage{fontspec}
 \usepackage{titlesec}
+\usepackage{tocloft}
 \usepackage[english]{babel}
 \usepackage{blindtext}
+\usepackage{subfig}
+\usepackage{pgf}
 \setmainfont{Georgia}
-\titleformat{\section}
-{\normalfont\fontspec{Arial}\fontsize{20pt}{0}\bfseries}
-{\thesection}{20pt}{}
+
+\newcommand\sectionfont{\normalfont\fontspec{Arial}\fontsize{14pt}{0}\bfseries}
+\newcommand\subsectionfont{\normalfont\fontspec{Arial}\fontsize{13pt}{0}\bfseries}
+\newcommand\subsubsectionfont{\normalfont\fontspec{Arial}\fontsize{12pt}{0}\bfseries}
+\newcommand\tocsectionfont{\normalfont\fontspec{Arial}\fontsize{12pt}{0}\bfseries}
+\newcommand\tocsubsectionfont{\normalfont\fontspec{Arial}\fontsize{11pt}{0}\bfseries}
+\newcommand\tocsubsubsectionfont{\normalfont\fontspec{Arial}\fontsize{11pt}{0}}
+\newcommand\toctitlefont{\normalfont\fontspec{Arial}\fontsize{16pt}{0}\bfseries}
+
+\titleformat{\section}{\sectionfont}{\thesection}{20pt}{}
+\titleformat{\subsection}{\subsectionfont}{\thesubsection}{20pt}{}
+\titleformat{\subsubsection}{\subsubsectionfont}{\thesubsubsection}{20pt}{}
+
+\renewcommand{\cftsecfont}{\tocsectionfont}
+\renewcommand{\cftsubsecfont}{\tocsubsectionfont}
+\renewcommand{\cftsubsubsecfont}{\tocsubsubsectionfont}
+\renewcommand{\cftsecpagefont}{\tocsectionfont}
+\renewcommand{\cftsubsecpagefont}{\tocsubsectionfont}
+\renewcommand{\cftsubsubsecpagefont}{\tocsubsubsectionfont}
+\renewcommand{\cfttoctitlefont}{\toctitlefont}
+
+\addto\captionsenglish{
+	\renewcommand{\contentsname}{Table of Contents}
+}
 
 \begin{document}
 
@@ -17,7 +41,43 @@
 	
 		\subsection{Background}
 		
-		\subsection{The Problem}
+		\paragraph{Accidents related to falling} is a major issue in our society. In fact, according to the World Health Organization, "Falls are the second leading cause of accidental or unintentional injury deaths worldwide" \cite{who}. Globally, an average of 37.3 million people (Jan 2018) suffer from injuries related to a fall each year, which are severe enough to seek medical attention. Out of these, no less than an estimated 640 000 individuals die as a direct consequence of the fall \cite{who}. Fall  related accidents are therefore to be considered as a significant world wide health problem. 
+		
+		\paragraph{Although Age} is identified as a key driving factor behind fall related injuries, it is not by far the only reason that people hurt them selves this way every year.  Other risk factors include 
+		\begin{itemize}
+			\item Occupations which require you to work at an elevated height.
+			\item Alcohol and substance abuse.
+			\item Medical conditions contributing to a reduced sense of balance or vision.
+			\item Sporting.	
+		\end{itemize}
+		
+		\paragraph{In Sweden} alone, statistics shows even darker figures. Here, falling is the single one reason responsible for the greatest number of accident related fatalities, hospitalizations, and visits to emergency clinics, outnumbering traffic accidents, who come in second \cite[p~3,5]{msb_report}. On top of that, in Sweden, falling is together with poisoning, the type of accident who poses the biggest annual growth, having duplicated the amount of yearly incidents since 2000 \cite{soc_olyckor} Studies have also showed that peoples perception target traffic accidents as the the most common cause of the above \cite[p~5]{msb_report}. That is however not true, but a reasonable explanation for this is according to MSB (Swedish Civil Contingencies Agency) that most fall related accidents happen in a domestic area and are thus not as dramatic as a car accident or a fire for example. This tend to give this type of accident less space in the common media. 
+		
+		
+		\paragraph{}The work force is by no means an exception to the statistics presented above in Sweden. The swedish work environment authority (Arbetsmiljöverket) published a study in 2016, claiming that fall accidents are the most versus second most common reason for absence in work due to accident, for women and men respectively \cite[p~1]{av}. This does not only have an impact on the lives of the individual and his or her family, it also poses serious economical damage to the society in general, and the affected organizations in particular. The diagram below illustrated the amount of fall related accidents in the most affected occupations. 
+		
+		
+		\begin{figure}[h]
+			\centering
+			\subfloat[label 1]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
+			\qquad
+			\subfloat[label 2]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
+			\caption{Män och kvinnor som faller från stående höjd}%
+			\label{fig:example}%
+		\end{figure}
+		
+		\begin{figure}[h]
+			\centering
+			\subfloat[label 1]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
+			\qquad
+			\subfloat[label 2]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
+			\caption{Män och kvinnor som faller från eleverad höjd}%
+			\label{fig:example}%
+		\end{figure}
+		
+		\subsection{Problem}
+		
+		Since falling accidents are common, as described in the background, we want to examine the possibility of creating a mobile application that can detect falling accidents and inform registered contacts. This kind of application could help the person that suffer a falling accident by automatically contacting people that can come to aid the affected person. In case the person who have been involved in the fall is injured or unconscious and unable to call for help, the application will assist the person by automatically sending an alarm.
 		
 		\subsection{Purpose}
 		
@@ -41,7 +101,15 @@
 			
 		\subsection{Methodologies / Methods}
 		
+		To be able to answer the question and give a solution to the problem, an empirical studie will be conducted. Developing a mobile application will give a wider understanding of the subject. In case the development of the application is successful, by the means that we are able to create an application that will help minimize the negative effects of falling accidents, it will show that in our case it was possible to develop such an application.
+		
+		To develop the application we will use an iterative project method and start developing the most important features to minimize risks early in the project. 
+		
 		\subsection{Limitations}
+		
+		Although there are numerous platforms for mobile applications, we will only consider the two most widely used, Android and iOS.
+		
+		We believe that there are many fields that could benefit from the type of application that we will develop, but for this study we will only consider implementing it for an electrical company.
 		
 		\subsection{Disposition}
 		
@@ -62,5 +130,7 @@
 	\section{Conclusions}
 	\newpage
 		
+	\bibliography{bib_common}
+	\bibliographystyle{ieeetr}
 
 \end{document}

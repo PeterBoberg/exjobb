@@ -1,12 +1,39 @@
 \documentclass[11pt, a4paper, onecolumn]{article}
 \usepackage{fontspec}
 \usepackage{titlesec}
+\usepackage{tocloft}
 \usepackage[english]{babel}
 \usepackage{blindtext}
 \setmainfont{Georgia}
-\titleformat{\section}
-{\normalfont\fontspec{Arial}\fontsize{20pt}{0}\bfseries}
-{\thesection}{20pt}{}
+
+\newcommand\sectionfont{\normalfont\fontspec{Arial}\fontsize{14pt}{0}\bfseries}
+\newcommand\subsectionfont{\normalfont\fontspec{Arial}\fontsize{13pt}{0}\bfseries}
+\newcommand\subsubsectionfont{\normalfont\fontspec{Arial}\fontsize{12pt}{0}\bfseries}
+\newcommand\tocsectionfont{\normalfont\fontspec{Arial}\fontsize{12pt}{0}\bfseries}
+\newcommand\tocsubsectionfont{\normalfont\fontspec{Arial}\fontsize{11pt}{0}\bfseries}
+\newcommand\tocsubsubsectionfont{\normalfont\fontspec{Arial}\fontsize{11pt}{0}}
+\newcommand\toctitlefont{\normalfont\fontspec{Arial}\fontsize{16pt}{0}\bfseries}
+
+
+\titleformat{\section}{\sectionfont}{\thesection}{20pt}{}
+\titleformat{\subsection}{\subsectionfont}{\thesubsection}{20pt}{}
+\titleformat{\subsubsection}{\subsubsectionfont}{\thesubsubsection}{20pt}{}
+
+\renewcommand{\cftsecfont}{\tocsectionfont}
+\renewcommand{\cftsubsecfont}{\tocsubsectionfont}
+\renewcommand{\cftsubsubsecfont}{\tocsubsubsectionfont}
+\renewcommand{\cftsecpagefont}{\tocsectionfont}
+\renewcommand{\cftsubsecpagefont}{\tocsubsectionfont}
+\renewcommand{\cftsubsubsecpagefont}{\tocsubsubsectionfont}
+\renewcommand{\cfttoctitlefont}{\toctitlefont}
+
+
+\addto\captionsenglish{
+	\renewcommand{\contentsname}{Table of Contents}
+}
+
+
+
 
 \begin{document}
 	
@@ -17,11 +44,13 @@
 	
 	\subsection{Background}
 	
-	\subsection{The Problem}
+	\subsection{Problem}
+	
+	Since falling accidents are common, as described in the background, we want to examine the possibility of creating a mobile application that can detect falling accidents and inform registered contacts. This kind of application could help the person that suffer a falling accident by automatically contacting people that can come to aid the affected person. In case the person who have been involved in the fall is injured or unconscious and unable to call for help, the application will assist the person by automatically sending an alarm.
 	
 	\subsection{Purpose}
 	
-	The purpose of the project is to examine the possibility of creating an application that can help minimize the negative effects of accidents related to falling. 
+	The purpose of the project is to examine the possibility of creating an application that uses the accelerometer in a mobile phone to detect a falling accident and report it to registered contacts using SMS.
 	
 	\subsection{Goal}
 	
@@ -41,12 +70,17 @@
 	
 	\subsection{Methodologies / Methods}
 	
+	To be able to answer the question and give a solution to the problem, an empirical studie will be conducted. Developing a mobile application will give a wider understanding of the subject. In case the development of the application is successful, by the means that we are able to create an application that will help minimize the negative effects of falling accidents, it will show that in our case it was possible to develop such an application.
 	
+	To develop the application we will use an iterative project method and start developing the most important features to minimize risks early in the project. 
 	
 	\subsection{Limitations}
 	
-	\subsection{Disposition}
+	Although there are numerous platforms for mobile applications, we will only consider the two most widely used, Android and iOS.
 	
+	We believe that there are many fields that could benefit from the type of application that we will develop, but for this study we will only consider implementing it for an electrical company.
+	
+	\subsection{Disposition}
 	\newpage
 	
 	\section{Theoretical Background}
