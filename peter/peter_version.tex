@@ -3,7 +3,6 @@
 \usepackage{titlesec}
 \usepackage[english]{babel}
 \usepackage{blindtext}
-\usepackage[demo]{graphicx}
 \usepackage{subfig}
 \usepackage{pgf}
 
@@ -14,39 +13,64 @@
 
 \begin{document}
 
-\paragraph{Accidents related to falling} is a major issue in our society. In fact, according to the World Health Organization, "Falls are the second leading cause of accidental or unintentional injury deaths worldwide" \cite{who}. Globally, an average of 37.3 million people (Jan 2018) suffer from injuries related to a fall each year, which are severe enough to seek medical attention. Out of these, no less than an estimated 640 000 individuals die as a direct consequence of the fall \cite{who}. Fall  related accidents are therefore to be considered as a significant world wide health problem. 
+\section{Theoretical Background}
+	
+	\paragraph{The physics of falling} have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8s m/$s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{1g}. A fall would towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
+	
 
-\paragraph{Although Age} is identified as a key driving factor behind fall related injuries, it is not by far the only reason that people hurt them selves this way every year.  Other risk factors include 
-	\begin{itemize}
-		\item Occupations which require you to work at an elevated height.
-		\item Alcohol and substance abuse.
-		\item Medical conditions contributing to a reduced sense of balance or vision.
-		\item Sporting.	
-	\end{itemize}
-
-\paragraph{In Sweden} alone, statistics shows even darker figures. Here, falling is the single one reason responsible for the greatest number of accident related fatalities, hospitalizations, and visits to emergency clinics, outnumbering traffic accidents, who come in second \cite[p~3,5]{msb_report}. On top of that, in Sweden, falling is together with poisoning, the type of accident who poses the biggest annual growth, having duplicated the amount of yearly incidents since 2000 \cite{soc_olyckor} Studies have also showed that peoples perception target traffic accidents as the the most common cause of the above \cite[p~5]{msb_report}. That is however not true, but a reasonable explanation for this is according to MSB (Swedish Civil Contingencies Agency) that most fall related accidents happen in a domestic area and are thus not as dramatic as a car accident or a fire for example. This tend to give this type of accident less space in the common media. 
-
-\paragraph{}The work force is by no means an exception to the statistics presented above in Sweden .The swedish work environment authority (Arbetsmiljöverket) published a study in 2016, claiming that fall accidents are the most versus second most common reason for absence in work due to accident, for women and men respectively \cite[p~1]{av}. This does not only have an impact on the lives of the individual and his or her family, it also poses serious economical damage to the society in general, and the affected organizations in particular. The diagram below illustrated the amount of fall related accidents in the most affected occupations. 
-
-
-\begin{figure}[h]
-	\centering
-	\subfloat[label 1]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
-	\qquad
-	\subfloat[label 2]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
-	\caption{Män och kvinnor som faller från stående höjd}%
-	\label{fig:example}%
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\subfloat[label 1]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
-	\qquad
-	\subfloat[label 2]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
-	\caption{Män och kvinnor som faller från eleverad höjd}%
-	\label{fig:example}%
-\end{figure}
-
+	\paragraph{} Yildirim et. al takes a general approach to describe the character of several motional types \cite{int_journ}. In their research, they measured the response from a LSM330DLC acceleration sensor located in an Android device. Their approach uses a Threshold value to indicate whether acceleration exceeds the allowed limit for a crash. The blue, red and green lines corresponds to the acceleration on any of the three perpendicular axis \textit{X}, \textit{Y} and \textit{Z} shown below.
+	
+		\begin{figure}[h]
+			\centering
+			\subfloat{{\includegraphics[width=8cm]{../img/accelerometer-axis.jpg} }}%
+			\caption{The X, Y and Z axis af a smart phone device}%
+			\label{fig:example}% 
+		\end{figure}
+	
+		\begin{figure}[h]
+			\centering
+			\subfloat{{\includegraphics[width=8cm]{../img/Falling.png} }}%
+			\caption{The typical pattern of falling}%
+			\label{fig:example}%
+		\end{figure}
+	
+		\noindent This measurements shows that falling, as was previously theorized, is indicated by a significant drop in acceleration towards the earth's gravitational pull, signalling that the device is moving towards a free fall state.This drop is then followed by an acceleration spike as the device hits the ground. If a person were to get seriously injured due to a fall s/he would usually remain still on the ground for a period of time. Acceleration would thus gradually go back to the normal \textit{1g} indicated by the flat line after the peak. 
+	
+	
+		\begin{figure}[h]
+			\centering
+			\subfloat{{\includegraphics[width=8cm]{../img/Walking.png} }}%
+			\caption{The typical pattern of walking}%
+			\label{fig:example}%
+		\end{figure}
+	
+		\noindent Walking shows a completely different pattern. As can be seen, the changes in acceleration are not rapid like the previous example. They are also repetitive, meaning that there is no longer period of non-movements after any of the peaks. The peaks them selves are also significant less than in the case of falling shown above. This implies that walking is easily distinguished from falling.
+	
+	
+	
+		\begin{figure}[h]
+			\centering
+			\subfloat{{\includegraphics[width=8cm]{../img/Sitting_down.png} }}%
+			\caption{The typical pattern of sitting down}%
+			\label{fig:example}%
+		\end{figure}
+	
+		\noindent Sitting down on a surface shows a similar pattern to falling with regards to a sudden drop in acceleration followed by  a rapid spike and a longer period of non-movement. The magnitude of these values are however far less than in the case of a fall and should thus be easy to single out. When a person sits down, s/he usually makes a soft movement towards the surface which is matched by the lesser accelerational  magnitude in all three directions \textit{X, Y} and \textit{Z}.
+	
+	
+		\begin{figure}[h]
+			\centering
+			\subfloat{{\includegraphics[width=8cm]{../img/Jumping.png} }}%
+			\caption{The typical pattern of jumping}%
+			\label{fig:example}%
+		\end{figure}
+	
+		\noindent Jumping is according to Yildirim et. al. the hardest pattern to distinguish from a fall. The pattern has a sudden drop in acceleration, followed by a large spike as the jumper crouches and accelerates upwards. After this comes yet another sudden drop in acceleration as the jumper reaches the maximum altitude and starts falling back to earth again. From this part the pattern is almost identical to that of falling. When the jumper falls back to earth, the acceleration drops and then causes another huge spike as s/he hits the ground. When thinking about it, jumping and falling are in fact similar motional types, with the difference that jumping is prefixed by a drop and a spike before becoming an actual fall. The main challenge here is thus to be able to differentiate this from an unintentional falling accident.
+		
+		
+		\paragraph{title} Abbatea et. al. takes this approach a little further by constructing 
+	
+\newpage
 
 
 \bibliography{bib_peter}
