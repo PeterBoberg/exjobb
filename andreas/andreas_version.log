@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  26 MAR 2018 11:07
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  9 APR 2018 11:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -556,8 +556,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [1
 
-] [2] [3] [4] [5] [6]
-[7] [8] [9] (./andreas_version.aux) ) 
+] [2] [3] [4] [5]
+Overfull \hbox (14.88605pt too wide) in paragraph at lines 99--100
+\TU/Georgia(0)/m/n/10.95 To develop the mobile application we will use an itera
+tive development method.
+ []
+
+[6] [7] [8] [9] (./andreas_version.aux) ) 
 Here is how much of TeX's memory you used:
  10479 strings out of 493005
  230642 string characters out of 6134595
@@ -565,6 +570,6 @@ Here is how much of TeX's memory you used:
  14426 multiletter control sequences out of 15000+600000
  6563 words of font info for 46 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 36i,5n,66p,10376b,292s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,4n,66p,10376b,292s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on andreas_version.pdf (9 pages).

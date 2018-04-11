@@ -33,6 +33,9 @@
 }
 
 \begin{document}
+	
+	\title{An accurate smart phone based fall detection system}
+	\maketitle
 
 	\tableofcontents
 	\newpage
@@ -79,13 +82,26 @@
 		
 		Since falling accidents are common, as described in the background, we want to examine the possibility of creating a mobile application that can detect falling accidents and inform registered contacts. This kind of application could help the person that suffer a falling accident by automatically contacting people that can come to aid the affected person. In case the person who have been involved in the fall is injured or unconscious and unable to call for help, the application will assist the person by automatically sending an alarm.
 		
+		\subsubsection{Q1}
+		What algorithm should be used to accurately detect a fall?
+		
+		\subsubsection{Q2}
+		How can technology available in smart phones be used to implement this algorithm?
+		
+		\subsubsection{Q3}
+		How can performance issues be minimized when using the above technologies?
+		
 		\subsection{Purpose}
 		
-		The purpose of the project is to examine the possibility of creating an application that can help minimize the negative effects of accidents related to falling. 
+		The purpose of the thesis is to present the work conducted in the project, and give an answer to the questions formulated.
+		
+		The purpose of the project is to examine the possibility of using a mobile phone's embedded accelerometer to detect falling accidents.
 		
 		\subsection{Goal}
 		
-		The goal of the project is to create an application that, in an effective way, can detect falling accidents and inform concerned contacts. This application should target employees in fields such as operations, construction, etc., and should run in the users cell phone. The user of the application should be able to register contact information to relatives, colleagues, etc. After that the user can activate the protection in the application by selecting the appropriate option, for example by pressing a button in the application. The user is supposed to do this before starting a critical operation such as performing work on an elevated height or similar. When the protection in the application is activated the application makes use of the device's embedded accelerometer to register changes in velocity. If the user would carry the device running the application with the protection actived, while the user would suffer a falling accident, the application would detect this and enter a warning state. In the warning state the application will notify the user that a fall has been detected and that the application soon will send an alarm to registered contacts. If the time limit for the warning state exceeds without any action from the user, an alarm will be sent to the registered contacts using for example SMS.   
+		The goal of the project is to create an application that, in an effective way, can detect falling accidents and inform concerned contacts. This application should target employees in fields such as operations, construction, etc., and should run in the users cell phone. The user of the application should be able to register contact information to relatives, colleagues, etc. After that the user can activate the protection in the application by selecting the appropriate option, for example by pressing a button in the application. The user is supposed to do this before starting a critical operation such as performing work on an elevated height or similar. When the protection in the application is activated the application makes use of the device's embedded accelerometer to register changes in velocity. If the user would carry the device running the application with the protection actived, while the user would suffer a falling accident, the application would detect this and enter a warning state. In the warning state the application will notify the user that a fall has been detected and that the application soon will send an alarm to registered contacts. If the time limit for the warning state exceeds without any action from the user, an alarm will be sent to the registered contacts using for example SMS.
+		
+		According to the company that we will work together with, the most important feature is fall detection. It is important that we develop both an Android implementation and an iOS implementation. If we suffer from a lack of time we will not prioritize user interfaces and integration with other functionality, but focus on fall detection. The project will be reported to the company by handing over a GitHub repository.  
 		
 		\subsubsection{Sustainability \& Community benefits}
 		
@@ -116,10 +132,79 @@
 	\newpage
 		
 	\section{Theoretical Background}
-	\newpage
 	
-	\section{Engineering-related and scientific content}
-	\newpage
+	\paragraph{The physics of falling} have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8s m/$s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{1g}. A fall would towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
+	
+	
+	\paragraph{} Yildirim et. al takes a general approach to describe the character of several motional types \cite{int_journ}. In their research, they measured the response from a LSM330DLC acceleration sensor located in an Android device. Their approach uses a Threshold value to indicate whether acceleration exceeds the allowed limit for a crash. The blue, red and green lines corresponds to the acceleration on any of the three perpendicular axis \textit{X}, \textit{Y} and \textit{Z} shown below.
+	
+	\begin{figure}[h]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/accelerometer-axis.jpg} }}%
+		\caption{The X, Y and Z axis af a smart phone device}%
+		\label{fig:example}% 
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/Falling.png} }}%
+		\caption{The typical pattern of falling}%
+		\label{fig:example}%
+	\end{figure}
+	
+	\noindent This measurements shows that falling, as was previously theorized, is indicated by a significant drop in acceleration towards the earth's gravitational pull, signalling that the device is moving towards a free fall state.This drop is then followed by an acceleration spike as the device hits the ground. If a person were to get seriously injured due to a fall s/he would usually remain still on the ground for a period of time. Acceleration would thus gradually go back to the normal \textit{1g} indicated by the flat line after the peak. 
+	
+	
+	\begin{figure}[h]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/Walking.png} }}%
+		\caption{The typical pattern of walking}%
+		\label{fig:example}%
+	\end{figure}
+	
+	\noindent Walking shows a completely different pattern. As can be seen, the changes in acceleration are not rapid like the previous example. They are also repetitive, meaning that there is no longer period of non-movements after any of the peaks. The peaks them selves are also significant less than in the case of falling shown above. This implies that walking is easily distinguished from falling.
+	
+	
+	
+	\begin{figure}[h]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/Sitting_down.png} }}%
+		\caption{The typical pattern of sitting down}%
+		\label{fig:example}%
+	\end{figure}
+	
+	\noindent Sitting down on a surface shows a similar pattern to falling with regards to a sudden drop in acceleration followed by  a rapid spike and a longer period of non-movement. The magnitude of these values are however far less than in the case of a fall and should thus be easy to single out. When a person sits down, s/he usually makes a soft movement towards the surface which is matched by the lesser accelerational  magnitude in all three directions \textit{X, Y} and \textit{Z}.
+	
+	
+	\begin{figure}[h]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/Jumping.png} }}%
+		\caption{The typical pattern of jumping}%
+		\label{fig:example}%
+	\end{figure}
+	
+	\noindent Jumping is according to Yildirim et. al. the hardest pattern to distinguish from a fall. The pattern has a sudden drop in acceleration, followed by a large spike as the jumper crouches and accelerates upwards. After this comes yet another sudden drop in acceleration as the jumper reaches the maximum altitude and starts falling back to earth again. From this part the pattern is almost identical to that of falling. When the jumper falls back to earth, the acceleration drops and then causes another huge spike as s/he hits the ground. When thinking about it, jumping and falling are in fact similar motional types, with the difference that jumping is prefixed by a drop and a spike before becoming an actual fall. The main challenge here is thus to be able to differentiate this from an unintentional falling accident.
+	
+	
+	\paragraph{title} Abbatea et. al. takes this approach a little further by constructing 
+	
+	\section{Methodologies and Methods}
+	
+	To give an answer to the first question, what algorithm should be used, we will perform a literature study. This literature study will show which algorithm earlier work proposes.
+	
+	Another part of the work will be to perform a case study where the proposed algorithm will be implemented in the form of a mobile application for Android and iOS in an attempt to refine and improve the earlier work.
+	
+	After the mobile application is created we will perform experiments and tests to evaluate the implemented application.
+	
+	\subsection{Literature study}
+	
+	\subsection{Developing the mobile application}
+	
+	To develop the mobile application we will use an iterative development method. By using an iterative method we will make sure that the most important features are developed first, since we will develop the most important features in the first iteration and only after that continue with the less important features. This will help us  minimize the risks in the project. If the project would suffer from lack of time, we would at least have developed the most important features already. The project method that we will be using will be similar to Scrum, although since we are only two developers, the team involved in development will be much smaller than the typical agile team.
+	
+	We will divide the work in such a way that one of us will develop the Android implementation, and one of us will develop the iOS implementation. By dividing the work in this fashion we can implement similar features in both applications without the risk of writing conflicting code. Another reason for dividing the work is that it will help us to have equal focus on both the Android and iOS implementation.
+	
+	\subsection{Evaluating the implemented mobile application}
 	
 	\section{The work}
 	\newpage
