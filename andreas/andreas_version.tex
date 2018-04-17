@@ -40,10 +40,48 @@
 	\tableofcontents
 	\newpage
 	
+\subsection{Methodologies / Methods}
 
-	
-	
-	
+To give an answer to the first question, what algorithm should be used, we will perform a literature study. This literature study will show which algorithm earlier work proposes.
+
+Another part of the work will be to perform a case study where the proposed algorithm will be implemented in the form of a mobile application for Android and iOS in an attempt to refine and improve the earlier work.
+
+After the mobile application is created we will perform experiments and tests to evaluate the implemented application.
+
+To develop the application we will use an iterative project method and start developing the most important features to minimize risks early in the project. 
+
+\section{Methodologies and Methods}
+
+The research method is divided into three parts. The first part is to perform a literature study to see what algorithm for fall detection would be proposed by earlier studies. The result of this study is presented in the theoretical background.
+
+The second part is to perform a case study where the proposed algorithm for fall detection is implemented as a mobile application for Android and iOS. Developing the application will give us an opportunity to test the algorithm on real devices.
+
+The third part is to evaluate the implemented algorithm by performing experiments where the mobile application is used to detect falls.
+
+\subsection{Literature study}
+
+\subsection{Developing the mobile application}
+
+To develop the mobile application we will use an iterative development method. By using an iterative method we will make sure that the most important features are developed first, since we will develop the most important features in the first iteration and only after that continue with the less important features. This will help us  minimize the risks in the project. If the project would suffer from lack of time, we would at least have developed the most important features already. The project method that we will be using will be similar to Scrum, although since we are only two developers, the team involved in development will be much smaller than the typical agile team.
+
+We will divide the work in such a way that one of us will develop the Android implementation, and one of us will develop the iOS implementation. By dividing the work in this fashion we can implement similar features in both applications without the risk of writing conflicting code. Another reason for dividing the work is that it will help us to have equal focus on both the Android and iOS implementation.
+
+\subsection{Evaluating the implemented mobile application}
+
+\subsubsection{Evaluating battery life}
+
+To evaluate how the application affects the battery life of the mobile phone, we will use the native functionality in the operating system available on Android and iOS respectively to measure the specific applications power consumption.
+In combination with this, we will also perform tests where we run the application for a certain amount of time and note how much battery life is left and compare this value with the percentage left after not running the application for the same amount of time.
+
+\subsubsection{Evaluating the fall detection system functionality}
+
+Another step in the evaluation of the application will be to perform crash tests where we measure how well the application detects a fall, by dropping a mobile phone running the application several times from a height that we define as a fall and count the number of reported falls. The same test can then be performed with an existing application to compare how well the implemented algorithm compares to existing technology.
+
+Another measurement will be to drop the mobile phone running the application from a height that we do not define as a fall, and count how many falls are falsely detected. This number will also be compared the result of running the same test with an existing application.
+
+Yet another test will be to perform daily activities that can trigger a fall detection system, even though it is not a fall. Theses activities can be running, or walking with the phone in the pocket. A good fall detection software will not report many of these false positives. This will also be compared against an existing application.
+
+
 	   
 	\newpage
 	
