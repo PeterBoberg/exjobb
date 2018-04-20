@@ -77,9 +77,27 @@
 		
 		The latter identifies the importance of calculating the resultant vector that comprises the sum of all three vectors \textit{X}, \textit{Y} and \textit{Z}. This vector is the overall acceleration imposed on the device (and possibly the person carrying it). They proceed by defining a \textit{fall-like-event} as "an acceleration greater than \textit{3g} followed by a period of \textit{2500ms} without further peaks exceeding the threshold." \cite[p~5]{piza_uni}. They further argue that the threshold \textit{3g} is chosen since it has been widely used in other types of fall detection systems. According to their experiments, a post-fall event usually means that the body of the unfortunate becomes lying still on the ground after a period of about \textit{1000ms}. This interval, which resides within the \textit{2500ms} interval prior to fall detection is often due to minor peaks following the main impact as a result of that parts of the body/device may hit the ground at different times. 
 		
-		\paragraph{} Abbatea et. al. tries to establish their algorithm using a \textit{finite-state-machine} with five distinct states. The \textit{sampling} state is the normal state that the process resides in until \textit{threshold-peak} is detected. 
-
+		\paragraph{} Abbatea et. al. tries to establish their algorithm using a \textit{finite-state-machine} with five distinct states.
 		
+		\begin{itemize}
+			\item The \textit{sampling} state is the normal state that the process resides in until \textit{threshold-peak} is detected.
+			
+			\item When a peak occurs that exceeds the threshold value of \textit{3g} the state is transferred to \textit{post peak}. Well in this state, a bouncing timer of \textit{1000 ms}is started, if another peak exceeding the threshold occurs during this time, bouncing timer is reset, otherwise the state machine moves on to the \textit{post fall} state when the timer fires.
+
+			\item In the \textit{post fall state} no peaks exceeding the threshold are allowed during \textit{1500 ms}, or the system goes back to the \textit{post peak} state. The purpose if this state is to check for activity (movement). If another peak occurs, it signals that either is the presumed fall not finished, or the subject is moving and this should not regarded as a fall. 
+			
+			\item When the \textit{post fall timer} after 1500 ms, the state machine moves on to the \textit{activity test} state. In this test, if movement exceeding certain thresholds are detected, it once again signals that activity is found an that this was indeed not an actual fall but rather a result of ADL. 
+
+		\end{itemize}  
+
+			\begin{figure}[h]
+			\centering
+			\subfloat{{\includegraphics[width=8cm]{../img/Abbatea_finite_state_machine.png}}}%
+			\caption{The sensing process discussed in Abbatea et. al.}%
+			\label{fig:example}%
+		\end{figure}
+		
+		\paragraph{} if a fall like event has passed through \textit{activity test} (the last state in the state machine), it is fed through a feature extractor, which analyses the data and extract specific and predefined features of the data set which are commonly seen in fall like events. 
 
 	
 \newpage
