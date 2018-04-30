@@ -3,23 +3,13 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: common_version.aux
 The style file: ieeetr.bst
 Database file #1: bib_common.bib
-<<<<<<< HEAD
+Warning--I didn't find a database entry for "brain_damage"
 You've used 7 entries,
             1876 wiz_defined-function locations,
-            512 strings with 4583 characters,
+            513 strings with 4595 characters,
 and the built_in function-call counts, 1005 in all, are:
 = -- 78
 > -- 51
-=======
-Warning--I didn't find a database entry for "int_journ"
-Warning--I didn't find a database entry for "piza_uni"
-You've used 4 entries,
-            1876 wiz_defined-function locations,
-            497 strings with 4045 characters,
-and the built_in function-call counts, 510 in all, are:
-= -- 43
-> -- 13
->>>>>>> ff824906c80128e3523ab26ee9a916ba7944ba8c
 < -- 0
 + -- 21
 - -- 14
@@ -52,13 +42,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-<<<<<<< HEAD
 while$ -- 6
 width$ -- 8
 write$ -- 57
-=======
-while$ -- 3
-width$ -- 5
-write$ -- 33
-(There were 2 warnings)
->>>>>>> ff824906c80128e3523ab26ee9a916ba7944ba8c
+(There was 1 warning)
