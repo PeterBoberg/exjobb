@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  30 APR 2018 14:22
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  30 APR 2018 15:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -914,17 +914,147 @@ Arbetsmiljöver-
  []
 
 [3]
-File: ../img/Fall_from_ground_women.png Graphic file (type QTm)
- <use  "../img/Fall_from_ground_women.png" >
-File: ../img/Fall_from_ground_women.png Graphic file (type QTm)
 
+LaTeX Warning: File `../img/Fall_from_ground_women.png' not found on input line
+ 65.
+
+! Unable to load picture or PDF file '../img/Fall_from_ground_women.png'.
+<to be read again> 
+                   }
+l.65 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.65 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ../img/Fall_from_ground_women.png Graphic file (type QTm)
 <use  "../img/Fall_from_ground_women.png" >
-File: ../img/Fall_from_ground_women.png Graphic file (type QTm)
+! Unable to load picture or PDF file '../img/Fall_from_ground_women.png'.
+<to be read again> 
+                   \GXT@clipend 
+l.65 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+The requested image couldn't be read because
+it was not a recognized image format.
 
+
+LaTeX Warning: File `../img/Fall_from_ground_women.png' not found on input line
+ 67.
+
+! Unable to load picture or PDF file '../img/Fall_from_ground_women.png'.
+<to be read again> 
+                   }
+l.67 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.67 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ../img/Fall_from_ground_women.png Graphic file (type QTm)
 <use  "../img/Fall_from_ground_women.png" >
-File: ../img/Fall_from_ground_women.png Graphic file (type QTm)
+! Unable to load picture or PDF file '../img/Fall_from_ground_women.png'.
+<to be read again> 
+                   \GXT@clipend 
+l.67 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+The requested image couldn't be read because
+it was not a recognized image format.
 
-<use  "../img/Fall_from_ground_women.png" > [4]
+
+LaTeX Warning: File `../img/Fall_from_ground_women.png' not found on input line
+ 74.
+
+! Unable to load picture or PDF file '../img/Fall_from_ground_women.png'.
+<to be read again> 
+                   }
+l.74 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.74 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ../img/Fall_from_ground_women.png Graphic file (type QTm)
+<use  "../img/Fall_from_ground_women.png" >
+! Unable to load picture or PDF file '../img/Fall_from_ground_women.png'.
+<to be read again> 
+                   \GXT@clipend 
+l.74 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+LaTeX Warning: File `../img/Fall_from_ground_women.png' not found on input line
+ 76.
+
+! Unable to load picture or PDF file '../img/Fall_from_ground_women.png'.
+<to be read again> 
+                   }
+l.76 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.76 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ../img/Fall_from_ground_women.png Graphic file (type QTm)
+<use  "../img/Fall_from_ground_women.png" >
+! Unable to load picture or PDF file '../img/Fall_from_ground_women.png'.
+<to be read again> 
+                   \GXT@clipend 
+l.76 ...6cm]{../img/Fall_from_ground_women.png} }}
+                                                  %
+The requested image couldn't be read because
+it was not a recognized image format.
+
+[4]
 Overfull \hbox (7.81055pt too wide) in paragraph at lines 95--96
 []\TU/Georgia(0)/m/n/12 How will such an application affect the battery life of
  the mobile phone? 
@@ -1011,7 +1141,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  19628 strings out of 493005
  414198 string characters out of 6134595
- 480118 words of memory out of 5000000
+ 477118 words of memory out of 5000000
  23348 multiletter control sequences out of 15000+600000
  7513 words of font info for 54 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
