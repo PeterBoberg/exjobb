@@ -7,7 +7,6 @@
 \usepackage{subfig}
 \usepackage{pgf}
 \setmainfont{Georgia}
-\usepackage{float}
 
 \newcommand\sectionfont{\normalfont\fontspec{Arial}\fontsize{14pt}{0}\bfseries}
 \newcommand\subsectionfont{\normalfont\fontspec{Arial}\fontsize{13pt}{0}\bfseries}
@@ -45,9 +44,9 @@
 	
 		\subsection{Background}
 		
-		\paragraph{Accidents related to falling} is a major issue in our society. In fact, according to the World Health Organization, "Falls are the second leading cause of accidental or unintentional injury deaths worldwide" \cite{who}. Globally, an average of 37.3 million people (Jan 2018) suffer from injuries related to a fall each year, which are severe enough to seek medical attention. Out of these, no less than an estimated 640 000 individuals die as a direct consequence of the fall \cite{who}. Fall  related accidents are therefore to be considered as a significant world wide health problem. 
+		\paragraph{}Accidents related to falling is a major issue in our society. In fact, according to the World Health Organization, "Falls are the second leading cause of accidental or unintentional injury deaths worldwide" \cite{who}. Globally, an average of 37.3 million people (Jan 2018) suffer from injuries related to a fall each year, which are severe enough to seek medical attention. Out of these, no less than an estimated 640 000 individuals die as a direct consequence of the fall \cite{who}. Fall  related accidents are therefore to be considered as a significant world wide health problem. 
 		
-		\paragraph{Although Age} is identified as a key driving factor behind fall related injuries, it is not by far the only reason that people hurt themselves this way every year.  Other risk factors include 
+		\paragraph{}Although age is identified as a key driving factor behind fall related injuries, it is not by far the only reason that people hurt them selves this way every year.  Other risk factors include 
 		\begin{itemize}
 			\item Occupations which require you to work at an elevated height.
 			\item Alcohol and substance abuse.
@@ -55,27 +54,26 @@
 			\item Sporting.	
 		\end{itemize}
 		
-		\paragraph{In Sweden} alone, statistics shows even darker figures. Here, falling is the single one reason responsible for the greatest number of accident related fatalities, hospitalizations, and visits to emergency clinics, outnumbering traffic accidents, who come in second \cite[p~3,5]{msb_report}. On top of that, in Sweden, falling is together with poisoning, the type of accident who poses the biggest annual growth, having duplicated the amount of yearly incidents since 2000 \cite{soc_olyckor} Studies have also showed that peoples perception target traffic accidents as the the most common cause of the above \cite[p~5]{msb_report}. That is however not true, but a reasonable explanation for this is according to MSB (Swedish Civil Contingencies Agency) that most fall related accidents happen in a domestic area and are thus not as dramatic as a car accident or a fire for example. This tend to give this type of accident less space in the common media. 
+		\paragraph{}In Sweden alone, statistics shows even darker figures. Here, falling is the single one reason responsible for the greatest number of accident related fatalities, hospitalizations, and visits to emergency clinics, outnumbering traffic accidents, who come in second \cite[p~3,5]{msb_report}. On top of that, in Sweden, falling is together with poisoning, the type of accident who poses the biggest annual growth, having duplicated the amount of yearly incidents since 2000 \cite{soc_olyckor} Studies have also showed that peoples perception target traffic accidents as the the most common cause of the above \cite[p~5]{msb_report}. That is however not true, but a reasonable explanation for this is according to MSB (Swedish Civil Contingencies Agency) that most fall related accidents happen in a domestic area and are thus not as dramatic as a car accident or a fire for example. This tend to give this type of accident less space in the common media. 
 		
 		
-		\paragraph{}The work force is by no means an exception to the statistics presented above in Sweden. The swedish work environment authority (Arbetsmiljöverket) published a study in 2016, claiming that fall accidents are the most versus second most common reason for absence in work due to accident, for women and men respectively \cite[p~1]{av}. This does not only have an impact on the lives of the individual and his or her family, it also poses serious economical damage to the society in general, and the affected organizations in particular. The diagram below illustrated the amount of fall related accidents in the most affected occupations. 
+		\paragraph{}The work force is by no means an exception to the statistics presented above in Sweden. The swedish work environment authority (Arbetsmiljöverket) published a study in 2016, claiming that fall accidents are the most versus second most common reason for absence in work due to accident, for women and men respectively \cite[p~1]{av}. This does not only have an impact on the lives of the individual and his or her family, it also poses serious economical damage to the society in general, and the affected organizations in particular. The diagrams shown in figure \ref{fig:Men-Women-Falling-From-Same-Ellevation} and \ref{fig:Men-And-Women-Falling-Form-Elevated-height} illustrates the amount of reported fall related accidents per 1000 employed men and women respectively, in the most affected occupations . 
 		
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
-			\subfloat[label 1]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
+			\subfloat{{\includegraphics[width=14cm]{../img/Fall_from_ground_women_and_men.png} }}%
 			\qquad
-			\subfloat[label 2]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
-			\caption{Men and women falling from standing height}%
-			\label{fig:example}%
+
+			\caption{Work areas with most reported fall accidents from standing level. Amount per 1000 employed women and men respectively}%
+			\label{fig:Men-Women-Falling-From-Same-Ellevation}%
 		\end{figure}
 		
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
-			\subfloat[label 1]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
+			\subfloat{{\includegraphics[width=14cm]{../img/Falls_from_elevated_height_men_and_women.png} }}%
 			\qquad
-			\subfloat[label 2]{{\includegraphics[width=6cm]{../img/Fall_from_ground_women.png} }}%
-			\caption{Men and women falling from elevated height}%
-			\label{fig:example}%
+			\caption{Work areas with most reported fall accidents from elevated level. Amount per 1000 employed women and men respectively}%
+			\label{fig:Men-And-Women-Falling-Form-Elevated-height}%
 		\end{figure}
 	
 			\paragraph{} In relation to the above statistics, minimizing the duration between the occurrence of the fall accident and treatment can in some cases be imperative, this is especially the case where significant trauma to the head is present. In such cases, the sooner an injured person gets treatment, the better the odds of recovering. In cases where a fall accident is occurring in the presence of others, reporting the accident to a medical professional might often be a quick task, however, many fall accidents occur without any other human being around to detect it. In such cases, and especially if the victim is unconscious, alerting medical staff might not be possible. 
@@ -97,6 +95,15 @@
 			\item Is it possible to create a mobile application that accurately detects falling accidents using the sensors available in smart phones on the market today?
 			\item How will such an application affect the battery life of the mobile phone?
 		\end{itemize}
+		
+		\subsubsection{Q1}
+		What algorithm should be used to accurately detect a fall?
+		
+		\subsubsection{Q2}
+		How can technology available in smart phones be used to implement this algorithm?
+		
+		\subsubsection{Q3}
+		How can performance issues be minimized when using the above technologies?
 		
 		\subsection{Purpose}
 		
@@ -122,7 +129,7 @@
 		One important question when it comes to ethics is how personal data in the application will be handled. The users of the application will need to enter things like password, email address, etc., which should be regarded as sensitive data that must not be viewed by a third party. Besides this, we need to make sure that the application does not have any obvious security vulnerability that makes it possible for a malicious person or organization to acquire the sensitive data in the application.
 		
 		Another important question is what guarantees the application provides to its users. Since the application is supposed to help users in case of an accident it will be sensitive if the application turns out to function worse than the users expected. The false negative cases, when the user is involved in an accident but the application fails to register this, must be kept to a minimum, but it must also be clear in the description of the application that such cases may occur.
-		
+			
 		\subsection{Methodologies / Methods}
 		
 		The first part of the research will be to perform a literature study, where we will gain deeper knowledge in the subject, and find out what earlier attempts have been made to solve this problem. The literature study will give a good starting point for the rest of the study. The next step will be a case study where we develop a mobile application that uses sensors available in smart phones to achieve accurate fall detection. Developing such an application will give us the opportunity to test theories and ideas found in the literature study. Lastly, the applications impact on battery life will be tested by performing experiments using mobile phones running the application.
@@ -135,78 +142,73 @@
 		
 		\subsection{Disposition}
 		
-		
 	\newpage
 	
 	\section{Theoretical Background}
 	
-	\subsection{The physics of falling}
+	\paragraph{The physics of falling} have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8s m/$s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{1g}. A fall would towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
 	
-	The physics of falling have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8s m/$s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{1g}. A fall would towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
 	
-	\subsection{Approach by Yildirim et al.}
+	\paragraph{} Yildirim et. al takes a general approach to describe the character of several motional types \cite{int_journ}. In their research, they measured the response from a LSM330DLC acceleration sensor located in an Android device. Their approach uses a threshold value to indicate whether the acceleration vector exceeds the allowed limit for a crash. The blue, red and green lines corresponds to the acceleration on any of the three perpendicular axis \textit{X}, \textit{Y} and \textit{Z} shown below.
 	
-	Yildirim et al. takes a general approach to describe the character of several motional types \cite{int_journ}. In their research, they measured the response from a LSM330DLC acceleration sensor located in an Android device. Their approach uses a threshold value to indicate whether the acceleration vector exceeds the allowed limit for a crash. The blue, red and green lines corresponds to the acceleration on any of the three perpendicular axis \textit{X}, \textit{Y} and \textit{Z} shown in figure \ref{fig:XYZ-Axis}.
-	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\subfloat{{\includegraphics[width=8cm]{../img/accelerometer-axis.jpg} }}%
 		\caption{The X, Y and Z axis af a smart phone device}%
 		\label{fig:XYZ-Axis}% 
 	\end{figure}
 	
-	\noindent This measurements in figure \ref{fig:Pattern-Falling} shows that falling, as was previously theorized, is indicated by a significant drop in acceleration towards the earth's gravitational pull, signaling that the device is moving towards a free fall state. This drop is then followed by an acceleration spike as the device hits the ground. If a person were to get seriously injured due to a fall s/he would usually remain still on the ground for a period of time. Acceleration would thus gradually go back to the normal \textit{1g} indicated by the flat line after the peak. 
-	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\subfloat{{\includegraphics[width=8cm]{../img/Falling.png} }}%
 		\caption{The typical pattern of falling}%
 		\label{fig:Pattern-Falling}%
 	\end{figure}
-
 	
-	\noindent Walking shows a completely different pattern. As can be seen in figure \ref{fig:Pattern-Walking}, the changes in acceleration are not rapid like the previous example. They are also repetitive, meaning that there is no longer period of non-movements after any of the peaks. The peaks themselves are also significant less than in the case of falling shown above. This implies that walking is easily distinguished from falling.
+	\noindent This measurements shows that falling, as was previously theorized, is indicated by a significant drop in acceleration towards the earth's gravitational pull, signaling that the device is moving towards a free fall state.This drop is then followed by an acceleration spike as the device hits the ground. If a person were to get seriously injured due to a fall s/he would usually remain still on the ground for a period of time. Acceleration would thus gradually go back to the normal \textit{1g} indicated by the flat line after the peak. 
 	
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\subfloat{{\includegraphics[width=8cm]{../img/Walking.png} }}%
 		\caption{The typical pattern of walking}%
 		\label{fig:Pattern-Walking}%
 	\end{figure}
 	
+	\noindent Walking shows a completely different pattern. As can be seen, the changes in acceleration are not rapid like the previous example. They are also repetitive, meaning that there is no longer period of non-movements after any of the peaks. The peaks them selves are also significant less than in the case of falling shown above. This implies that walking is easily distinguished from falling.
 	
-	\noindent Sitting down on a surface shows a similar pattern to falling with regards to a sudden drop in acceleration followed by a rapid spike and a longer period of non-movement as seen in figure \ref{fig:Pattern-Sittin}. The magnitude of these values are however far less than in the case of a fall and should thus be easy to single out. When a person sits down, s/he usually makes a soft movement towards the surface which is matched by the lesser accelerational  magnitude in all three directions \textit{X, Y} and \textit{Z}.
 	
-	\begin{figure}[H]
+	
+	\begin{figure}[h]
 		\centering
 		\subfloat{{\includegraphics[width=8cm]{../img/Sitting_down.png} }}%
 		\caption{The typical pattern of sitting down}%
 		\label{fig:Pattern-Sittin}%
 	\end{figure}
 	
+	 Sitting down on a surface shows a similar pattern to falling with regards to a sudden drop in acceleration followed by  a rapid spike and a longer period of non-movement. The magnitude of these values are however far less than in the case of a fall and should thus be easy to single out. When a person sits down, s/he usually makes a soft movement towards the surface which is matched by the lesser accelerational  magnitude in all three directions \textit{X, Y} and \textit{Z}.
 	
-	\noindent Jumping is according to Yildirim et. al. the hardest pattern to distinguish from a fall, see figure \ref{fig:Pattern-Jumping}. The pattern has a sudden drop in acceleration, followed by a large spike as the jumper crouches and accelerates upwards. After this comes yet another sudden drop in acceleration as the jumper reaches the maximum altitude and starts falling back to earth again. From this part the pattern is almost identical to that of falling. When the jumper falls back to earth, the acceleration drops and then causes another huge spike as s/he hits the ground. When thinking about it, jumping and falling are in fact similar motional types, with the difference that jumping is prefixed by a drop and a spike before becoming an actual fall. The main challenge here is thus to be able to differentiate this from an unintentional falling accident.
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\subfloat{{\includegraphics[width=8cm]{../img/Jumping.png} }}%
 		\caption{The typical pattern of jumping}%
 		\label{fig:Pattern-Jumping}%
 	\end{figure}
 	
+	\noindent Jumping is according to Yildirim et. al. the hardest pattern to distinguish from a fall. The pattern has a sudden drop in acceleration, followed by a large spike as the jumper crouches and accelerates upwards. After this comes yet another sudden drop in acceleration as the jumper reaches the maximum altitude and starts falling back to earth again. From this part the pattern is almost identical to that of falling. When the jumper falls back to earth, the acceleration drops and then causes another huge spike as s/he hits the ground. When thinking about it, jumping and falling are in fact similar motional types, with the difference that jumping is prefixed by a drop and a spike before becoming an actual fall. The main challenge here is thus to be able to differentiate this from an unintentional falling accident.
 	
-	\subsection{Approach by Abbatea et al.}
-	Abbatea et al. takes the above approach further by trying to establish a more sophisticated algorithm that utilizes more than merely just an acceleration vector compared to a threshold value to distinguish a fall like motional pattern from other types of ADL. Their thesis rely on several guidelines which among other include: 
+	
+	\paragraph{} Abbatea et. al. takes the above approach further by trying to establish a more sophisticated algorithm that utilizes more than merely just an acceleration vector compared to a threshold value to distinguish a fall like motional pattern from other types of ADL. Their thesis rely on several guidelines which among other include: 
 	\begin{itemize} 
 		\item "Detection of falls should be carried out using only acceleration-based information. Previous work demonstrated that acceleration is the most reliable information that can be used in detecting a fall, while other kinematic data, such as angular velocity, is less relevant." \cite[p~3]{piza_uni}
 		
 		\item "Still for usability reasons, the fall detection algorithm should work only with the magnitude of acceleration and not with the values along each of the three accelerometer’s axes, as this, again, would require a known and fixed orientation of the device with respect to the user’s body." \cite[p~3]{piza_uni}
 	\end{itemize}
 	
-	The latter identifies the importance of calculating the resultant vector that comprises the sum of all three vectors \textit{X}, \textit{Y} and \textit{Z}. This vector is the overall acceleration imposed on the device (and possibly the person carrying it). They proceed by defining a \textit{fall-like-event} as "an acceleration greater than \textit{3g} followed by a period of \textit{2500ms} without further peaks exceeding the threshold." \cite[p~5]{piza_uni}. They further argue that the threshold \textit{3g} is chosen since it has been widely used in other types of fall detection systems. According to their experiments, a post-fall event usually means that the body of the unfortunate becomes lying still on the ground after a period of about \textit{1000ms}. This interval, which resides within the \textit{2500ms} interval prior to fall detection is often due to minor peaks following the main impact, and is a result from parts of the body/device hitting the ground at different times. 
+	The latter identifies the importance of calculating the resultant vector that comprises the sum of all three vectors \textit{X}, \textit{Y} and \textit{Z}. This vector is the overall acceleration imposed on the device (and possibly the person carrying it). They proceed by defining a \textit{fall-like-event} as "an acceleration greater than \textit{3g} followed by a period of \textit{2500ms} without further peaks exceeding the threshold." \cite[p~5]{piza_uni}. They further argue that the threshold \textit{3g} is chosen since it has been widely used in other types of fall detection systems. According to their experiments, a post-fall event usually means that the body of the unfortunate becomes lying still on the ground after a period of about \textit{1000ms}. This interval, which resides within the \textit{2500ms} interval prior to fall detection is often due to minor peaks following the main impact as a result of that parts of the body/device may hit the ground at different times. 
 	
-	\paragraph{} Abbatea et al. tries to establish their algorithm using a \textit{finite-state-machine} with five distinct states, see figure \ref{fig:abbatea-state-machine}.
+	\paragraph{} Abbatea et. al. tries to establish their algorithm using a \textit{finite-state-machine} with five distinct states.
 	
 	\begin{itemize}
 		\item The \textit{sampling} state is the normal state that the process resides in until \textit{threshold-peak} is detected.
@@ -220,30 +222,30 @@
 	\end{itemize}  
 	
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\subfloat{{\includegraphics[width=8cm]{../img/Abbatea_finite_state_machine.png}}}%
-		\caption{The sensing process discussed in Abbatea et al.}%
-		\label{fig:abbatea-state-machine}%
+		\caption{The sensing process discussed in Abbatea et. al.}%
+		\label{fig:example}%
 	\end{figure}
 	
 	
 	
-	\paragraph{} If a fall like event has passed through the  \textit{activity test} (the last state in the state machine), it is fed through a feature extractor, which analyses the data and extract specific and predefined features of the data set. The features represent certain particular types of data that can be found by analysing the wave form collected when sampling the accelerometer. They used a total of 8 features:
+	\paragraph{} if a fall like event has passed through the  \textit{activity test} (the last state in the state machine), it is fed through a feature extractor, which analyses the data and extract specific and predefined features of the data set. The features represent certain particular types of data that can be found by analysing the wave form collected when sampling the accelerometer. They used a total of 8 features:
 	
 	\begin{itemize}
 		\item \textit{Peak time} - The time of the detected peak (which is followed by \textit{2500 ms} without further peaks).
 		\item \textit{Impact end} - The time of the last impact exceeding \textit{1,5 g} after \textit{peak time + 1000 ms}
 		\item  \textit{Impact start} - The time of the last sample below \textit{0,8 g} before \textit{peak time} or \textit{peak time} if not found.
 		
-		\item \textit{Average absolute Acceleration Magnitude Variation} - The average magnitude of the acceleration samples collected in the in the time window (\textit{win}) of \textit{1000 ms} centred at the middle between \textit{impact start} and \textit{impact end} according to the formula in figure \ref{fig:AAMV-formula}.
+		\item \textit{Average absolute Acceleration Magnitude Variation} - The average magnitude of the acceleration samples collected in the in the time window (\textit{win}) of \textit{1000 ms} centred at the middle between \textit{impact start} and \textit{impact end} according to the following formula:
 		
 		
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
 			\subfloat{{\includegraphics[width=8cm]{../img/AAMV_formula.png}}}%
 			\caption{The formula for calculating AAMV \cite{piza_uni}}%
-			\label{fig:AAMV-formula}%
+			\label{fig:example}%
 		\end{figure}
 		
 		\item \textit{Impact Duration Index} - The duration of the impact peak, exceeding the threshold.
@@ -261,91 +263,77 @@
 	\paragraph{} These extracted features are then fed in to a neural network with eight inputs and four neurons in a single the hidden layer (\textit{neural network are thoroughly described in this free on-line book}  \cite{neural_networks}). The output layer consists of the four classes (\textit{Falls, Sitting/Lying, Jump/Run/Walk, Hitting sensor}). The network outpost the estimated probability of the event on all four classes and if the probability for the \textit{Falls}  class exceeds all other probabilities, the event is classified as a fall.
 	
 	
-	
-	\newpage
 	\section{Methodologies and Methods}
 	
-	This chapter describes the research strategy and the methodologies used in the study, and how each methodology will contribute to the research question.
+	To give an answer to the first question, what algorithm should be used, we will perform a literature study. This literature study will show which algorithm earlier work proposes.
 	
-	\subsection{Research Strategy}
+	Another part of the work will be to perform a case study where the proposed algorithm will be implemented in the form of a mobile application for Android and iOS in an attempt to refine and improve the earlier work.
+
 	
-	In order to give an answer to the first question of our problem statement, if it is possible to create a mobile application that accurately detects falling accidents using the sensors available in smart phones on the market today, we need to solve a number of sub problems. The first problem is to find a suitable algorithm that can achieve accurate fall detection, since without a good algorithm it will be impossible to make a useful implementation. The second problem is to implement this algorithm in a mobile application using the sensors available in smart phones. This could be troublesome if the algorithm expects better sensors than what is available in the smart phone. The third sub problem is to evaluate the implementation's impact on battery life. For these sub problems we formulate specific questions that we will need to answer in order to answer the problem statement.
-	
-	\begin{itemize}
-		\item What algorithm should be used to accurately detect a fall?
-		\item How can technology available in smart phones be used to implement an algorithm for fall detection?
-		\item How can performance issues be minimized when implementing fall detection in a smart phone?
-	\end{itemize}
-	
-	\subsubsection{Research Methods}
-	
-	This section describes the chosen methodologies, and how they will contribute to solving the problem statement.
-	
-	\paragraph{Literature Study}
-	
-	The literature study that we will perform will focus on finding an algorithm that can be used to accurately detect a fall. Performing a literature study will give us a wider understanding of the subject as well as a good starting point for the study. The result of the literature study will show which algorithm for fall detection that would be proposed by earlier studies. We will use this algorithm as a starting point for our own implementation, where we will try to improve the algorithm. The outcome of the literature study is presented in the theoretical background.
-	
-	\paragraph{Developing a mobile application}
-	The second part of our research will be a case study where we implement a fall detection system. We will use the algorithm found in the literature study and implement it for Android and iOS using the sensors available in the smart phones. Developing the application will give us an opportunity to test the algorithm on real devices, and a platform where we can experiment in order to improve the algorithm. The result of the development will give us the ability to answer how technology available in smart phones can be used to implement the algorithm found in the literature study.
-	
-	\paragraph{Evaluating the implemented mobile application}
-	
-	The third part of our research will be to evaluate the implemented algorithm by performing experiments where the mobile application is used to detect falls. This evaluation will focus on how accurate the application is, but also on how it affects the battery life of the device.
-	
-	\subsubsection{Research Process}
-	
-	In this thesis project, the work is divided in phases as seen in figure \ref{fig:research-process}. The first phase, the problem statement serves to formulate the problem that the thesis will try to solve. The second phase is the literature study, where reports from earlier studies are collected and read to give us a deeper understanding of the subject. The third phase is the analysis phase, where the results of the literature study is analysed in order to find an algorithm that will be suitable as a starting point for the application. After the analysis phase the case study begins where we will implement the mobile application. After the case study phase the evaluation phase starts, where the final version of the application developed in the case study is evaluated. After that, the conclusion phase starts, where the results are summarized and conclusions formulated. 
-	
-	\begin{figure}[h]
-		\centering
-		\subfloat{{\includegraphics[width=14cm]{../img/method-phases.png} }}%
-		\caption{The different phases in the thesis project}%
-		\label{fig:research-process}%
-	\end{figure}
-	
-	\subsection{Design and Implementation of Application}
-	
-	To develop the mobile application we will use an iterative development method. By using an iterative method we will make sure that the most important features are developed first, since we will develop the most important features in the first iteration and only after that continue with the less important features. This will help us  minimize the risks in the project. If the project would suffer from lack of time, we would at least have developed the most important features already. The project method that we will be using will be similar to Scrum, although since we are only two developers, the team involved in development will be much smaller than the typical agile team.
-	
-	We will divide the work in such a way that one of us will develop the Android implementation, and one of us will develop the iOS implementation. By dividing the work in this fashion we can implement similar features in both applications without the risk of writing conflicting code. Another reason for dividing the work is that it will help us to have equal focus on both the Android and iOS implementation.
-	
-	\subsubsection{Development Process}
-	
-	The development process will follow the outline in figure \ref{fig:development}. The process will start with design, where an initial version of the application is designed, with only a limited set of features. After that we will implement those features, and then evaluate the developed features and the application. After that we will go back to development, and based on the outcome of the development we will either start over, or continue with new features.
-	
-	\begin{figure}[h]
-		\centering
-		\subfloat{{\includegraphics[width=14cm]{../img/method-development.png} }}%
-		\caption{The application development process}%
-		\label{fig:development}%
-	\end{figure}
-	
-	\subsubsection{Development Environment}
-	
-	The application will be divided in two implementations, one for Android and one for iOS. The development environment will be slightly different for Android and iOS. 
-	
-	\paragraph{Android}
-	The Android application will be developed using Android Studio, since it is the official development environment.
-	
-	\paragraph{iOS}
-	The iOS application will be partly developed in Xcode, since it is the official IDE, and partly in Jetbrains AppCode since it is superior to Xcode when it comes to re-factoring code, code completion, etc. Xcode will be used for building graphical interfaces, but the coding will be done in AppCode.
-	
-	\subsection{Evaluation Methods}
-	
-	This section describes how the developed application will be evaluated. Evaluating the application is important since it will show how well it solves the problem statement.
-	
-	\subsubsection{Evaluating battery life}
-	
-	To evaluate how the application affects the battery life of the mobile phone, we will use the native functionality in the operating system available on Android and iOS respectively to measure the specific applications power consumption.
-	In combination with this, we will also perform tests where we run the application for a certain amount of time and note how much battery life is left and compare this value with the percentage left after not running the application for the same amount of time.
-	
-	\subsubsection{Evaluating the fall detection system functionality}
-	
-	Another step in the evaluation of the application will be to perform crash tests where we measure how well the application detects a fall, by dropping a mobile phone running the application several times from a height that we define as a fall and count the number of reported falls. The same test can then be performed with an existing application to compare how well the implemented algorithm compares to existing technology.
-	
-	Another measurement will be to drop the mobile phone running the application from a height that we do not define as a fall, and count how many falls are falsely detected. This number will also be compared the result of running the same test with an existing application.
-	
-	Yet another test will be to perform daily activities that can trigger a fall detection system, even though it is not a fall. Theses activities can be running, or walking with the phone in the pocket. A good fall detection software will not report many of these false positives. This will also be compared against an existing application.
+\section{Methodologies and Methods}
+
+This chapter describes the research strategy and the methodologies used in the study, and how each methodology will contribute to the research question.
+
+\subsection{Research Strategy}
+
+In order to give an answer to the first question of our problem statement, if it is possible to create a mobile application that accurately detects falling accidents using the sensors available in smart phones on the market today, we need to solve a number of sub problems. The first problem is to find a suitable algorithm that can achieve accurate fall detection, since without a good algorithm it will be impossible to make a useful implementation. The second problem is to implement this algorithm in a mobile application using the sensors available in smart phones. This could be troublesome if the algorithm expects better sensors than what is available in the smart phone. The third sub problem is to evaluate the implementation's impact on battery life. For these sub problems we formulate specific questions that we will need to answer in order to answer the problem statement.
+
+\begin{itemize}
+	\item What algorithm should be used to accurately detect a fall?
+	\item How can technology available in smart phones be used to implement an algorithm for fall detection?
+	\item How can performance issues be minimized when implementing fall detection in a smart phone?
+\end{itemize}
+
+\subsubsection{Research Methods}
+
+\paragraph{Literature Study}
+
+The literature study that we will perform will focus on finding an algorithm that can be used to accurately detect a fall. Performing a literature study will give us a wider understanding of the subject as well as a good starting point for the study. The result of the literature study will show which algorithm for fall detection that would be proposed by earlier studies. We will use this algorithm as a starting point for our own implementation, where we will try to improve the algorithm. The outcome of the literature study is presented in the theoretical background.
+
+\paragraph{Developing a mobile application}
+The second part of our research will be a case study where we implement a fall detection system. We will use the algorithm found in the literature study and implement it for Android and iOS using the sensors available in the smart phones. Developing the application will give us an opportunity to test the algorithm on real devices, and a platform where we can experiment in order to improve the algorithm. The result of the development will give us the ability to answer how technology available in smart phones can be used to implement the algorithm found in the literature study.
+
+\paragraph{Evaluating the implemented mobile application}
+
+The third part of our research will be to evaluate the implemented algorithm by performing experiments where the mobile application is used to detect falls. This evaluation will focus on how accurate the application is, but also on how it affects the battery life of the device.
+
+\subsubsection{Research Process}
+
+In this thesis project, the work is divided in phases. The first phase, the problem statement serves to formulate the problem that the thesis will try to solve. The second phase is the literature study, where reports from earlier studies are collected and read to give us a deeper understanding of the subject. The third phase is the analysis phase, where the results of the literature study is analysed in order to find an algorithm that will be suitable as a starting point for the application. The next phase is the design phase, where the application development starts. After the design phase comes the implementation phase, where the application is implemented. After the implementation phase, there is the evaluation phase, where the developed application is evaluated. After this phase, in case the application is not good enough or if we have found ideas for improvement of the algorithm the process will go back to design, to implement another version of the application. After the application have been developed, the conclusion phase starts, where the results are summarized and conclusions formulated. 
+
+\begin{figure}[h]
+	\centering
+	\subfloat{{\includegraphics[width=12cm]{../img/Methods.png} }}%
+	\caption{The different phases in the thesis project}%
+	\label{fig:example}%
+\end{figure}
+
+\subsection{Design and Implementation of Application}
+
+\subsubsection{Design of Application}
+
+\subsubsection{Implementation of Application}
+
+To develop the mobile application we will use an iterative development method. By using an iterative method we will make sure that the most important features are developed first, since we will develop the most important features in the first iteration and only after that continue with the less important features. This will help us  minimize the risks in the project. If the project would suffer from lack of time, we would at least have developed the most important features already. The project method that we will be using will be similar to Scrum, although since we are only two developers, the team involved in development will be much smaller than the typical agile team.
+
+We will divide the work in such a way that one of us will develop the Android implementation, and one of us will develop the iOS implementation. By dividing the work in this fashion we can implement similar features in both applications without the risk of writing conflicting code. Another reason for dividing the work is that it will help us to have equal focus on both the Android and iOS implementation.
+
+\subsubsection{Development Environment}
+
+\subsection{Evaluation Methods}
+
+\subsubsection{Evaluating battery life}
+
+To evaluate how the application affects the battery life of the mobile phone, we will use the native functionality in the operating system available on Android and iOS respectively to measure the specific applications power consumption.
+In combination with this, we will also perform tests where we run the application for a certain amount of time and note how much battery life is left and compare this value with the percentage left after not running the application for the same amount of time.
+
+\subsubsection{Evaluating the fall detection system functionality}
+
+Another step in the evaluation of the application will be to perform crash tests where we measure how well the application detects a fall, by dropping a mobile phone running the application several times from a height that we define as a fall and count the number of reported falls. The same test can then be performed with an existing application to compare how well the implemented algorithm compares to existing technology.
+
+Another measurement will be to drop the mobile phone running the application from a height that we do not define as a fall, and count how many falls are falsely detected. This number will also be compared the result of running the same test with an existing application.
+
+Yet another test will be to perform daily activities that can trigger a fall detection system, even though it is not a fall. Theses activities can be running, or walking with the phone in the pocket. A good fall detection software will not report many of these false positives. This will also be compared against an existing application.
 	
 	\newpage
 	
