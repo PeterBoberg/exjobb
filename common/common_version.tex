@@ -212,13 +212,14 @@
 	\begin{itemize}
 		\item The \textit{sampling} state is the normal state that the process resides in until \textit{threshold-peak} is detected.
 		
-		\item When a peak occurs that exceeds the threshold value of \textit{3g} the state is transferred to \textit{post peak}. Well in this state, a bouncing timer of \textit{1000 ms}is started, if another peak exceeding the threshold occurs during this time, bouncing timer is reset, otherwise the state machine moves on to the \textit{post fall} state when the timer fires.
+		\item When a peak occurs that exceeds the threshold value of \textit{3g} the state is transferred to \textit{post peak}. Well in this state, a bouncing timer of \textit{1000 ms} is started, if another peak exceeding the threshold occurs during this time, bouncing timer is reset, otherwise the state machine moves on to the \textit{post fall} state when the timer fires.
 		
 		\item In the \textit{post fall state} no peaks exceeding the threshold are allowed during \textit{1500 ms}, or the system goes back to the \textit{post peak} state. The purpose if this state is to check for activity (movement). If another peak occurs, it signals that either is the presumed fall not finished, or the subject is moving and this should not regarded as a fall. 
 		
-		\item When the \textit{post fall timer} after 1500 ms, the state machine moves on to the \textit{activity test} state. In this test, if movement exceeding certain thresholds are detected, it once again signals that activity is found an that this was indeed not an actual fall but rather a result of ADL. 
+		\item When the \textit{post fall timer} fires after 1500 ms, the state machine moves on to the \textit{activity test} state. In this test, if movement exceeding certain thresholds are detected, it once again signals that activity is found an that this was indeed not an actual fall but rather a result of ADL. 
 		
 	\end{itemize}  
+	
 	
 	\begin{figure}[h]
 		\centering
@@ -227,7 +228,46 @@
 		\label{fig:example}%
 	\end{figure}
 	
-	\paragraph{} if a fall like event has passed through \textit{activity test} (the last state in the state machine), it is fed through a feature extractor, which analyses the data and extract specific and predefined features of the data set which are commonly seen in fall like events. 
+	
+	
+	\paragraph{} if a fall like event has passed through the  \textit{activity test} (the last state in the state machine), it is fed through a feature extractor, which analyses the data and extract specific and predefined features of the data set. The features represent certain particular types of data that can be found by analysing the wave form collected when sampling the accelerometer. They used a total of 8 features:
+	
+	\begin{itemize}
+		\item \textit{Peak time} - The time of the detected peak (which is followed by \textit{2500 ms} without further peaks).
+		\item \textit{Impact end} - The time of the last impact exceeding \textit{1,5 g} after \textit{peak time + 1000 ms}
+		\item  \textit{Impact start} - The time of the last sample below \textit{0,8 g} before \textit{peak time} or \textit{peak time} if not found.
+		
+		\item \textit{Average absolute Acceleration Magnitude Variation} - The average magnitude of the acceleration samples collected in the in the time window (\textit{win}) of \textit{1000 ms} centred at the middle between \textit{impact start} and \textit{impact end} according to the following formula:
+		
+		
+		\begin{figure}[h]
+			\centering
+			\subfloat{{\includegraphics[width=8cm]{../img/AAMV_formula.png}}}%
+			\caption{The formula for calculating AAMV \cite{piza_uni}}%
+			\label{fig:example}%
+		\end{figure}
+		
+		\item \textit{Impact Duration Index} - The duration of the impact peak, exceeding the threshold.
+		\item \textit{Maximum Peak Index} - The highest value of the peak found in the interval [\textit{impact start}, \textit{impact end}]
+		
+		\item \textit{Peak duration index} - The duration represented by \textit{impact end - impact start}
+		\item \textit{Activity Ratio Index} - The number of samples in a \textit{700 ms} time window centred between \textit{impact start} and \textit{impact end} that are not in [\textit{0.85g, 1.3g}] divided by the number of total number of samples in that time window.
+		
+		\item{Free Fall Index} - The average acceleration magnitude found in an interval up to \textit{200 ms} before \textit{peak time} till up to \textit{400 ms} before peak time.
+		
+		\item{Step count index} - The amount of valleys and peaks in the interval [\textit{peak time - 2200 ms}, \textit{peak time}]
+	\end{itemize}
+	
+	
+	\paragraph{} These extracted features are then fed in to a neural network with eight inputs and four neurons in a single the hidden layer (\textit{neural network are thoroughly described in this free on-line book}  \cite{neural_networks}). The output layer consists of the four classes (\textit{Falls, Sitting/Lying, Jump/Run/Walk, Hitting sensor}). The network outpost the estimated probability of the event on all four classes and if the probability for the \textit{Falls}  class exceeds all other probabilities, the event is classified as a fall.
+	
+	
+	\section{Methodologies and Methods}
+	
+	To give an answer to the first question, what algorithm should be used, we will perform a literature study. This literature study will show which algorithm earlier work proposes.
+	
+	Another part of the work will be to perform a case study where the proposed algorithm will be implemented in the form of a mobile application for Android and iOS in an attempt to refine and improve the earlier work.
+
 	
 \section{Methodologies and Methods}
 
