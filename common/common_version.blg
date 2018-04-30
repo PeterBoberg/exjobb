@@ -4,9 +4,10 @@ The top-level auxiliary file: common_version.aux
 The style file: ieeetr.bst
 Database file #1: bib_common.bib
 Warning--I didn't find a database entry for "int_journ"
+Warning--I didn't find a database entry for "piza_uni"
 You've used 4 entries,
             1876 wiz_defined-function locations,
-            496 strings with 4037 characters,
+            497 strings with 4045 characters,
 and the built_in function-call counts, 510 in all, are:
 = -- 43
 > -- 13
@@ -45,4 +46,4 @@ warning$ -- 0
 while$ -- 3
 width$ -- 5
 write$ -- 33
-(There was 1 warning)
+(There were 2 warnings)
