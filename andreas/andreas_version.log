@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  30 APR 2018 12:29
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  30 APR 2018 13:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -930,9 +930,9 @@ Overfull \hbox (7.81055pt too wide) in paragraph at lines 95--96
  the mobile phone? 
  []
 
-[5] [6] [7] [8]
+[5] [6] [7]
 
-LaTeX Warning: Citation `int_journ' on page 9 undefined on input line 151.
+LaTeX Warning: Citation `int_journ' on page 8 undefined on input line 142.
 
 File: ../img/accelerometer-axis.jpg Graphic file (type QTm)
 <use  "../img/accelerometer-axis.jpg" >
@@ -954,38 +954,45 @@ File: ../img/Sitting_down.png Graphic file (type QTm)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9]
+[8]
 File: ../img/Jumping.png Graphic file (type QTm)
  <use  "../img/Jumping.png" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10]
+[9]
 
-LaTeX Warning: Citation `piza_uni' on page 11 undefined on input line 203.
+LaTeX Warning: Citation `piza_uni' on page 10 undefined on input line 194.
 
 
-Overfull \hbox (0.49219pt too wide) in paragraph at lines 203--204
+Overfull \hbox (0.49219pt too wide) in paragraph at lines 194--195
 []\TU/Georgia(0)/m/n/12 ”Detection of falls should be carried out using only ac
 celeration-based
  []
 
 
-LaTeX Warning: Citation `piza_uni' on page 11 undefined on input line 205.
+LaTeX Warning: Citation `piza_uni' on page 10 undefined on input line 196.
 
 
-LaTeX Warning: Citation `piza_uni' on page 11 undefined on input line 208.
+LaTeX Warning: Citation `piza_uni' on page 10 undefined on input line 199.
 
-[11]
+[10]
 File: ../img/Abbatea_finite_state_machine.png Graphic file (type QTm)
  <use  "../img/Abbatea_finite_state_machine.png" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[12] [13] [14]
+[11] [12] [13]
 File: ../img/method-phases.png Graphic file (type QTm)
  <use  "../img/method-phases.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 265--266
+Overfull \hbox (11.23311pt too wide) in paragraph at lines 258--259
+ [][] 
+ []
+
+[14]
+File: ../img/method-development.png Graphic file (type QTm)
+ <use  "../img/method-development.png" >
+Overfull \hbox (11.23311pt too wide) in paragraph at lines 275--276
  [][] 
  []
 
@@ -1002,10 +1009,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19625 strings out of 493005
- 414130 string characters out of 6134595
- 477118 words of memory out of 5000000
- 23346 multiletter control sequences out of 15000+600000
+ 19628 strings out of 493005
+ 414198 string characters out of 6134595
+ 480118 words of memory out of 5000000
+ 23348 multiletter control sequences out of 15000+600000
  7513 words of font info for 54 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  48i,10n,66p,10376b,369s stack positions out of 5000i,500n,10000p,200000b,80000s

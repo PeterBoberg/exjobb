@@ -95,15 +95,6 @@
 		\item How will such an application affect the battery life of the mobile phone?
 	\end{itemize}
 	
-	\subsubsection{Q1}
-	What algorithm should be used to accurately detect a fall?
-	
-	\subsubsection{Q2}
-	How can technology available in smart phones be used to implement this algorithm?
-	
-	\subsubsection{Q3}
-	How can performance issues be minimized when using the above technologies?
-	
 	\subsection{Purpose}
 	
 	The purpose of this thesis is to present the work conducted in the study, and give an answer to the formulated questions.
@@ -245,6 +236,8 @@
 	
 	\subsubsection{Research Methods}
 	
+	This section describes the chosen methodologies, and how they will contribute to solving the problem statement.
+	
 	\paragraph{Literature Study}
 	
 	The literature study that we will perform will focus on finding an algorithm that can be used to accurately detect a fall. Performing a literature study will give us a wider understanding of the subject as well as a good starting point for the study. The result of the literature study will show which algorithm for fall detection that would be proposed by earlier studies. We will use this algorithm as a starting point for our own implementation, where we will try to improve the algorithm. The outcome of the literature study is presented in the theoretical background.
@@ -273,9 +266,30 @@
 	
 	We will divide the work in such a way that one of us will develop the Android implementation, and one of us will develop the iOS implementation. By dividing the work in this fashion we can implement similar features in both applications without the risk of writing conflicting code. Another reason for dividing the work is that it will help us to have equal focus on both the Android and iOS implementation.
 	
+	\subsubsection{Development Process}
+	
+	The development process will follow the outline in figure \ref{fig:development}. The process will start with design, where an initial version of the application is designed, with only a limited set of features. After that we will implement those features, and then evaluate the developed features and the application. After that we will go back to development, and based on the outcome of the development we will either start over, or continue with new features.
+	
+	\begin{figure}[h]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/method-development.png} }}%
+		\caption{The application development process}%
+		\label{fig:development}%
+	\end{figure}
+	
 	\subsubsection{Development Environment}
 	
+	The application will be divided in two implementations, one for Android and one for iOS. The development environment will be slightly different for Android and iOS. 
+	
+	\paragraph{Android}
+	The Android application will be developed using Android Studio, since it is the official development environment.
+	
+	\paragraph{iOS}
+	The iOS application will be partly developed in Xcode, since it is the official IDE, and partly in Jetbrains AppCode since it is superior to Xcode when it comes to re-factoring code, code completion, etc. Xcode will be used for building graphical interfaces, but the coding will be done in AppCode.
+	
 	\subsection{Evaluation Methods}
+	
+	This section describes how the developed application will be evaluated. Evaluating the application is important since it will show how well it solves the problem statement.
 	
 	\subsubsection{Evaluating battery life}
 	
