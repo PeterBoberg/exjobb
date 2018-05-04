@@ -30,6 +30,10 @@
 \renewcommand{\cftsubsubsecpagefont}{\tocsubsubsectionfont}
 \renewcommand{\cfttoctitlefont}{\toctitlefont}
 
+\newcommand{\parag}[1]{
+	\textbf{#1} \hspace{0pt} \\
+}
+
 \addto\captionsenglish{
 	\renewcommand{\contentsname}{Table of Contents}
 }
@@ -97,9 +101,9 @@
 		
 		This study aims to answer the following:
 		
-		\paragraph{RQ1} \textit{How can a mobile application, that detects falling accidents using modern smart phones, be created?}
+		\textbf{RQ1} \textit{How can a mobile application, that detects falling accidents using modern smart phones, be created?}
 		
-		\paragraph{RQ2} \textit{How will such an application affect the battery life of the mobile phone?}
+		\textbf{RQ2} \textit{How will such an application affect the battery life of the mobile phone?}
 		
 		
 		\subsection{Purpose}
@@ -276,15 +280,13 @@
 	
 	This section describes the chosen methods, and how they will contribute to solving the problem.
 	
-	\paragraph{Literature Study}
-	
+	\parag{Literature Study}
 	The literature study that we will perform will focus on finding an algorithm that can be used to accurately detect a fall. Performing a literature study will give us a wider understanding of the subject as well as a good starting point for the study. The result of the literature study will show which algorithm for fall detection that would be proposed by previous studies. We will use this algorithm as a starting point for our own implementation, where we will try to improve the algorithm. The outcome of the literature study is presented in the theoretical background.
 	
-	\paragraph{Developing a mobile application}
+	\parag{Developing a mobile application}
 	The second part of our research will be a case study where we implement a fall detection system. We will use the algorithm found in the literature study and implement it for Android and iOS using the sensors available in the smart phones. Developing the application will give us an opportunity to test the algorithm on real devices, and a platform where we can experiment in order to improve the algorithm. The result of the development will give us the ability to answer how technology available in smart phones can be used to implement the algorithm found in the literature study.
 	
-	\paragraph{Evaluating the implemented mobile application}
-	
+	\parag{Evaluating the implemented mobile application}
 	The third part of our research will be to evaluate the implemented algorithm by performing experiments where the mobile application is used to detect falls. This evaluation will focus on how accurate the application is, but also on how it affects the battery life of the device.
 	
 	\subsubsection{Research Process}
@@ -319,28 +321,30 @@
 	
 	The application will be divided in two implementations, one for Android and one for iOS. The development environment will be slightly different for Android and iOS. 
 	
-	\paragraph{Android}
+	\parag{Android}
 	The Android application will be developed using Android Studio, since it is the official development environment.
 	
-	\paragraph{iOS}
+	\parag{iOS}
 	The iOS application will be partly developed in Xcode, since it is the official IDE, and partly in Jetbrains AppCode since it is superior to Xcode when it comes to re-factoring code, code completion, etc. Xcode will be used for building graphical interfaces, but the coding will be done in AppCode.
 	
 	\subsection{Evaluation Methods}
 	
-	This section describes how the developed application will be evaluated. Evaluating the application is important since it will show how well it solves the problem statement.
+	This section describes how the developed application will be evaluated. Evaluating the application is important since it will show how well it solves the problem.
+
+	\subsubsection{Evaluating accuracy}
 	
+	The first step in the evaluation of the application will be to perform crash tests where we measure how well the application detects a fall, by dropping a mobile phone running the application several times from a height that we define as a fall and count the number of reported falls. The same test can then be performed with an existing application to compare how well the implemented algorithm compares to existing technology.
+	
+	Another measurement will be to drop the mobile phone running the application from a height that we do not define as a fall, and count how many falls are falsely detected. This number will also be compared with the result of running the same test with an existing application.
+	
+	Yet another test will be to perform daily activities that can trigger a fall detection system, even though it is not a fall. Theses activities can be running, or walking with the phone in the pocket. A good fall detection software will not report many of these as falls. This will also be compared against an existing application.
+
 	\subsubsection{Evaluating battery life}
 	
 	To evaluate how the application affects the battery life of the mobile phone, we will use the native functionality in the operating system available on Android and iOS respectively to measure the specific applications power consumption.
 	In combination with this, we will also perform tests where we run the application for a certain amount of time and note how much battery life is left and compare this value with the percentage left after not running the application for the same amount of time.
 	
-	\subsubsection{Evaluating the fall detection system functionality}
 	
-	Another step in the evaluation of the application will be to perform crash tests where we measure how well the application detects a fall, by dropping a mobile phone running the application several times from a height that we define as a fall and count the number of reported falls. The same test can then be performed with an existing application to compare how well the implemented algorithm compares to existing technology.
-	
-	Another measurement will be to drop the mobile phone running the application from a height that we do not define as a fall, and count how many falls are falsely detected. This number will also be compared the result of running the same test with an existing application.
-	
-	Yet another test will be to perform daily activities that can trigger a fall detection system, even though it is not a fall. Theses activities can be running, or walking with the phone in the pocket. A good fall detection software will not report many of these false positives. This will also be compared against an existing application.
 	
 	\newpage
 	
