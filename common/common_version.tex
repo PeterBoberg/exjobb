@@ -142,6 +142,28 @@
 	
 	\section{Theoretical Background}
 	
+	\subsection{Related works} Two related works have been researched prior as means of background for this thesis. The first one is a paper produced by Yidirim et al. \cite{int_journ} and the other one is a report produced by Abbatea et al. \cite{piza_uni}. The both aim to produce an application embedded on an Android device with capabilities to detect fall accidents. They both rely on accelerometer data from the device as a means of detecting a fall but the differ significantly in how they use that data. 
+	
+	\subsubsection{Yildirim et al.}
+	Yildrim et al. \cite{int_journ} uses a simple threshold-based algorithm to detect falls. When an acceleration-peak exceeding a threshold value, followed by a drop in acceleration below another threshold value has occurred within a limited time window, their application flags the event a possible fall and presents a user interface. This user interface lets the user discard the detected fall if it was a false alarm. If the user does not discard the detected fall, the application will send an SMS to predefined contacts, informing them of the event. 
+	
+	They tested the accuracy of their algorithm, with regards to distinguish an actual fall from other activities of daily living in terms of \textit{False positives} and \textit{false negatives}. In their tests, they used a total of five people, testing different scenarios five times each, the scenarios were:
+	
+	\begin{itemize}
+		\item Falling
+		\item Walking
+		\item Sitting
+		\item Jumping
+		\item Lying
+		\item Climbing stairs
+	\end{itemize}
+	
+	The result shows that the number of \textit{false positives} were 9/25 on the falls scenario, and the number of \textit{false positives} were 7/25 on the jumping scenario. This means that their algorithm missed 9 out of 25 actual falls, and falsely flagged 7 out of 25 jumps as falls. In all other scenarios the number of \textit{false negatives/false positives} was zero. They conclude by saying that their algorithm had a hard time distinguishing between falling and jumping, but performed good in the other scenarios. 
+	
+	
+	\subsubsection{Abbatea et al.}
+	Abbatea et al. uses a significantly more sophisticated approach to detect and distinguish fall from activities of daily living. Their work involves a finite state machine as a first stop to detect....[To be continued].
+	
 	\subsection{The physics of falling}
 	The physics of falling have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8s m/$s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{g}. A fall towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
 	
@@ -263,7 +285,6 @@
 	
 	These extracted features are then fed in to a neural network with eight inputs and four neurons in a single hidden layer (\textit{neural network are thoroughly described in this free on-line book}  \cite{neural_networks}). The output layer consists of the four classes (\textit{Falls, Sitting/Lying, Jump/Run/Walk, Hitting sensor}). The network outpost the estimated probability of the event on all four classes and if the probability for the \textit{Falls}  class exceeds all other probabilities, the event is classified as a fall.
 	
-	\subsection{Related works}
 	
 	\newpage
 	\section{Methods and Methodology}
