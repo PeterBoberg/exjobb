@@ -201,7 +201,14 @@
 		\item "Still for usability reasons, the fall detection algorithm should work only with the magnitude of acceleration and not with the values along each of the three accelerometer’s axes, as this, again, would require a known and fixed orientation of the device with respect to the user’s body." \cite[p~3]{piza_uni}
 	\end{itemize}
 	
-	The latter identifies the importance of calculating the resultant vector that comprises the sum of all three vectors \textit{X}, \textit{Y} and \textit{Z}. This vector is the overall acceleration imposed on the device (and possibly the person carrying it). They proceed by defining a \textit{fall-like-event} as "an acceleration greater than \textit{3g} followed by a period of \textit{2500ms} without further peaks exceeding the threshold." \cite[p~5]{piza_uni}. They further argue that the threshold \textit{3g} is chosen since it has been widely used in other types of fall detection systems. According to their experiments, a post-fall event usually means that the body of the unfortunate becomes lying still on the ground after a period of about \textit{1000ms}. This interval, which resides within the \textit{2500ms} interval prior to fall detection, is often due to minor peaks following the main impact as a result of that parts of the body/device may hit the ground at different times. 
+	The latter identifies the importance of calculating the resultant vector that comprises the sum of all three vectors \textit{X}, \textit{Y} and \textit{Z}. Vector length can be calculated in accordance to equation \ref{vectorlength}.
+	
+	\begin{equation}
+	\label{vectorlength}
+	|\vec{v}|=\sqrt{x^2+y^2+z^2}
+	\end{equation}
+	
+	This vector is the overall acceleration imposed on the device (and possibly the person carrying it). They proceed by defining a \textit{fall-like-event} as "an acceleration greater than \textit{3g} followed by a period of \textit{2500ms} without further peaks exceeding the threshold." \cite[p~5]{piza_uni}. They further argue that the threshold \textit{3g} is chosen since it has been widely used in other types of fall detection systems. According to their experiments, a post-fall event usually means that the body of the unfortunate becomes lying still on the ground after a period of about \textit{1000ms}. This interval, which resides within the \textit{2500ms} interval prior to fall detection, is often due to minor peaks following the main impact as a result of that parts of the body/device may hit the ground at different times. 
 	
 	Abbatea et al. tries to establish their algorithm using a \textit{finite-state-machine} with five distinct states, seen in figure \ref{fig:abbatea-state-machine}.
 	
@@ -259,11 +266,35 @@
 	\subsection{Related works}
 	
 	\newpage
-	\section{Methodologies and Methods}
+	\section{Methods and Methodology}
 	
 	This chapter describes the research strategy and the methodologies used in the study, and how each methodology contributes to answering the research questions.
 	
 	\subsection{Research Strategy}
+	
+	This section describes research methods in general, and how the methods are adopted in this thesis.
+	
+	\subsubsection{Quantitative and qualitative methods}
+	
+	Research methods are often divided in two classes, \textit{quantitative} and \textit{qualitative} methods.
+	
+	\textit{Quantitative} methods are distinguished by the use of measurable data \cite[p~54]{borrego}. This data can be numbers such as a measured distance, collected statistics, the outcome of an experiment, etc. Quantitative methods are a way for the researcher to take an objective approach.
+	
+	\textit{Qualitative} methods on the other hand, is characterized by the collection of textual data \cite[p~55]{borrego}. This data can be interviews, surveys, observations, etc. Qualitative methods emphasis the importance of context in which the study is performed.
+	
+	\subsubsection{Inductive and deductive methods}
+	
+	An \textit{inductive} research method can be viewed as a bottom-up approach, where the researcher begins by collecting data that is relevant to the subject. After that, the data is analyzed, with the intention to develop a theory that explains the patterns observed in the data.
+	
+	A \textit{deductive} method is a top-down approach, where a hypothesis is developed from existing theory. After the hypothesis is formulated, it is tested with the intent to confirm or falsify it.
+	
+	\subsubsection{Case studies}
+	
+	Case studies makes it possible for a researcher to closely examine a specific phenomenon. They can be explorative, explanatory or descriptive \cite[p~4]{yin}. A case study is often limited to a small number of people or a small geographic area to perform an in-depth examination, and can be a good research method for answering questions starting with "how" or "why".
+	
+	\subsubsection{Adopted Methods}
+	
+	For our research, a qualitative approach seems to be the most appropriate. It will be a case study that explores the possibility of creating a fall detection application, answering how this should be done. The research will be deductive, starting with the hypothesis that this kind of application can be created, trying to confirm the hypothesis. 
 	
 	In order to give an answer to the first question of our problem statement, RQ1, we need to solve a number of sub problems. The first problem is to find a suitable algorithm that can achieve accurate fall detection, since without a good algorithm it will be impossible to make a useful implementation. The second problem is to implement this algorithm in a mobile application using the sensors available in smart phones. This could be troublesome if the algorithm expects better sensors than what is available in the smart phone. The third sub problem is to evaluate the implementation. We will evaluate the accuracy of the fall detection, that is how many of the detected falls are actual falls, and how many actual falls are not detected. Another part of the evaluation will be to evaluate the application's impact on battery life. For these sub problems we formulate specific questions that we will need to answer in order to answer the problem statement.
 	
@@ -273,14 +304,10 @@
 		\item How can accuracy and performance be improved when implementing fall detection in a smart phone?
 	\end{itemize}
 	
-	\subsubsection{Research Methods}
-	
-	This section describes the chosen methods, and how they will contribute to solving the problem.
-	
 	\parag{Literature Study}
 	The literature study that we will perform will focus on finding an algorithm that can be used to accurately detect a fall. Performing a literature study will give us a wider understanding of the subject as well as a good starting point for the study. The result of the literature study will show which algorithm for fall detection that would be proposed by previous studies. We will use this algorithm as a starting point for our own implementation, where we will try to improve the algorithm. The outcome of the literature study is presented in the theoretical background.
 	
-	\parag{Developing a mobile application}
+	\parag{Case Study: Developing a mobile application}
 	The second part of our research will be a case study where we implement a fall detection system. We will use the algorithm found in the literature study and implement it for Android and iOS using the sensors available in the smart phones. Developing the application will give us an opportunity to test the algorithm on real devices, and a platform where we can experiment in order to improve the algorithm. The result of the development will give us the ability to answer how technology available in smart phones can be used to implement the algorithm found in the literature study.
 	
 	\parag{Evaluating the implemented mobile application}
@@ -327,7 +354,7 @@
 	\subsection{Evaluation Methods}
 	
 	This section describes how the developed application will be evaluated. Evaluating the application is important since it will show how well it solves the problem.
-
+	
 	\subsubsection{Evaluating accuracy}
 	
 	The first step in the evaluation of the application will be to perform crash tests where we measure how well the application detects a fall, by dropping a mobile phone running the application several times from a height that we define as a fall and count the number of reported falls. The same test can then be performed with an existing application to compare how well the implemented algorithm compares to existing technology.
@@ -335,20 +362,43 @@
 	Another measurement will be to drop the mobile phone running the application from a height that we do not define as a fall, and count how many falls are falsely detected. This number will also be compared with the result of running the same test with an existing application.
 	
 	Yet another test will be to perform daily activities that can trigger a fall detection system, even though it is not a fall. Theses activities can be running, or walking with the phone in the pocket. A good fall detection software will not report many of these as falls. This will also be compared against an existing application.
-
+	
 	\subsubsection{Evaluating battery life}
 	
 	To evaluate how the application affects the battery life of the mobile phone, we will use the native functionality in the operating system available on Android and iOS respectively to measure the specific applications power consumption.
 	In combination with this, we will also perform tests where we run the application for a certain amount of time and note how much battery life is left and compare this value with the percentage left after not running the application for the same amount of time.
 	
-	
-	
 	\newpage
-	
 	\section{Challenges and Possibilites}
-	\newpage
 	
+	
+	\newpage
 	\section{Fall Detection Application: Design and Implementation}
+	
+	\subsection{Architecture outline}
+	
+	
+	
+	\subsection{Using the accelerometer}
+	
+	
+	
+	\subsection{Design of state machine}
+	
+	For basic fall detection
+	
+	\subsection{Design of feature extractor}
+	
+	\subsection{Implementing a neural network}
+	
+	\subsubsection{Designing a model}
+	
+	\subsubsection{Training the model}
+	
+	\subsubsection{Using the model}
+	
+	
+	
 	\newpage
 	
 	\section{Fall Detection Application: Evaluation}
