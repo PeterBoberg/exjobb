@@ -375,11 +375,20 @@
 	\newpage
 	\section{Fall Detection Application: Design and Implementation}
 	
-	\subsection{Architecture outline}
 	
+		\subsection{Architecture outline}
+		The overall architecture of the application consists of several steps. All readings from the accelerometer is continuously pushed to a ring buffer. 	This ring buffer holds the last 8 seconds of accelerometer data. On top of this, a \textit{finite state machine} is used as a first barrier to filter out the most common movements of the device. If a fall-like event were to manipulate the state machine into its final state, the ring buffer is transferred over to a \textit{Feature Extractor}. In this step, the buffer is analyzed and a total of 8 "features" are extracted (as similar to the Abbatea et el approach). These features represent important aspects of the movement of the device for the last 8 seconds. 
 	
+		The 8 features are then put inside a data-object and fed into a \textit{Classification Engine} which consists of a neural network. This classification engine have the responsibility to classify the event based on the given features. The output classes of the neural network are; \textit{Fall}, \textit{Jump} and \textit{Run/Walk}. The neural network calculates the independent probability of the event's belonging to each of the three classes. If the probability of the event belonging to the \textit{Fall} class exceeds the other two, the event is considered a fall. 
 	
-	\subsection{Using the accelerometer}
+		In the case of an event being classified as a fall, the application will present a screen along with a sonic alarm signal. The user will then have 45 seconds to discard the event or a message will be sent to a set of predefined contacts, notifying them about what´s happened.
+	
+		\paragraph{Insert image here}
+	
+		\subsection{Using the accelerometer}
+		Using the accelerometer on the Android and iOS system is similar. Updates from the accelerometer are pushed to listening code that acts upon those updates. Updates come in the form of an data-object containing information about the device's acceleration on all three axes (\textit{X}, \textit{Y} and \textit{Z}) at that moment in time. The accelerometer's update frequency is configurable on both Android and iOS devices and we chose an update frequency of \textit{50 Hz} since it provides a reasonable balance between accuracy in measurements and battery consumption. On each update, the resultant vector is calculated according to the formula in \ref{vectorlength} and the result is put in to the ring buffer. Given this configuration, the ring buffer have a fixed length of \(50 Hz * 8s = 400\) samples. 
+		
+		On each new update, the resultant vector is also given to the finite state machine who will act according to the description in the next section.
 	
 	
 	

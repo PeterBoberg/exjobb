@@ -14,127 +14,44 @@
 \begin{document}
 
 \section{Theoretical Background}
+	\subsection{Related works} Two related works have been researched prior as means of background for this thesis. The first one is a paper produced by Yidirim et al. \cite{int_journ} and the other one is a report produced by Abbatea et al. \cite{piza_uni}. The both aim to produce an application embedded on an Android device with capabilities to detect fall accidents. They both rely on accelerometer data from the device as a means of detecting a fall but the differ significantly in how they use that data. 
 	
-	\paragraph{The physics of falling} have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8s m/$s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{1g}. A fall would towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
+	\subsubsection{Yildirim et al.}
+	Yildrim et al. \cite{int_journ} uses a simple threshold-based algorithm to detect falls. When an acceleration-peak exceeding a threshold value, followed by a drop in acceleration below another threshold value has occurred within a limited time window, their application flags the event a possible fall and presents a user interface. This user interface lets the user discard the detected fall if it was a false alarm. If the user does not discard the detected fall, the application will send an SMS to predefined contacts, informing them of the event. 
 	
-
-	\paragraph{} Yildirim et. al takes a general approach to describe the character of several motional types \cite{int_journ}. In their research, they measured the response from a LSM330DLC acceleration sensor located in an Android device. Their approach uses a threshold value to indicate whether the acceleration vector exceeds the allowed limit for a crash. The blue, red and green lines corresponds to the acceleration on any of the three perpendicular axis \textit{X}, \textit{Y} and \textit{Z} shown below.
+	They tested the accuracy of their algorithm, with regards to distinguish an actual fall from other activities of daily living in terms of \textit{False positives} and \textit{false negatives}. In their tests, they used a total of five people, testing different scenarios five times each, the scenarios were:
 	
-		\begin{figure}[h]
-			\centering
-			\subfloat{{\includegraphics[width=8cm]{../img/accelerometer-axis.jpg} }}%
-			\caption{The X, Y and Z axis af a smart phone device}%
-			\label{fig:example}% 
-		\end{figure}
-	
-		\begin{figure}[h]
-			\centering
-			\subfloat{{\includegraphics[width=8cm]{../img/Falling.png} }}%
-			\caption{The typical pattern of falling}%
-			\label{fig:example}%
-		\end{figure}
-	
-		\noindent This measurements shows that falling, as was previously theorized, is indicated by a significant drop in acceleration towards the earth's gravitational pull, signaling that the device is moving towards a free fall state.This drop is then followed by an acceleration spike as the device hits the ground. If a person were to get seriously injured due to a fall s/he would usually remain still on the ground for a period of time. Acceleration would thus gradually go back to the normal \textit{1g} indicated by the flat line after the peak. 
-	
-	
-		\begin{figure}[h]
-			\centering
-			\subfloat{{\includegraphics[width=8cm]{../img/Walking.png} }}%
-			\caption{The typical pattern of walking}%
-			\label{fig:example}%
-		\end{figure}
-	
-		\noindent Walking shows a completely different pattern. As can be seen, the changes in acceleration are not rapid like the previous example. They are also repetitive, meaning that there is no longer period of non-movements after any of the peaks. The peaks them selves are also significant less than in the case of falling shown above. This implies that walking is easily distinguished from falling.
-	
-	
-	
-		\begin{figure}[h]
-			\centering
-			\subfloat{{\includegraphics[width=8cm]{../img/Sitting_down.png} }}%
-			\caption{The typical pattern of sitting down}%
-			\label{fig:example}%
-		\end{figure}
-	
-		\noindent Sitting down on a surface shows a similar pattern to falling with regards to a sudden drop in acceleration followed by  a rapid spike and a longer period of non-movement. The magnitude of these values are however far less than in the case of a fall and should thus be easy to single out. When a person sits down, s/he usually makes a soft movement towards the surface which is matched by the lesser accelerational  magnitude in all three directions \textit{X, Y} and \textit{Z}.
-	
-	
-		\begin{figure}[h]
-			\centering
-			\subfloat{{\includegraphics[width=8cm]{../img/Jumping.png} }}%
-			\caption{The typical pattern of jumping}%
-			\label{fig:example}%
-		\end{figure}
-	
-		\noindent Jumping is according to Yildirim et. al. the hardest pattern to distinguish from a fall. The pattern has a sudden drop in acceleration, followed by a large spike as the jumper crouches and accelerates upwards. After this comes yet another sudden drop in acceleration as the jumper reaches the maximum altitude and starts falling back to earth again. From this part the pattern is almost identical to that of falling. When the jumper falls back to earth, the acceleration drops and then causes another huge spike as s/he hits the ground. When thinking about it, jumping and falling are in fact similar motional types, with the difference that jumping is prefixed by a drop and a spike before becoming an actual fall. The main challenge here is thus to be able to differentiate this from an unintentional falling accident.
-		
-		
-		\paragraph{} Abbatea et. al. takes the above approach further by trying to establish a more sophisticated algorithm that utilizes more than merely just an acceleration vector compared to a threshold value to distinguish a fall like motional pattern from other types of ADL. Their thesis rely on several guidelines which among other include: 
-			\begin{itemize} 
-				\item "Detection of falls should be carried out using only acceleration-based information. Previous work demonstrated that acceleration is the most reliable information that can be used in detecting a fall, while other kinematic data, such as angular velocity, is less relevant." \cite[p~3]{piza_uni}
-				
-				\item "Still for usability reasons, the fall detection algorithm should work only with the magnitude of acceleration and not with the values along each of the three accelerometer’s axes, as this, again, would require a known and fixed orientation of the device with respect to the user’s body." \cite[p~3]{piza_uni}
-			\end{itemize}
-		
-		The latter identifies the importance of calculating the resultant vector that comprises the sum of all three vectors \textit{X}, \textit{Y} and \textit{Z}. This vector is the overall acceleration imposed on the device (and possibly the person carrying it). They proceed by defining a \textit{fall-like-event} as "an acceleration greater than \textit{3g} followed by a period of \textit{2500ms} without further peaks exceeding the threshold." \cite[p~5]{piza_uni}. They further argue that the threshold \textit{3g} is chosen since it has been widely used in other types of fall detection systems. According to their experiments, a post-fall event usually means that the body of the unfortunate becomes lying still on the ground after a period of about \textit{1000ms}. This interval, which resides within the \textit{2500ms} interval prior to fall detection is often due to minor peaks following the main impact as a result of that parts of the body/device may hit the ground at different times. 
-		
-		\paragraph{} Abbatea et. al. tries to establish their algorithm using a \textit{finite-state-machine} with five distinct states.
-		
 		\begin{itemize}
-			\item The \textit{sampling} state is the normal state that the process resides in until \textit{threshold-peak} is detected.
-			
-			\item When a peak occurs that exceeds the threshold value of \textit{3g} the state is transferred to \textit{post peak}. Well in this state, a bouncing timer of \textit{1000 ms} is started, if another peak exceeding the threshold occurs during this time, bouncing timer is reset, otherwise the state machine moves on to the \textit{post fall} state when the timer fires.
-
-			\item In the \textit{post fall state} no peaks exceeding the threshold are allowed during \textit{1500 ms}, or the system goes back to the \textit{post peak} state. The purpose if this state is to check for activity (movement). If another peak occurs, it signals that either is the presumed fall not finished, or the subject is moving and this should not regarded as a fall. 
-			
-			\item When the \textit{post fall timer} fires after 1500 ms, the state machine moves on to the \textit{activity test} state. In this test, if movement exceeding certain thresholds are detected, it once again signals that activity is found an that this was indeed not an actual fall but rather a result of ADL. 
-
-		\end{itemize}  
-	
-	
-			\begin{figure}[h]
-			\centering
-			\subfloat{{\includegraphics[width=8cm]{../img/Abbatea_finite_state_machine.png}}}%
-			\caption{The sensing process discussed in Abbatea et. al.}%
-			\label{fig:example}%
-			\end{figure}
-
-			
-		
-		\paragraph{} if a fall like event has passed through the  \textit{activity test} (the last state in the state machine), it is fed through a feature extractor, which analyses the data and extract specific and predefined features of the data set. The features represent certain particular types of data that can be found by analysing the wave form collected when sampling the accelerometer. They used a total of 8 features:
-		
-		\begin{itemize}
-			\item \textit{Peak time} - The time of the detected peak (which is followed by \textit{2500 ms} without further peaks).
-			\item \textit{Impact end} - The time of the last impact exceeding \textit{1,5 g} after \textit{peak time + 1000 ms}
-			\item  \textit{Impact start} - The time of the last sample below \textit{0,8 g} before \textit{peak time} or \textit{peak time} if not found.
-			
-			\item \textit{Average absolute Acceleration Magnitude Variation} - The average magnitude of the acceleration samples collected in the in the time window (\textit{win}) of \textit{1000 ms} centred at the middle between \textit{impact start} and \textit{impact end} according to the following formula:
-			
-				
-				\begin{figure}[h]
-					\centering
-					\subfloat{{\includegraphics[width=8cm]{../img/AAMV_formula.png}}}%
-					\caption{The formula for calculating AAMV \cite{piza_uni}}%
-					\label{fig:example}%
-				\end{figure}
-			
-			\item \textit{Impact Duration Index} - The duration of the impact peak, exceeding the threshold.
-			\item \textit{Maximum Peak Index} - The highest value of the peak found in the interval [\textit{impact start}, \textit{impact end}]
-			
-			\item \textit{Peak duration index} - The duration represented by \textit{impact end - impact start}
-			\item \textit{Activity Ratio Index} - The number of samples in a \textit{700 ms} time window centred between \textit{impact start} and \textit{impact end} that are not in [\textit{0.85g, 1.3g}] divided by the number of total number of samples in that time window.
-			
-			\item{Free Fall Index} - The average acceleration magnitude found in an interval up to \textit{200 ms} before \textit{peak time} till up to \textit{400 ms} before peak time.
-			
-			\item{Step count index} - The amount of valleys and peaks in the interval [\textit{peak time - 2200 ms}, \textit{peak time}]
+			\item Falling
+			\item Walking
+			\item Sitting
+			\item Jumping
+			\item Lying
+			\item Climbing stairs
 		\end{itemize}
 	
-		
-		\paragraph{} These extracted features are then fed in to a neural network with eight inputs and four neurons in a single the hidden layer (\textit{neural network are thoroughly described in this free on-line book}  \cite{neural_networks}). The output layer consists of the four classes (\textit{Falls, Sitting/Lying, Jump/Run/Walk, Hitting sensor}). The network outpost the estimated probability of the event on all four classes and if the probability for the \textit{Falls}  class exceeds all other probabilities, the event is classified as a fall.
-		
-		
-
+	The result shows that the number of \textit{false positives} were 9/25 on the falls scenario, and the number of \textit{false positives} were 7/25 on the jumping scenario. This means that their algorithm missed 9 out of 25 actual falls, and falsely flagged 7 out of 25 jumps as falls. In all other scenarios the number of \textit{false negatives/false positives} was zero. They conclude by saying that their algorithm had a hard time distinguishing between falling and jumping, but performed good in the other scenarios. 
 	
-\newpage
+	
+	\subsubsection{Abbatea et al.}
+		Abbatea et al. uses a significantly more sophisticated approach to detect and distinguish fall from activities of daily living. Their work involves a finite state machine as a first stop to detect....[To be continued].
+		
+		
+		\subsection{Architecture outline}
+			The overall architecture of the application consists of several steps. All readings from the accelerometer is continuously pushed to a ring buffer. This ring buffer holds the last 8 seconds of accelerometer data. On top of this, a finite state machine is used as a first barrier to filter out the most common movements of the device. If a fall-like event were to manipulate the state machine into its final state, the ring buffer is transferred over to a \texttt{Feature Extractor}. In this step, the buffer is analyzed and a total of 8 "features" are extracted (as similar to the Abbatea et el approach). These features represent important aspects of the movement of the device for the last 8 seconds. 
+			
+			The 8 features are then put inside a data-object and fed into a \texttt{Classification Engine} which consists of a neural network. This classification engine have the responsibility to classify the event based on the given features. The output classes of the neural network are; \textit{Fall}, \textit{Jump} and \textit{Run/Walk}. The neural network calculates the independent probability of the event's belonging to each of the three classes. If the probability of the event belonging to the \textit{Fall} class exceeds the other two, the event is considered a fall. 
+			
+			In the case of an event being classified as a fall, the application will present a screen along with a sonic alarm signal. The user will then have 45 seconds to discard the event or a message will be sent to a set of predefined contacts, notifying them about what´s happened.
+			
+			\paragraph{Insert image here}
+	
+	
+		\subsection{Using the accelerometer}
+			Using the accelerometer on the Android and iOS system is similar. Updates from the accelerometer are pushed to listening code that acts upon those updates. Updates come in the form of an data-object containing information about the device's acceleration on all three axes (\textit{X}, \textit{Y} and \textit{Z}) at that moment in time. The accelerometer's update frequency is configurable on both Android and iOS devices and we chose an update frequency of \textit{50 Hz} since it provides a reasonable balance between accuracy in measurements and battery consumption. On each update, the resultant vector is calculated according to the formula in \ref{vectorlength} and the result is put in to the ring buffer. Given this configuration, the ring buffer have a fixed length of \(50 Hz * 8 seconds = 400 samples\). 
+			
+			On each new update, the resultant vector is also given to the finite state machine who will act according to the description in the next section.
+	
 
 
 \bibliography{bib_peter}
