@@ -407,17 +407,88 @@
 		\paragraph{Insert image here}
 	
 		\subsection{Using the accelerometer}
-		Using the accelerometer on the Android and iOS system is similar. Updates from the accelerometer are pushed to listening code that acts upon those updates. Updates come in the form of an data-object containing information about the device's acceleration on all three axes (\textit{X}, \textit{Y} and \textit{Z}) at that moment in time. The accelerometer's update frequency is configurable on both Android and iOS devices and we chose an update frequency of \textit{50 Hz} since it provides a reasonable balance between accuracy in measurements and battery consumption. On each update, the resultant vector is calculated according to the formula in \ref{vectorlength} and the result is put in to the ring buffer. Given this configuration, the ring buffer have a fixed length of \(50 Hz * 8s = 400\) samples. 
-		
-		On each new update, the resultant vector is also given to the finite state machine who will act according to the description in the next section.
+		Using the accelerometer on the Android and iOS system is similar. Updates from the accelerometer are pushed to listening code that acts upon those updates. Updates come in the form of an data-object containing information about the device's acceleration on all three axes (\textit{X}, \textit{Y} and \textit{Z}) at that moment in time. The accelerometer's update frequency is configurable on both Android and iOS devices and we chose an update frequency of \textit{50 Hz} since it provides a reasonable balance between accuracy in measurements and battery consumption. On each update, the resultant vector is calculated according to the formula in \ref{vectorlength} and the result is put in to the ring buffer. Given this configuration, the ring buffer have a fixed length of \(50 Hz * 8s = 400\) samples. On each new update, the resultant vector is also given to the finite state machine who will act according to the description in the next section.
 	
 	
 	
 	\subsection{Design of state machine}
 	
-	For basic fall detection
+	For basic fall detection, a finite-state machine were used, see figure \ref{fig:state-machine}. The resultant vector coming from the accelerometer is fed as input to the state machine. The state machine reads the input and changes state based on different parameters for each state. If the state machine would reach it's final state, this would mean that a potential fall has been detected. The thresholds used for the accelerometer vector is defined as Impact Threshold (IT), Upper Motionless Threshold (UMT), Lower Motionless Threshold (LMT). The upper motionless threshold is 1.5 g, the lower motionless threshold is 0.5g, and the impact thresholds are different for Android and iOS. The impact threshold is 2.5g for Android and 4g for iOS. 
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=10cm]{../img/state-machine.png} }}%
+		\caption{Fall detection state machine}%
+		\label{fig:state-machine}%
+	\end{figure}
+	
+	\subsubsection{Normal state}
+	
+	The initial state, when the state machine starts is the normal state. If the length of the accelerometer resultant vector (a) exceeds the lower motionless threshold, a transition is made to the falling state.
+	
+	\subsubsection{Falling state}
+	
+	The falling state represents that the phone is falling freely, and it should have an acceleration close to zero, or at least under the lower motionless threshold. If the accelerometer vector length exceeds the lower motionless threshold but not the impact threshold, a transition is made to the post falling state. If the accelerometer vector length exceeds the impact threshold a transition is made to the impact state.
+	
+	\subsubsection{Post falling state}
+	
+	The post falling state is a state between the falling state and the impact state. It is here to allow a slight lag between the free falling and the impact. If the accelerometer vector length exceeds the impact threshold the machine enters the impact state. If the time since the machine entered the current state exceeds the time limit 0.1 s a transition is made back to the normal state. This is because no impact occurred in the allowed time window.
+	
+	\subsubsection{Impact state}
+	
+	The impact state represents that an impact has been detected. In this state anything is allowed to happen under a time limit. If the accelerometer vector length exceeds the impact threshold, a transition back to the impact state is made to reset the timer keeping track of the time since the state machine entered the current state. If the timer value exceeds the 2 s threshold a transition is made to the motionless state.
+	
+	\subsubsection{Motionless state}
+	
+	The motionless state exists to make sure that the phone is motionless after the fall. If the accelerometer vector length exceeds the upper motionless threshold, the machine goes back to the normal state. If the vector length drops below the lower motionless threshold a transition is made to the falling state.
+	
+	\subsubsection{Fall detected state}
+	
+	In the fall detected state, a potential fall has been detected. The machine takes action to inform the rest of the application that the data in the ring buffer should be analyzed to see if this was an actual fall.
 	
 	\subsection{Design of feature extractor}
+	
+	The purpose of the feature extractor is to take the data in the ring buffer and extract 8 defined features from it. The 8 features will then be used in the neural network. The features are similar to the features defined by Abbatea et al. \cite{piza_uni}, but redefined. The data coming from the ring buffer and the features defined by the feature extractor is visualized for one example case in \ref{fig:fall-data-example}.
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-example.png} }}%
+		\caption{Recorded data from dropping the phone. Each point on the graph represents one sample in the ring buffer. The values found by the feature extractor can be seen at the top.}%
+		\label{fig:fall-data-example}%
+	\end{figure}
+	
+	
+	\subsubsection{Average acceleration variation}
+	
+	The first feature that the extractor should find is the average acceleration variation. This feature is calculated using the formula in figure \ref{fig:aamv-formula}. 
+	
+	\subsubsection{Impact duration}
+	
+	The impact duration is the time in milliseconds elapsed from the impact peak exceeding the impact threshold to the last sample that is outside of the interval [Lower motionless threshold, Upper motionless threshold].
+	
+	\subsubsection{Impact peak value}
+	
+	The impact peak value is the highest value for acceleration vector length found on the last peak. The last peak is the peak that triggered the state machine.
+	
+	\subsubsection{Impact peak duration}
+	
+	The impact peak duration is how long the last peak exceeds the impact threshold.
+	
+	\subsubsection{Longest valley value}
+	
+	The longest valley is the longest continuous time found where each sample is below the lower motionless threshold. The longest valley value is the lowest sampling value found during that time.
+	
+	\subsubsection{Longest valley duration}
+	
+	The longest valley is the same as described in longest valley value. The longest valley duration is the time in milliseconds elapsed during this interval.
+	
+	\subsubsection{Number of peaks prior to impact}
+	
+	The number of peaks prior to impact represents the number of continuous time intervals before the impact start, where each sample in the interval exceeds the impact threshold.
+	
+	\subsubsection{Number of valleys prior to impact}
+	
+	The number of valleys prior to impact is similar to the number of peaks prior to impact, but it counts the number of valleys instead of peaks. The valleys are defined as the continuous time intervals where each sample in the interval is below the lower motionless threshold.
 	
 	\subsection{Implementing a neural network}
 	

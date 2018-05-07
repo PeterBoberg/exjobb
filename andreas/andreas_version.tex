@@ -9,7 +9,6 @@
 \setmainfont{Georgia}
 \usepackage{parskip}
 \usepackage{float}
-\usepackage{amsmath}
 
 \newcommand\sectionfont{\normalfont\fontspec{Arial}\fontsize{14pt}{0}\bfseries}
 \newcommand\subsectionfont{\normalfont\fontspec{Arial}\fontsize{13pt}{0}\bfseries}
@@ -108,7 +107,7 @@
 	
 	The purpose of this study is to examine the possibility of creating an application that uses the sensors available in smart phones on the market today to detect falling accidents. This knowledge will be useful for developers interested in creating fall detection software, since it will provide solutions to the problems that we encountered during development.
 	
-	\subsection{Delimitations}
+	\subsection{Limitations}
 	
 	The main focus for this study will be fall detection. We will not prioritize user interfaces and integration with other functionality.
 	
@@ -202,8 +201,14 @@
 		\item "Still for usability reasons, the fall detection algorithm should work only with the magnitude of acceleration and not with the values along each of the three accelerometer’s axes, as this, again, would require a known and fixed orientation of the device with respect to the user’s body." \cite[p~3]{piza_uni}
 	\end{itemize}
 	
-	The latter identifies the importance of calculating the resultant vector that comprises the sum of all three vectors \textit{X}, \textit{Y} and \textit{Z}. This vector is the overall acceleration imposed on the device (and possibly the person carrying it). They proceed by defining a \textit{fall-like-event} as "an acceleration greater than \textit{3g} followed by a period of \textit{2500ms} without further peaks exceeding the threshold." \cite[p~5]{piza_uni}. They further argue that the threshold \textit{3g} is chosen since it has been widely used in other types of fall detection systems. According to their experiments, a post-fall event usually means that the body of the unfortunate becomes lying still on the ground after a period of about \textit{1000ms}. This interval, which resides within the \textit{2500ms} interval prior to fall detection, is often due to minor peaks following the main impact as a result of that parts of the body/device may hit the ground at different times. 
+	The latter identifies the importance of calculating the resultant vector that comprises the sum of all three vectors \textit{X}, \textit{Y} and \textit{Z}. Vector length can be calculated in accordance to equation \ref{vectorlength}.
 	
+	\begin{equation}
+	\label{vectorlength}
+	|\vec{v}|=\sqrt{x^2+y^2+z^2}
+	\end{equation}
+	
+	This vector is the overall acceleration imposed on the device (and possibly the person carrying it). They proceed by defining a \textit{fall-like-event} as "an acceleration greater than \textit{3g} followed by a period of \textit{2500ms} without further peaks exceeding the threshold." \cite[p~5]{piza_uni}. They further argue that the threshold \textit{3g} is chosen since it has been widely used in other types of fall detection systems. According to their experiments, a post-fall event usually means that the body of the unfortunate becomes lying still on the ground after a period of about \textit{1000ms}. This interval, which resides within the \textit{2500ms} interval prior to fall detection, is often due to minor peaks following the main impact as a result of that parts of the body/device may hit the ground at different times. 
 	
 	Abbatea et al. tries to establish their algorithm using a \textit{finite-state-machine} with five distinct states, seen in figure \ref{fig:abbatea-state-machine}.
 	
@@ -365,9 +370,111 @@
 	
 	\newpage
 	\section{Challenges and Possibilites}
-	\newpage
 	
+	
+	\newpage
 	\section{Fall Detection Application: Design and Implementation}
+	
+	\subsection{Architecture outline}
+	
+	
+	
+	\subsection{Using the accelerometer}
+	
+	
+	
+	\subsection{Design of state machine}
+	
+	For basic fall detection, a finite-state machine were used, see figure \ref{fig:state-machine}. The resultant vector coming from the accelerometer is fed as input to the state machine. The state machine reads the input and changes state based on different parameters for each state. If the state machine would reach it's final state, this would mean that a potential fall has been detected. The thresholds used for the accelerometer vector is defined as Impact Threshold (IT), Upper Motionless Threshold (UMT), Lower Motionless Threshold (LMT). The upper motionless threshold is 1.5 g, the lower motionless threshold is 0.5g, and the impact thresholds are different for Android and iOS. The impact threshold is 2.5g for Android and 4g for iOS. 
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=10cm]{../img/state-machine.png} }}%
+		\caption{Fall detection state machine}%
+		\label{fig:state-machine}%
+	\end{figure}
+	
+	\subsubsection{Normal state}
+	
+	The initial state, when the state machine starts is the normal state. If the length of the accelerometer resultant vector (a) exceeds the lower motionless threshold, a transition is made to the falling state.
+	
+	\subsubsection{Falling state}
+	
+	The falling state represents that the phone is falling freely, and it should have an acceleration close to zero, or at least under the lower motionless threshold. If the accelerometer vector length exceeds the lower motionless threshold but not the impact threshold, a transition is made to the post falling state. If the accelerometer vector length exceeds the impact threshold a transition is made to the impact state.
+	
+	\subsubsection{Post falling state}
+	
+	The post falling state is a state between the falling state and the impact state. It is here to allow a slight lag between the free falling and the impact. If the accelerometer vector length exceeds the impact threshold the machine enters the impact state. If the time since the machine entered the current state exceeds the time limit 0.1 s a transition is made back to the normal state. This is because no impact occurred in the allowed time window.
+	
+	\subsubsection{Impact state}
+	
+	The impact state represents that an impact has been detected. In this state anything is allowed to happen under a time limit. If the accelerometer vector length exceeds the impact threshold, a transition back to the impact state is made to reset the timer keeping track of the time since the state machine entered the current state. If the timer value exceeds the 2 s threshold a transition is made to the motionless state.
+	
+	\subsubsection{Motionless state}
+	
+	The motionless state exists to make sure that the phone is motionless after the fall. If the accelerometer vector length exceeds the upper motionless threshold, the machine goes back to the normal state. If the vector length drops below the lower motionless threshold a transition is made to the falling state.
+	
+	\subsubsection{Fall detected state}
+	
+	In the fall detected state, a potential fall has been detected. The machine takes action to inform the rest of the application that the data in the ring buffer should be analyzed to see if this was an actual fall.
+	
+	 
+	
+	\subsection{Design of feature extractor}
+	
+	The purpose of the feature extractor is to take the data in the ring buffer and extract 8 defined features from it. The 8 features will then be used in the neural network. The features are similar to the features defined by Abbatea et al. \cite{piza_uni}, but redefined.
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-example.png} }}%
+		\caption{Recorded data from dropping the phone. Each point on the graph represents one sample in the ring buffer.}%
+		\label{fig:fall-data-example}%
+	\end{figure}
+	
+	
+	\subsubsection{Average acceleration variation}
+	
+	The first feature that the extractor should find is the average acceleration variation. This feature is calculated using the formula in figure \ref{fig:aamv-formula}. 
+	
+	\subsubsection{Impact duration}
+	
+	The impact duration is the time in milliseconds elapsed from the impact peak exceeding the impact threshold to the last sample that is outside of the interval [Lower motionless threshold, Upper motionless threshold].
+	
+	\subsubsection{Impact peak value}
+	
+	The impact peak value is the highest value for acceleration vector length found on the last peak. The last peak is the peak that triggered the state machine.
+	
+	\subsubsection{Impact peak duration}
+	
+	The impact peak duration is how long the last peak exceeds the impact threshold.
+	
+	\subsubsection{Longest valley value}
+	
+	The longest valley is the longest continuous time found where each sample is below the lower motionless threshold. The longest valley value is the lowest sampling value found during that time.
+	
+	\subsubsection{Longest valley duration}
+	
+    The longest valley is the same as described in longest valley value. The longest valley duration is the time in milliseconds elapsed during this interval.
+    
+    \subsubsection{Number of peaks prior to impact}
+    
+    The number of peaks prior to impact represents the number of continuous time intervals before the impact start, where each sample in the interval exceeds the impact threshold.
+    
+    \subsubsection{Number of valleys prior to impact}
+    
+    The number of valleys prior to impact is similar to the number of peaks prior to impact, but it counts the number of valleys instead of peaks. The valleys are defined as the continuous time intervals where each sample in the interval is below the lower motionless threshold.
+    
+	
+	\subsection{Implementing a neural network}
+	
+	\subsubsection{Designing a model}
+	
+	\subsubsection{Training the model}
+	
+	\subsubsection{Using the model}
+	
+	
+	
 	\newpage
 	
 	\section{Fall Detection Application: Evaluation}
@@ -376,7 +483,7 @@
 	\section{Conclusions}
 	\newpage
 	
-	\bibliography{bib_andreas}
+	\bibliography{bib_common}
 	\bibliographystyle{ieeetr}
 	
 \end{document}
