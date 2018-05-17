@@ -142,8 +142,41 @@
 	
 	\section{Theoretical Background}
 	
+	\subsection{Related works} Two related works have been researched prior as means of background for this thesis. The first one is a paper produced by Yidirim et al. \cite{int_journ} and the other one is a report produced by Abbatea et al. \cite{piza_uni}. The both aim to produce an application embedded on an Android device with capabilities to detect fall accidents. They both rely on accelerometer data from the device as a means of detecting a fall but the differ significantly in how they use that data. 
+	
+	\subsubsection{Yildirim et al.}
+	Yildrim et al. \cite{int_journ} uses a simple threshold-based algorithm to detect falls. When an acceleration-peak exceeding a threshold value, followed by a drop in acceleration below another threshold value has occurred within a limited time window, their application flags the event a possible fall and presents a user interface. This user interface lets the user discard the detected fall if it was a false alarm. If the user does not discard the detected fall, the application will send an SMS to predefined contacts, informing them of the event. 
+	
+	They tested the accuracy of their algorithm, with regards to distinguish an actual fall from other activities of daily living in terms of \textit{False positives} and \textit{false negatives}. In their tests, they used a total of five people, testing different scenarios five times each, the scenarios were:
+	
+	\begin{itemize}
+		\item Falling
+		\item Walking
+		\item Sitting
+		\item Jumping
+		\item Lying
+		\item Climbing stairs
+	\end{itemize}
+	
+	The result shows that the number of \textit{false positives} were 9/25 on the falls scenario, and the number of \textit{false positives} were 7/25 on the jumping scenario. This means that their algorithm missed 9 out of 25 actual falls, and falsely flagged 7 out of 25 jumps as falls. In all other scenarios the number of \textit{false negatives/false positives} was zero. They conclude by saying that their algorithm had a hard time distinguishing between falling and jumping, but performed good in the other scenarios. 
+	
+	
+	\subsubsection{Abbatea et al.}
+	Abbatea et al. uses a significantly more sophisticated approach to detect and distinguish fall from activities of daily living. Their work involves a data buffer that continuously keeps the last few seconds of user movement activity in memory. It also includes a finite state machine as a first stop to detect a potential fall event. The state machine utilizes threshold values to establish when an impact is present and filters out the lions share of most ADL:s. User activity needs to follow a specific pattern in order to pass the state machine. Should the activity pass this first barrier, the data buffer is sent in to what they refer to as a \textit{feature Extractor}. The feature extractor examines the data in the buffer and extracts specific features of the data set such as the time and duration of the impact peak to mention just one. A total of eight features are then extracted and fed in to a neural network for classification  (\textit{The eight features are more thoroughly described in section 1.1.2 }). The neural network has a total of four output classes:
+	
+	\begin{itemize}
+		\item Falls
+		\item Jump/Run/Walk
+		\item Hitting sensor
+		\item Sitting/Lying
+	\end{itemize}
+	
+	The output of the neural network is a vector of independent probabilities [\textit{0, 1}] that the classified event belongs to each of the four classes. If the probability of the falls class exceed all the other classes, the event is considered as a fall accident and an alarm is presented on screen. The user can thus, discard the alarm if it was false, or the alarm will be sent to a number of contacts o a contact list. 
+	
+	The evaluation of their neural network model shows a 100\% success rate in classifying events correctly. However, they used the same set of data to train their neural network as they did to evaluate and cross-validate it, which tends to yield higher a evaluation score. Further, from having put their application in the hands of three test persons, who used the application in an everyday fashion, excluding falling, for three days, they concluded that no false positives were alerted. This measurement is good for evaluating the discernment of false positives, but it says nothing about the implementations ability to not discard a real fall accident as well. 
+	
 	\subsection{The physics of falling}
-	The physics of falling have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8s m/$s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{g}. A fall towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
+	The physics of falling have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8 $m/s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{g}. A fall towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
 	
 	\subsection{Approach by Yildirim et al.}
 	Yildirim et al. takes a general approach to describe the character of several motional types \cite{int_journ}. In their research, they measured the response from a LSM330DLC acceleration sensor located in an Android device. Their approach uses a threshold value to indicate whether the acceleration vector exceeds the allowed limit for a crash. The blue, red and green lines corresponds to the acceleration on any of the three perpendicular axis \textit{X}, \textit{Y} and \textit{Z} shown in figure \ref{fig:XYZ-Axis}.
@@ -175,7 +208,7 @@
 	\end{figure}
 	
 	
-	Sitting down on a surface shows a similar pattern to falling with regards to a sudden drop in acceleration followed by a rapid spike and a longer period of non-movement, see figure \ref{fig:Pattern-Sittin}. The magnitude of these values are however far less than in the case of a fall and should thus be easy to single out. When a person sits down, s/he usually makes a soft movement towards the surface, which is matched by the lesser accelerational  magnitude in all three directions \textit{X, Y} and \textit{Z}.
+	Sitting down on a surface shows a similar pattern to falling with regards to a sudden drop in acceleration followed by a rapid spike and a longer period of non-movement, see figure \ref{fig:Pattern-Sittin}. The magnitude of these values are however far less than in the case of a fall and should thus be easy to single out. When a person sits down, s/he usually makes a soft movement towards the surface, which is matched by the lesser accelerational magnitude in all three directions \textit{X, Y} and \textit{Z}.
 	
 	\begin{figure}[H]
 		\centering
@@ -263,7 +296,6 @@
 	
 	These extracted features are then fed in to a neural network with eight inputs and four neurons in a single hidden layer (\textit{neural network are thoroughly described in this free on-line book}  \cite{neural_networks}). The output layer consists of the four classes (\textit{Falls, Sitting/Lying, Jump/Run/Walk, Hitting sensor}). The network outpost the estimated probability of the event on all four classes and if the probability for the \textit{Falls}  class exceeds all other probabilities, the event is classified as a fall.
 	
-	\subsection{Related works}
 	
 	\newpage
 	\section{Methods and Methodology}
@@ -371,15 +403,53 @@
 	\newpage
 	\section{Challenges and Possibilites}
 	
+	This chapter describes the different challenges that were encountered during the research project, how they were solved and why they were solved this way.
+	
+	\subsection{Differences from the work of Abbatea et al.}
+	
+	The work made by Abbatea et al. served as a good starting point for our research project, since their work is very similar to what we want to achieve. When reading their report we thought that their work could be improved. This section describes the changes we made to their model, and why we did those changes.  
+	
+	\subsubsection{Changes in the state machine}
+	
+	The state machine used by Abbatea et al., presented in figure \ref{fig:abbatea-state-machine}, were lacking a state for free falling, that is, when the acceleration magnitude falls below \textit{g}. Their report describes that their state machine had some trouble distinguishing from a real fall and simply hitting the sensor. These cases were later filtered out by their machine learning module, which were examining if the acceleration magnitude had dropped below \textit{g} or not. For this reason we though that it would be an improvement to detect the free falling in the state machine and filter out the cases that had no free fall before the impact. We did this by introducing a state called \textit{Falling} in which the acceleration magnitude must be lower than a certain threshold.
+	
+	\subsubsection{Using a neural network}
+	
+	Initially we had not intended to implement a machine learning model in the project, since we did not think that it would be much better than just using a state machine. But since Abbatea et al. had used a neural network for their implementation we decided to give it a try. We started out with the same neural network that they had used, with 8 inputs, 8 neurons and 4 output classes. 
+
+	
+	
+	
+	
+	
+	\subsection{Running the application in background}
+	
+	\subsubsection{Android}
+	
+	\subsubsection{iOS}
+	
+	
 	
 	\newpage
 	\section{Fall Detection Application: Design and Implementation}
 	
+	
 	\subsection{Architecture outline}
+	The overall architecture of the application consists of several steps. All readings from the accelerometer is continuously pushed to a ring buffer. 	This ring buffer holds the last 8 seconds of accelerometer data. On top of this, a \textit{finite state machine} is used as a first barrier to filter out the most common movements of the device. If a fall-like event were to manipulate the state machine into its final state, the ring buffer is transferred over to a \textit{Feature Extractor}. In this step, the buffer is analyzed and a total of 8 "features" are extracted (as similar to the Abbatea et el approach). These features represent important aspects of the movement of the device for the last 8 seconds. 
 	
+	The 8 features are then put inside a data-object and fed into a \textit{Classification Engine} which consists of a neural network. This classification engine have the responsibility to classify the event based on the given features. The output classes of the neural network are; \textit{Fall}, \textit{Jump} and \textit{Run/Walk}. The neural network calculates the independent probability of the event's belonging to each of the three classes. If the probability of the event belonging to the \textit{Fall} class exceeds the other two, the event is considered a fall. 
 	
+	In the case of an event being classified as a fall, the application will present a screen along with a sonic alarm signal. The user will then have 45 seconds to discard the event or a message will be sent to a set of predefined contacts, notifying them about what´s happened.
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/arch-outline.png} }}%
+		\caption{Outline of the fall detection application}%
+		\label{fig:arch-outline}% 
+	\end{figure}
 	
 	\subsection{Using the accelerometer}
+	Using the accelerometer on the Android and iOS system is similar. Updates from the accelerometer are pushed to listening code that acts upon those updates. Updates come in the form of an data-object containing information about the device's acceleration on all three axes (\textit{X}, \textit{Y} and \textit{Z}) at that moment in time. The accelerometer's update frequency is configurable on both Android and iOS devices and we chose an update frequency of \textit{50 Hz} since it provides a reasonable balance between accuracy in measurements and battery consumption. On each update, the resultant vector is calculated according to the formula in \ref{vectorlength} and the result is put in to the ring buffer. Given this configuration, the ring buffer have a fixed length of \(50 Hz * 8s = 400\) samples. On each new update, the resultant vector is also given to the finite state machine who will act according to the description in the next section.
 	
 	
 	
@@ -389,7 +459,7 @@
 	
 	\begin{figure}[H]
 		\centering
-		\subfloat{{\includegraphics[width=10cm]{../img/state-machine.png} }}%
+		\subfloat{{\includegraphics[width=10cm]{../img/state-machine-2.png} }}%
 		\caption{Fall detection state machine}%
 		\label{fig:state-machine}%
 	\end{figure}
@@ -418,16 +488,14 @@
 	
 	In the fall detected state, a potential fall has been detected. The machine takes action to inform the rest of the application that the data in the ring buffer should be analyzed to see if this was an actual fall.
 	
-	 
-	
 	\subsection{Design of feature extractor}
 	
-	The purpose of the feature extractor is to take the data in the ring buffer and extract 8 defined features from it. The 8 features will then be used in the neural network. The features are similar to the features defined by Abbatea et al. \cite{piza_uni}, but redefined.
+	The purpose of the feature extractor is to take the data in the ring buffer and extract 8 defined features from it. The 8 features will then be used in the neural network. The features are similar to the features defined by Abbatea et al. \cite{piza_uni}, but redefined. The data coming from the ring buffer and the features defined by the feature extractor is visualized for one example case in \ref{fig:fall-data-example}.
 	
 	\begin{figure}[H]
 		\centering
 		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-example.png} }}%
-		\caption{Recorded data from dropping the phone. Each point on the graph represents one sample in the ring buffer.}%
+		\caption{Recorded data from dropping the phone. Each point on the graph represents one sample in the ring buffer. The values found by the feature extractor can be seen at the top.}%
 		\label{fig:fall-data-example}%
 	\end{figure}
 	
@@ -454,18 +522,18 @@
 	
 	\subsubsection{Longest valley duration}
 	
-    The longest valley is the same as described in longest valley value. The longest valley duration is the time in milliseconds elapsed during this interval.
-    
-    \subsubsection{Number of peaks prior to impact}
-    
-    The number of peaks prior to impact represents the number of continuous time intervals before the impact start, where each sample in the interval exceeds the impact threshold.
-    
-    \subsubsection{Number of valleys prior to impact}
-    
-    The number of valleys prior to impact is similar to the number of peaks prior to impact, but it counts the number of valleys instead of peaks. The valleys are defined as the continuous time intervals where each sample in the interval is below the lower motionless threshold.
-    
+	The longest valley is the same as described in longest valley value. The longest valley duration is the time in milliseconds elapsed during this interval.
+	
+	\subsubsection{Number of peaks prior to impact}
+	
+	The number of peaks prior to impact represents the number of continuous time intervals before the impact start, where each sample in the interval exceeds the impact threshold.
+	
+	\subsubsection{Number of valleys prior to impact}
+	
+	The number of valleys prior to impact is similar to the number of peaks prior to impact, but it counts the number of valleys instead of peaks. The valleys are defined as the continuous time intervals where each sample in the interval is below the lower motionless threshold.
 	
 	\subsection{Implementing a neural network}
+	The implementation of the neural network consists of three steps. The first step involves designing the network in terms on layers and neurons, this will from now on be referenced as \textit{the model}. The second step is related to data collection, as well as fitting and evaluating the model to make as accurate predictions as possible. The final step using the model in the application and evaluate it accurateness in real world scenarios. 
 	
 	\subsubsection{Designing a model}
 	

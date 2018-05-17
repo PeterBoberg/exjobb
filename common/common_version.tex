@@ -266,13 +266,15 @@
 	
 	
 	
-	If a fall like event has passed through the  \textit{activity test} (the last state in the state machine), it is fed through a feature extractor, which analyses the data and extracts specific and predefined features of the data set. The features represent certain particular types of data that can be found by analysing the wave form collected when sampling the accelerometer. They used a total of 8 features:
-	
+	If a fall like event has passed through the  \textit{activity test} (the last state in the state machine), it is fed through a feature extractor, which analyses the data and extracts specific and predefined features of the data set. The features represent certain particular types of data that can be found by analysing the wave form collected when sampling the accelerometer. Before describing the features they defined 3 properties:
 	\begin{itemize}
 		\item \textit{Peak time} - The time of the detected peak (which is followed by \textit{2500 ms} without further peaks).
 		\item \textit{Impact end} - The time of the last impact exceeding \textit{1,5 g} after \textit{peak time + 1000 ms}
-		\item  \textit{Impact start} - The time of the last sample below \textit{0,8 g} before \textit{peak time} or \textit{peak time} if not found.
-		
+		\item  \textit{Impact start} - The time of the last sample below \textit{0,8 g} before \textit{peak time} or \textit{peak time} if not found. 
+	\end{itemize}
+	They used a total of 8 features:
+	
+	\begin{itemize}
 		\item \textit{Average absolute Acceleration Magnitude Variation} - The average magnitude of the acceleration samples, collected in the time window (\textit{win}) of \textit{1000 ms} centred at the middle between \textit{impact start} and \textit{impact end}, can be calculated according to the formula in \ref{fig:aamv-formula}. 
 		
 		
@@ -285,6 +287,8 @@
 		
 		\item \textit{Impact Duration Index} - The duration of the impact peak, exceeding the threshold.
 		\item \textit{Maximum Peak Index} - The highest value of the peak found in the interval [\textit{impact start}, \textit{impact end}]
+		
+		\item \textit{Minimum Valley Index} - The lowest value of acceleration magnitude found in the interval [\textit{impact start} - 500 ms, \textit{impact end}]
 		
 		\item \textit{Peak duration index} - The duration represented by \textit{impact end - impact start}
 		\item \textit{Activity Ratio Index} - The number of samples in a \textit{700 ms} time window centred between \textit{impact start} and \textit{impact end} that are not in [\textit{0.85g, 1.3g}] divided by the number of total number of samples in that time window.
