@@ -6,6 +6,7 @@
 \usepackage{subfig}
 \usepackage{pgf}
 
+
 \setmainfont{Georgia}
 \titleformat{\section}
 {\normalfont\fontspec{Arial}\fontsize{20pt}{0}\bfseries}
@@ -32,10 +33,22 @@
 	
 	The result shows that the number of \textit{false positives} were 9/25 on the falls scenario, and the number of \textit{false positives} were 7/25 on the jumping scenario. This means that their algorithm missed 9 out of 25 actual falls, and falsely flagged 7 out of 25 jumps as falls. In all other scenarios the number of \textit{false negatives/false positives} was zero. They conclude by saying that their algorithm had a hard time distinguishing between falling and jumping, but performed good in the other scenarios. 
 	
-	
+
 	\subsubsection{Abbatea et al.}
-		Abbatea et al. uses a significantly more sophisticated approach to detect and distinguish fall from activities of daily living. Their work involves a finite state machine as a first stop to detect....[To be continued].
+		Abbatea et al. uses a significantly more sophisticated approach to detect and distinguish fall from activities of daily living. Their work involves a data buffer that continuously keeps the last few seconds of user movement activity in memory. It also includes a finite state machine as a first stop to detect a potential fall event. The state machine utilizes threshold values to establish when an impact is present and filters out the lions share of most ADL:s. User activity needs to follow a specific pattern in order to pass the state machine. Should the activity pass this first barrier, the data buffer is sent in to what they refer to as a \textit{feature Extractor}. The feature extractor examines the data in the buffer and extracts specific features of the data set such as the time and duration of the impact peak to mention just one. A total of eight features are then extracted and fed in to a neural network for classification  (\textit{The eight features are more thoroughly described in section 1.1.2 }). The neural network has a total of four output classes:
 		
+		\begin{itemize}
+			\item Falls
+			\item Jump/Run/Walk
+			\item Hitting sensor
+			\item Sitting/Lying
+		\end{itemize}
+	
+		The output of the neural network is a vector of independent probabilities [\textit{0, 1}] that the classified event belongs to each of the four classes. If the probability of the falls class exceed all the other classes, the event is considered as a fall accident and an alarm is presented on screen. The user can thus, discard the alarm if it was false, or the alarm will be sent to a number of contacts o a contact list. 
+		
+		The evaluation of their neural network model shows a 100\% success rate in classifying events correctly. However, they used the same set of data to train their neural network as they did to evaluate and cross-validate it, which tends to yield higher a evaluation score. Further, from having put their application in the hands of three test persons, who used the application in an everyday fashion, excluding falling, for three days, they concluded that no false positives were alerted. This measurement is good for evaluating the discernment of false positives, but it says nothing about the implementations ability to not discard a real fall accident as well. 
+
+
 		
 		\subsection{Architecture outline}
 			The overall architecture of the application consists of several steps. All readings from the accelerometer is continuously pushed to a ring buffer. This ring buffer holds the last 8 seconds of accelerometer data. On top of this, a finite state machine is used as a first barrier to filter out the most common movements of the device. If a fall-like event were to manipulate the state machine into its final state, the ring buffer is transferred over to a \texttt{Feature Extractor}. In this step, the buffer is analyzed and a total of 8 "features" are extracted (as similar to the Abbatea et el approach). These features represent important aspects of the movement of the device for the last 8 seconds. 
@@ -46,7 +59,7 @@
 			
 			\paragraph{Insert image here}
 	
-	
+			
 		\subsection{Using the accelerometer}
 			Using the accelerometer on the Android and iOS system is similar. Updates from the accelerometer are pushed to listening code that acts upon those updates. Updates come in the form of an data-object containing information about the device's acceleration on all three axes (\textit{X}, \textit{Y} and \textit{Z}) at that moment in time. The accelerometer's update frequency is configurable on both Android and iOS devices and we chose an update frequency of \textit{50 Hz} since it provides a reasonable balance between accuracy in measurements and battery consumption. On each update, the resultant vector is calculated according to the formula in \ref{vectorlength} and the result is put in to the ring buffer. Given this configuration, the ring buffer have a fixed length of \(50 Hz * 8 seconds = 400 samples\). 
 			

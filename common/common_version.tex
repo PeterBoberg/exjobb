@@ -162,7 +162,18 @@
 	
 	
 	\subsubsection{Abbatea et al.}
-	Abbatea et al. uses a significantly more sophisticated approach to detect and distinguish fall from activities of daily living. Their work involves a finite state machine as a first stop to detect....[To be continued].
+	Abbatea et al. uses a significantly more sophisticated approach to detect and distinguish fall from activities of daily living. Their work involves a data buffer that continuously keeps the last few seconds of user movement activity in memory. It also includes a finite state machine as a first stop to detect a potential fall event. The state machine utilizes threshold values to establish when an impact is present and filters out the lions share of most ADL:s. User activity needs to follow a specific pattern in order to pass the state machine. Should the activity pass this first barrier, the data buffer is sent in to what they refer to as a \textit{feature Extractor}. The feature extractor examines the data in the buffer and extracts specific features of the data set such as the time and duration of the impact peak to mention just one. A total of eight features are then extracted and fed in to a neural network for classification  (\textit{The eight features are more thoroughly described in section 1.1.2 }). The neural network has a total of four output classes:
+
+	\begin{itemize}
+		\item Falls
+		\item Jump/Run/Walk
+		\item Hitting sensor
+		\item Sitting/Lying
+	\end{itemize}
+
+	The output of the neural network is a vector of independent probabilities [\textit{0, 1}] that the classified event belongs to each of the four classes. If the probability of the falls class exceed all the other classes, the event is considered as a fall accident and an alarm is presented on screen. The user can thus, discard the alarm if it was false, or the alarm will be sent to a number of contacts o a contact list. 
+
+	The evaluation of their neural network model shows a 100\% success rate in classifying events correctly. However, they used the same set of data to train their neural network as they did to evaluate and cross-validate it, which tends to yield higher a evaluation score. Further, from having put their application in the hands of three test persons, who used the application in an everyday fashion, excluding falling, for three days, they concluded that no false positives were alerted. This measurement is good for evaluating the discernment of false positives, but it says nothing about the implementations ability to not discard a real fall accident as well. 
 	
 	\subsection{The physics of falling}
 	The physics of falling have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8s m/$s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{g}. A fall towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
