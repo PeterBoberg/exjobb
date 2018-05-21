@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  21 MAY 2018 12:16
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  21 MAY 2018 13:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -875,13 +875,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [1
 
-] [2]
-Overfull \hbox (6.1219pt too wide) in paragraph at lines 75--77
-\TU/Georgia(0)/m/n/12 tion, RQ1, regarding how a fall detection application can
- be created, it should
+] [2] [3]
+Overfull \hbox (9.54558pt too wide) in paragraph at lines 78--80
+\TU/Georgia(0)/m/n/12 same methods should ideally come to the same conclusions.
+ Our first method
  []
 
-[3] [4] (./andreas_version.bbl
+[4] (./andreas_version.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 

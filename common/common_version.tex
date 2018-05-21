@@ -137,6 +137,10 @@
 	
 	\section{Theoretical Background}
 	
+	\subsection{The physics of falling}
+	The physics of falling have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8 $m/s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{g}. A fall towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
+	
+	
 	\subsection{Related works} Two related works have been researched prior as means of background for this thesis. The first one is a paper produced by Yidirim et al. \cite{int_journ} and the other one is a report produced by Abbatea et al. \cite{piza_uni}. The both aim to produce an application embedded on an Android device with capabilities to detect fall accidents. They both rely on accelerometer data from the device as a means of detecting a fall but the differ significantly in how they use that data. 
 	
 	\subsubsection{Yildirim et al.}
@@ -170,8 +174,9 @@
 
 	The evaluation of their neural network model shows a 100\% success rate in classifying events correctly. However, they used the same set of data to train their neural network as they did to evaluate and cross-validate it, which tends to yield higher a evaluation score. Further, from having put their application in the hands of three test persons, who used the application in an everyday fashion, excluding falling, for three days, they concluded that no false positives were alerted. This measurement is good for evaluating the discernment of false positives, but it says nothing about the implementations ability to not discard a real fall accident as well. 
 	
-	\subsection{The physics of falling}
-	The physics of falling have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8 $m/s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{g}. A fall towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
+	\subsubsection{Existing application: FallSafety}
+	
+	There already exists several applications for fall detection on the market. The best one that we have found is called \textit{FallSafety}. This application allows a user to register contact information to relatives and start protection mode. In this protection mode the application listens for falls and if a fall would be detected the application can send an email or SMS to the registered contacts. This is very similar to the application that we will create, but we know nothing about the internals of FallSafety. We can however use this application as a comparison when evaluating our application.
 	
 	\subsection{Approach by Yildirim et al.}
 	Yildirim et al. takes a general approach to describe the character of several motional types \cite{int_journ}. In their research, they measured the response from a LSM330DLC acceleration sensor located in an Android device. Their approach uses a threshold value to indicate whether the acceleration vector exceeds the allowed limit for a crash. The blue, red and green lines corresponds to the acceleration on any of the three perpendicular axis \textit{X}, \textit{Y} and \textit{Z} shown in figure \ref{fig:XYZ-Axis}.
