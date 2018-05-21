@@ -423,15 +423,14 @@
 	
 	\subsection{Running the application in background}
 	
-	When implementing fall detection in a smart phone it is important that the application can run in background mode. Since the application is supposed to run for a long time we cannot expect the user to have the application visible in foreground all the time. This turned out to be quite troublesome, at least in iOS, this section describes how this challenge were solved on the different platforms.
+	When implementing fall detection in a smart phone it is important that the application can run in background mode. By background mode we hereby refer to when the app is not present on the screen. This means that the app is either behind another application when the user is using the device, or when the device itself is locked. Since the application is supposed to run for a long time we cannot expect the user to have the application visible in foreground all the time. This turned out to be quite troublesome, at least in iOS, this section describes how this challenge were solved on the different platforms.
 	
 	\subsubsection{Android}
 	
 	In Android, it is possible to define a background task by creating a class that extends \texttt{android.app.Service}. We chose to create a Service that communicates with our state machine and classification engine, and if a fall is  detected the Service broadcasts the fall to any registered \\ \texttt{android.content.BroadcastReceiver}.
 	
 	\subsubsection{iOS}
-	
-	
+	iOS is very strict with regards to allowing applications to do background processing , only a few types of background tasks are allowed such as playing audio, getting location updates or downloading content from the internet to mention some. However, by signing up for one of the allowed background modes, the app can be kept alive in the background and thus perform other tasks in the meantime such as sampling the accelerometer. Since location updates is needed to alert emergency contact about the users location in case of a fall accident, our choice of background mode is location services.
 	
 	\newpage
 	\section{Fall Detection Application: Design and Implementation}
