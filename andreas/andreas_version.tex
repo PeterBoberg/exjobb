@@ -405,17 +405,17 @@
 	
 	This chapter describes the different challenges that were encountered during the research project, how they were solved and why they were solved this way.
 	
-	\subsection{Differences from the work of Abbatea et al.}
+	\subsection{Changes in the state machine}
 	
-	The work made by Abbatea et al. served as a good starting point for our research project, since their work is very similar to what we want to achieve. When reading their report we thought that their work could be improved. This section describes the changes we made to their model, and why we did those changes.  
+	The work made by Abbatea et al. served as a good starting point for our research project, since their work is very similar to what we want to achieve. When reading their report we thought that their work could be improved on some points. One of them were the state machine. The state machine used by Abbatea et al., presented in figure \ref{fig:abbatea-state-machine}, were lacking a state for free falling, that is, when the acceleration magnitude drops below \textit{g}. Their report describes that their state machine had some trouble distinguishing from a real fall and simply hitting the sensor. These cases were later filtered out by their machine learning module, which were examining if the acceleration magnitude had dropped below \textit{g} or not. For this reason we though that it would be an improvement to detect the free falling in the state machine and filter out the cases that had no free fall before the impact. We did this by introducing a state called \textit{Falling} in which the acceleration magnitude must be lower than a certain threshold.
 	
-	\subsubsection{Changes in the state machine}
+	\subsection{Using a neural network}
 	
-	The state machine used by Abbatea et al., presented in figure \ref{fig:abbatea-state-machine}, were lacking a state for free falling, that is, when the acceleration magnitude falls below \textit{g}. Their report describes that their state machine had some trouble distinguishing from a real fall and simply hitting the sensor. These cases were later filtered out by their machine learning module, which were examining if the acceleration magnitude had dropped below \textit{g} or not. For this reason we though that it would be an improvement to detect the free falling in the state machine and filter out the cases that had no free fall before the impact. We did this by introducing a state called \textit{Falling} in which the acceleration magnitude must be lower than a certain threshold.
+	Initially we had not intended to implement a machine learning model in the project, since we did not think that it would be much better than just using a state machine. But since Abbatea et al. had used a neural network for their implementation we decided to give it a try. We defined the features that were fed into the neural network slightly different. The first main difference where that we did not include their \textit{Activity Ration Index} since the difference in value for that feature between the different classes were small. The other main difference were that we did not use their \textit{Step Count Index}, since we defined \textit{Number of peaks prior to impact} and \textit{Number of valleys prior to impact} instead, distinguishing from peaks and valleys instead of just counting steps. 
 	
-	\subsubsection{Using a neural network}
+	After we had decided which features to extract we started to experiment with the neural network. We started out with the same neural network that they had used, with 8 inputs, 8 neurons and 4 output classes, but we fed the network with our 8 features instead of theirs. While experimenting with collecting data and training the model we realized that one of the 4 output classes, \textit{Hit device}, were never encountered. This is probably due to the difference in the state machine, indicating that our state machine had successfully filtered out that class before reaching the machine learning model. Since that class were never detected there were no need to keep it in the neural network, so we removed it.
 	
-	Initially we had not intended to implement a machine learning model in the project, since we did not think that it would be much better than just using a state machine. But since Abbatea et al. had used a neural network for their implementation we decided to give it a try. We started out with the same neural network that they had used, with 8 inputs, 8 neurons and 4 output classes. 
+	To see if the accuracy in the model could be improved while training, we experimented with adding additional layers of neurons. We tried to use 2, 3 or 4 layers of neurons instead of just one, but the experiments showed that the accuracy in the model decreased, for this reason we removed the additional layers and went back to a single layer of neurons.
 
 	
 	
@@ -424,7 +424,11 @@
 	
 	\subsection{Running the application in background}
 	
+	When implementing fall detection in a smart phone it is important that the application can run in background mode. Since the application is supposed to run for a long time we cannot expect the user to have the application visible in foreground all the time. This turned out to be quite troublesome, at least in iOS, this section describes how this challenge were solved on the different platforms.
+	
 	\subsubsection{Android}
+	
+	In Android, it is possible to define a background task by creating a class that extends \texttt{android.app.Service}. We chose to create a Service that communicates with our state machine and classification engine, and if a fall is  detected the Service broadcasts the fall to any registered \\ \texttt{android.content.BroadcastReceiver}.
 	
 	\subsubsection{iOS}
 	
@@ -459,9 +463,16 @@
 	
 	\begin{figure}[H]
 		\centering
-		\subfloat{{\includegraphics[width=10cm]{../img/state-machine-2.png} }}%
+		\subfloat{{\includegraphics[width=16cm]{../img/state-machine-2.png} }}%
 		\caption{Fall detection state machine}%
 		\label{fig:state-machine}%
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-state-machine.png} }}%
+		\caption{Visualization of how the state machine passes through the different states during a potential fall, along with the acceleration magnitude. The colors of the different states correspond to the colors of the states in figure \ref{fig:state-machine}.}%
+		\label{fig:fall-data-state-machine}%
 	\end{figure}
 	
 	\subsubsection{Normal state}
@@ -500,37 +511,112 @@
 	\end{figure}
 	
 	
+	
 	\subsubsection{Average acceleration variation}
 	
-	The first feature that the extractor should find is the average acceleration variation. This feature is calculated using the formula in figure \ref{fig:aamv-formula}. 
+	The first feature that the extractor should find is the average acceleration variation. This feature is calculated using the formula in figure \ref{fig:aamv-formula}. This feature is supposed to measure how much the acceleration variates after the initial impact peak. Figures \ref{fig:fall-data-run-ios} and \ref{fig:fall-data-run-android} shows examples of where this variation is significant, as compared to figures \ref{fig:fall-data-fall-ios} and \ref{fig:fall-data-fall-android} where the variation is small.
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-run-ios.png} }}%
+		\caption{Recorded data on iOS while running. The acceleration variation after the peak is significant.}%
+		\label{fig:fall-data-run-ios}%
+	\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfloat{{\includegraphics[width=14cm]{../img/fall-data-run-android.png} }}%
+	\caption{Recorded data on Android while running. The acceleration variation after the peak is significant.}%
+	\label{fig:fall-data-run-android}%
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfloat{{\includegraphics[width=14cm]{../img/fall-data-fall-ios.png} }}%
+	\caption{Recorded data on iOS for a fall. The acceleration variation after the peak is small.}%
+	\label{fig:fall-data-fall-ios}%
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\subfloat{{\includegraphics[width=14cm]{../img/fall-data-fall-android.png} }}%
+	\caption{Recorded data on Android for a fall. The acceleration variation after the peak is small.}%
+	\label{fig:fall-data-fall-android}%
+\end{figure}
+
+
 	
 	\subsubsection{Impact duration}
 	
-	The impact duration is the time in milliseconds elapsed from the impact peak exceeding the impact threshold to the last sample that is outside of the interval [Lower motionless threshold, Upper motionless threshold].
+	The impact duration is the time in milliseconds elapsed from the first sample of the impact peak exceeding the impact threshold to the last sample that is outside of the interval [Lower motionless threshold, Upper motionless threshold]. An example of impact duration is highlighted in figure \ref{fig:fall-data-impact-duration}.
+	
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-impact-duration-android-highlight.png} }}%
+		\caption{Visualization of impact duration. The impact duration is highlighted in green. The impact start is around 3700 ms and impact end around 4080 ms, which gives an impact duration of \textit{4080 - 3700 = 380 ms}.}%
+		\label{fig:fall-data-impact-duration}%
+	\end{figure}
 	
 	\subsubsection{Impact peak value}
 	
-	The impact peak value is the highest value for acceleration vector length found on the last peak. The last peak is the peak that triggered the state machine.
+	The impact peak value is the highest value for acceleration vector length found on the last peak. The last peak is the peak that triggered the state machine. An example of impact peak value is highlighted in figure \ref{fig:fall-data-impact-peak}.
+	
+		\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-impact-peak-highlight.png} }}%
+		\caption{Visualization of impact peak value. This fall has a significant impact peak value of around \textit{8.6g}}%
+		\label{fig:fall-data-impact-peak}%
+	\end{figure}
 	
 	\subsubsection{Impact peak duration}
 	
-	The impact peak duration is how long the last peak exceeds the impact threshold.
+	The impact peak duration is the time in ms that the last peak exceeds the impact threshold. An example of this is shown in figure \ref{fig:fall-data-impact-peak-duration}.
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-impact-peak-duration-highlight.png} }}%
+		\caption{Visualization of impact peak duration. The impact peak duration is highlighted in green.}%
+		\label{fig:fall-data-impact-peak-duration}%
+	\end{figure}
 	
 	\subsubsection{Longest valley value}
 	
-	The longest valley is the longest continuous time found where each sample is below the lower motionless threshold. The longest valley value is the lowest sampling value found during that time.
+	The longest valley is the longest continuous time found where each sample is below the lower motionless threshold. The longest valley value is the lowest sampling value found during that time. An example of longest valley value is shown in figure \ref{fig:fall-data-longest-valley-value}
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-longest-valley-value-highlight.png} }}%
+		\caption{Visualization of longest valley value. The longest valley value is highlighted in green.}%
+		\label{fig:fall-data-longest-valley-value}%
+	\end{figure}
 	
 	\subsubsection{Longest valley duration}
 	
-	The longest valley is the same as described in longest valley value. The longest valley duration is the time in milliseconds elapsed during this interval.
+	The longest valley is the same as described in longest valley value. The longest valley duration is the time in milliseconds elapsed during this interval. The time period for longest valley duration is highlighted in figure \ref{fig:fall-data-longest-valley-duration}.
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-longest-valley-duration.png} }}%
+		\caption{Visualization of longest valley duration. The longest valley duration is highlighted in green.}%
+		\label{fig:fall-data-longest-valley-duration}%
+	\end{figure}
 	
 	\subsubsection{Number of peaks prior to impact}
 	
-	The number of peaks prior to impact represents the number of continuous time intervals before the impact start, where each sample in the interval exceeds the impact threshold.
+	The number of peaks prior to impact represents the number of continuous time intervals before the impact start, where each sample in the interval exceeds the impact threshold. Peaks prior to impact are highlighted in green in figure \ref{fig:fall-data-peaks-and-valleys}.
 	
 	\subsubsection{Number of valleys prior to impact}
 	
-	The number of valleys prior to impact is similar to the number of peaks prior to impact, but it counts the number of valleys instead of peaks. The valleys are defined as the continuous time intervals where each sample in the interval is below the lower motionless threshold.
+	The number of valleys prior to impact is similar to the number of peaks prior to impact, but it counts the number of valleys instead of peaks. The valleys are defined as the continuous time intervals where each sample in the interval is below the lower motionless threshold. The valleys prior to impact are highlighted in red in figure \ref{fig:fall-data-peaks-and-valleys}.
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-peaks-and-valleys.png} }}%
+		\caption{Visualization of peaks and valleys prior to impact. The peaks are marked with green and the valleys are marked with red. In this example there are 4 peaks prior to impact, and 4 valleys prior to impact.}%
+		\label{fig:fall-data-peaks-and-valleys}%
+	\end{figure}
 	
 	\subsection{Implementing a neural network}
 	The implementation of the neural network consists of three steps. The first step involves designing the network in terms on layers and neurons, this will from now on be referenced as \textit{the model}. The second step is related to data collection, as well as fitting and evaluating the model to make as accurate predictions as possible. The final step using the model in the application and evaluate it accurateness in real world scenarios. 
