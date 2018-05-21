@@ -1,80 +1,81 @@
 \documentclass[12pt, a4paper, onecolumn]{article}
 \usepackage{fontspec}
 \usepackage{titlesec}
+\usepackage{tocloft}
 \usepackage[english]{babel}
 \usepackage{blindtext}
 \usepackage{subfig}
 \usepackage{pgf}
-
-
 \setmainfont{Georgia}
-\titleformat{\section}
-{\normalfont\fontspec{Arial}\fontsize{20pt}{0}\bfseries}
-{\thesection}{20pt}{}
+\usepackage{parskip}
+\usepackage{float}
+
+\newcommand\sectionfont{\normalfont\fontspec{Arial}\fontsize{14pt}{0}\bfseries}
+\newcommand\subsectionfont{\normalfont\fontspec{Arial}\fontsize{13pt}{0}\bfseries}
+\newcommand\subsubsectionfont{\normalfont\fontspec{Arial}\fontsize{12pt}{0}\bfseries}
+\newcommand\tocsectionfont{\normalfont\fontspec{Arial}\fontsize{12pt}{0}\bfseries}
+\newcommand\tocsubsectionfont{\normalfont\fontspec{Arial}\fontsize{11pt}{0}\bfseries}
+\newcommand\tocsubsubsectionfont{\normalfont\fontspec{Arial}\fontsize{11pt}{0}}
+\newcommand\toctitlefont{\normalfont\fontspec{Arial}\fontsize{16pt}{0}\bfseries}
+
+\titleformat{\section}{\sectionfont}{\thesection}{20pt}{}
+\titleformat{\subsection}{\subsectionfont}{\thesubsection}{20pt}{}
+\titleformat{\subsubsection}{\subsubsectionfont}{\thesubsubsection}{20pt}{}
+
+\renewcommand{\cftsecfont}{\tocsectionfont}
+\renewcommand{\cftsubsecfont}{\tocsubsectionfont}
+\renewcommand{\cftsubsubsecfont}{\tocsubsubsectionfont}
+\renewcommand{\cftsecpagefont}{\tocsectionfont}
+\renewcommand{\cftsubsecpagefont}{\tocsubsectionfont}
+\renewcommand{\cftsubsubsecpagefont}{\tocsubsubsectionfont}
+\renewcommand{\cfttoctitlefont}{\toctitlefont}
+
+\newcommand{\parag}[1]{
+	\textbf{#1} \hspace{0pt} \\
+}
+
+\addto\captionsenglish{
+	\renewcommand{\contentsname}{Table of Contents}
+}
 
 \begin{document}
 
-\section{Theoretical Background}
-	\subsection{Related works} Two related works have been researched prior as means of background for this thesis. The first one is a paper produced by Yidirim et al. \cite{int_journ} and the other one is a report produced by Abbatea et al. \cite{piza_uni}. The both aim to produce an application embedded on an Android device with capabilities to detect fall accidents. They both rely on accelerometer data from the device as a means of detecting a fall but the differ significantly in how they use that data. 
-	
-	\subsubsection{Yildirim et al.}
-	Yildrim et al. \cite{int_journ} uses a simple threshold-based algorithm to detect falls. When an acceleration-peak exceeding a threshold value, followed by a drop in acceleration below another threshold value has occurred within a limited time window, their application flags the event a possible fall and presents a user interface. This user interface lets the user discard the detected fall if it was a false alarm. If the user does not discard the detected fall, the application will send an SMS to predefined contacts, informing them of the event. 
-	
-	They tested the accuracy of their algorithm, with regards to distinguish an actual fall from other activities of daily living in terms of \textit{False positives} and \textit{false negatives}. In their tests, they used a total of five people, testing different scenarios five times each, the scenarios were:
-	
-		\begin{itemize}
-			\item Falling
-			\item Walking
-			\item Sitting
-			\item Jumping
-			\item Lying
-			\item Climbing stairs
-		\end{itemize}
-	
-	The result shows that the number of \textit{false positives} were 9/25 on the falls scenario, and the number of \textit{false positives} were 7/25 on the jumping scenario. This means that their algorithm missed 9 out of 25 actual falls, and falsely flagged 7 out of 25 jumps as falls. In all other scenarios the number of \textit{false negatives/false positives} was zero. They conclude by saying that their algorithm had a hard time distinguishing between falling and jumping, but performed good in the other scenarios. 
-	
-
-	\subsubsection{Abbatea et al.}
-		Abbatea et al. uses a significantly more sophisticated approach to detect and distinguish fall from activities of daily living. Their work involves a data buffer that continuously keeps the last few seconds of user movement activity in memory. It also includes a finite state machine as a first stop to detect a potential fall event. The state machine utilizes threshold values to establish when an impact is present and filters out the lions share of most ADL:s. User activity needs to follow a specific pattern in order to pass the state machine. Should the activity pass this first barrier, the data buffer is sent in to what they refer to as a \textit{feature Extractor}. The feature extractor examines the data in the buffer and extracts specific features of the data set such as the time and duration of the impact peak to mention just one. A total of eight features are then extracted and fed in to a neural network for classification  (\textit{The eight features are more thoroughly described in section 1.1.2 }). The neural network has a total of four output classes:
-		
-		\begin{itemize}
-			\item Falls
-			\item Jump/Run/Walk
-			\item Hitting sensor
-			\item Sitting/Lying
-		\end{itemize}
-	
-		The output of the neural network is a vector of independent probabilities [\textit{0, 1}] that the classified event belongs to each of the four classes. If the probability of the falls class exceed all the other classes, the event is considered as a fall accident and an alarm is presented on screen. The user can thus, discard the alarm if it was false, or the alarm will be sent to a number of contacts o a contact list. 
-		
-		The evaluation of their neural network model shows a 100\% success rate in classifying events correctly. However, they used the same set of data to train their neural network as they did to evaluate and cross-validate it, which tends to yield higher a evaluation score. Further, from having put their application in the hands of three test persons, who used the application in an everyday fashion, excluding falling, for three days, they concluded that no false positives were alerted. This measurement is good for evaluating the discernment of false positives, but it says nothing about the implementations ability to not discard a real fall accident as well. 
-
-
-		
-		\subsection{Architecture outline}
-			The overall architecture of the application consists of several steps. All readings from the accelerometer is continuously pushed to a ring buffer. This ring buffer holds the last 8 seconds of accelerometer data. On top of this, a finite state machine is used as a first barrier to filter out the most common movements of the device. If a fall-like event were to manipulate the state machine into its final state, the ring buffer is transferred over to a \texttt{Feature Extractor}. In this step, the buffer is analyzed and a total of 8 "features" are extracted (as similar to the Abbatea et el approach). These features represent important aspects of the movement of the device for the last 8 seconds. 
-			
-			The 8 features are then put inside a data-object and fed into a \texttt{Classification Engine} which consists of a neural network. This classification engine have the responsibility to classify the event based on the given features. The output classes of the neural network are; \textit{Fall}, \textit{Jump} and \textit{Run/Walk}. The neural network calculates the independent probability of the event's belonging to each of the three classes. If the probability of the event belonging to the \textit{Fall} class exceeds the other two, the event is considered a fall. 
-			
-			In the case of an event being classified as a fall, the application will present a screen along with a sonic alarm signal. The user will then have 45 seconds to discard the event or a message will be sent to a set of predefined contacts, notifying them about what´s happened.
-			
-			\paragraph{Insert image here}
-	
-			
-		\subsection{Using the accelerometer}
-			Using the accelerometer on the Android and iOS system is similar. Updates from the accelerometer are pushed to listening code that acts upon those updates. Updates come in the form of an data-object containing information about the device's acceleration on all three axes (\textit{X}, \textit{Y} and \textit{Z}) at that moment in time. The accelerometer's update frequency is configurable on both Android and iOS devices and we chose an update frequency of \textit{50 Hz} since it provides a reasonable balance between accuracy in measurements and battery consumption. On each update, the resultant vector is calculated according to the formula in \ref{vectorlength} and the result is put in to the ring buffer. Given this configuration, the ring buffer have a fixed length of \(50 Hz * 8 seconds = 400 samples\). 
-			
-			On each new update, the resultant vector is also given to the finite state machine who will act according to the description in the next section.
-	
-
+\section{Result}
 		\subsection{Implementing a neural network}
-			The implementation of the neural network consists of three steps. The first step involves designing the network in terms on layers and neurons, this will from now on be referenced as \textit{the model}. The second step is related to data collection, as well as fitting and evaluating the model to make as accurate predictions as possible. The final step using the model in the application and evaluate it accurateness in real world scenarios. 
+			The implementation of the neural network consists of three steps. The first step is related to data collection. The second step involves designing the network in terms on layers and neurons, \textit{this will from now on be referenced as the model}, as well as fitting and evaluating the model to make as accurate predictions as possible. The final step using the model in the application and evaluate its accurateness in real world scenarios. The full process from data collection to final model can be seen in figure \ref{fig:training-model}.
+			
+			\begin{figure}[H]
+				\centering
+				\subfloat{{\includegraphics[width=15cm]{../img/training-model.png} }}%
+				\caption{The process of collecting data and training the model}%
+				\label{fig:training-model}%
+			\end{figure}
+			
+		\subsubsection{Data collection}
+		In order to collect motion data, we intercept every event that passed through our state-machine and following feature-extractor described in \textit{5.3} and \textit{5.4}. Thus, for all events that are recognized as a potential fall candidate, we have an object with its own set of the eight features described in \textit{5.4} as well as the original 400 sample long array of acceleration data collected from the accelerometer. The features are to be used when training the model and the array of data points is only used for visualization of the event on our graphical tool. Each event is labeled according to the class is belongs to \textit{fall, run/walk, jump}). The last step is to save each event to a database. 
+		
+		When collecting data for the \textit{run/walk} and \textit{jump} classes, we placed the device in the trouser pocket (\textit{a normal place to keep the device in everyday life}) and walked, ran and jumped respectively. Collecting data for the \textit{fall} class was done by letting the phone fall from different altitudes ranging from 1,5 m up to 3 m and landing on different natural surfaces. A series of events simulating falling while walking was also done by simply walking/running with the device and drop it to the ground mid walk.
+		
+		In total, 210 samples were collected, evenly distributed between the different classes and devices.
 
 		\subsubsection{Designing a model}
-			The neural network is built using \textit{Tensor Flow}, \textit{Keras} and the \textit{Python} programing language. 
+			The neural network is built using \textit{Tensor Flow}, \textit{Keras} and the \textit{Python} programming language. After experimentation with the amount of hidden layers and neurons when training the model we arrived at the conclusion that a single hidden layer with seven neurons yielded the best possible accuracy given our data set. The activation function is set to \textit{sigmoid} for the hidden layer as well as the output layer. The result is a neural network with eight inputs, one for each feature, and three outputs, one for each class. 
+			
+			\begin{figure}[H]
+				\centering
+				\subfloat{{\includegraphics[width=15cm]{../img/neural-network-model.png} }}%
+				\caption{The neural network}%
+				\label{fig:neural-network}%
+			\end{figure}
 
 		\subsubsection{Training the model}
+			When training the model, we downloaded all the data samples from the database and printed them to a CSV-file using our stand alone graphical utility tool. The dataset is then split up between training-set, and evaluation-set on a ratio of 9:1. The training set contains the labeled training data whereas the evaluation-set contains unlabeled data for measurement and cross-validation. The network training program uses the commonly used feed-forward <-> back-propagation method \cite{neural_networks} to fit the model. 
 
+		
 		\subsubsection{Using the model}
+			The trained and evaluated neural network are finally converted into two separate file formats that can be used natively in iOS and Android applications. The generated files are simply included in the mobile application project after what they can be used to make predictions on future real life events. The input to the models are a vector of length eight, containing the values of the eight features for an event extracted by the feature-extractor. The output is a vector of length three, containing the independent probabilities of class adherence for the same event. 
+			
+			In the final product, where data collection functionality is removed, it is the values in the output vector that are used to finally decide if an event are to be classified as a fall accident or not. If the probability that the event belongs to the fall-class exceeds the other two, the application flags the event as a fall and presents the discard screen to the user, otherwise, the event will be automatically discarded by the application. 
 
 \bibliography{bib_peter}
 \bibliographystyle{ieeetr}
