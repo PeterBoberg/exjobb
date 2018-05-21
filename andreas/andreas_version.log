@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  21 MAY 2018 09:29
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  21 MAY 2018 12:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -869,250 +869,30 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 2.
- [1
-
-] [2])
+)
 \tf@toc=\write4
 \openout4 = `andreas_version.toc'.
 
- [3]
+ [1
 
-LaTeX Warning: Citation `who' on page 4 undefined on input line 51.
-
-
-LaTeX Warning: Citation `who' on page 4 undefined on input line 51.
-
-
-LaTeX Warning: Citation `msb_report' on page 4 undefined on input line 61.
-
-
-LaTeX Warning: Citation `soc_olyckor' on page 4 undefined on input line 61.
-
-
-LaTeX Warning: Citation `msb_report' on page 4 undefined on input line 61.
-
-
-LaTeX Warning: Citation `av' on page 4 undefined on input line 65.
-
-[4]
-File: ../img/Fall_from_ground_women_and_men.png Graphic file (type QTm)
- <use  "../img/Fall_from_ground_women_and_men.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 69--71
- [][] 
+] [2]
+Overfull \hbox (6.1219pt too wide) in paragraph at lines 75--77
+\TU/Georgia(0)/m/n/12 tion, RQ1, regarding how a fall detection application can
+ be created, it should
  []
 
-File: ../img/Falls_from_elevated_height_men_and_women.png Graphic file (type QT
-m)
-<use  "../img/Falls_from_elevated_height_men_and_women.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 78--80
- [][] 
- []
-
-[5] [6] [7] [8] [9]
-
-LaTeX Warning: Citation `int_journ' on page 10 undefined on input line 145.
-
-
-LaTeX Warning: Citation `piza_uni' on page 10 undefined on input line 145.
-
-
-LaTeX Warning: Citation `int_journ' on page 10 undefined on input line 148.
-
-[10] [11]
-
-LaTeX Warning: Citation `int_journ' on page 12 undefined on input line 182.
-
-File: ../img/accelerometer-axis.jpg Graphic file (type QTm)
-<use  "../img/accelerometer-axis.jpg" > [12]
-File: ../img/Falling.png Graphic file (type QTm)
- <use  "../img/Falling.png" >
-File: ../img/Walking.png Graphic file (type QTm)
-
-<use  "../img/Walking.png" > [13]
-File: ../img/Sitting_down.png Graphic file (type QTm)
- <use  "../img/Sitting_down.png" >
-File: ../img/Jumping.png Graphic file (type QTm)
-
-<use  "../img/Jumping.png" > [14]
-
-LaTeX Warning: Citation `piza_uni' on page 15 undefined on input line 232.
-
-
-Overfull \hbox (0.49219pt too wide) in paragraph at lines 232--233
-[]\TU/Georgia(0)/m/n/12 ”Detection of falls should be carried out using only ac
-celeration-based
- []
-
-
-LaTeX Warning: Citation `piza_uni' on page 15 undefined on input line 234.
-
-
-LaTeX Warning: Citation `piza_uni' on page 15 undefined on input line 244.
-
-[15]
-Overfull \hbox (0.91759pt too wide) in paragraph at lines 255--256
-\TU/Georgia(0)/m/n/12 tain thresholds are detected, it once again signals that 
-activity is found
- []
-
-File: ../img/Abbatea_finite_state_machine.png Graphic file (type QTm)
-<use  "../img/Abbatea_finite_state_machine.png" > [16]
-File: ../img/AAMV_formula.png Graphic file (type QTm)
-
-<use  "../img/AAMV_formula.png" >
-
-LaTeX Warning: Citation `piza_uni' on page 17 undefined on input line 282.
-
-
-LaTeX Warning: Citation `piza_uni' on page 17 undefined on input line 282.
-
-[17]
-
-LaTeX Warning: Citation `neural_networks' on page 18 undefined on input line 29
-7.
-
-[18]
-
-LaTeX Warning: Citation `borrego' on page 19 undefined on input line 313.
-
-
-LaTeX Warning: Citation `borrego' on page 19 undefined on input line 315.
-
-
-LaTeX Warning: Citation `yin' on page 19 undefined on input line 325.
-
-[19] [20]
-File: ../img/method-phases.png Graphic file (type QTm)
- <use  "../img/method-phases.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 354--355
- [][] 
- []
-
-[21]
-File: ../img/method-development.png Graphic file (type QTm)
- <use  "../img/method-development.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 371--372
- [][] 
- []
-
-[22] [23] [24] [25] [26]
-File: ../img/arch-outline.png Graphic file (type QTm)
- <use  "../img/arch-outline.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 450--451
- [][] 
- []
-
-[27]
-File: ../img/state-machine-2.png Graphic file (type QTm)
- <use  "../img/state-machine-2.png" >
-Overfull \hbox (68.13861pt too wide) in paragraph at lines 466--467
- [][] 
- []
-
-[28]
-File: ../img/fall-data-state-machine.png Graphic file (type QTm)
- <use  "../img/fall-data-state-machine.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 473--474
- [][] 
- []
-
-[29] [30]
-
-LaTeX Warning: Citation `piza_uni' on page 31 undefined on input line 504.
-
-[31]
-File: ../img/fall-data-example.png Graphic file (type QTm)
- <use  "../img/fall-data-example.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 508--509
- [][] 
- []
-
-File: ../img/fall-data-run-ios.png Graphic file (type QTm)
-<use  "../img/fall-data-run-ios.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 521--522
- [][] 
- []
-
-[32]
-File: ../img/fall-data-run-android.png Graphic file (type QTm)
- <use  "../img/fall-data-run-android.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 528--529
- [][] 
- []
-
-File: ../img/fall-data-fall-ios.png Graphic file (type QTm)
-<use  "../img/fall-data-fall-ios.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 535--536
- [][] 
- []
-
-[33]
-File: ../img/fall-data-fall-android.png Graphic file (type QTm)
- <use  "../img/fall-data-fall-android.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 543--544
- [][] 
- []
-
-[34]
-File: ../img/fall-data-impact-duration-android-highlight.png Graphic file (type
- QTm)
- <use  "../img/fall-data-impact-duration-android-highlight.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 557--558
- [][] 
- []
-
-File: ../img/fall-data-impact-peak-highlight.png Graphic file (type QTm)
-<use  "../img/fall-data-impact-peak-highlight.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 568--569
- [][] 
- []
-
-[35]
-File: ../img/fall-data-impact-peak-duration-highlight.png Graphic file (type QT
-m)
- <use  "../img/fall-data-impact-peak-duration-highlight.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 579--580
- [][] 
- []
-
-[36]
-File: ../img/fall-data-longest-valley-value-highlight.png Graphic file (type QT
-m)
- <use  "../img/fall-data-longest-valley-value-highlight.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 590--591
- [][] 
- []
-
-[37]
-File: ../img/fall-data-longest-valley-duration.png Graphic file (type QTm)
- <use  "../img/fall-data-longest-valley-duration.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 601--602
- [][] 
- []
-
-[38]
-File: ../img/fall-data-peaks-and-valleys.png Graphic file (type QTm)
- <use  "../img/fall-data-peaks-and-valleys.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 616--617
- [][] 
- []
-
-[39] [40] [41] [42] (./andreas_version.bbl
+[3] [4] (./andreas_version.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [43] (./andreas_version.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+) [5] (./andreas_version.aux) ) 
 Here is how much of TeX's memory you used:
- 19743 strings out of 493005
- 416852 string characters out of 6134595
+ 19639 strings out of 493005
+ 414358 string characters out of 6134595
  477118 words of memory out of 5000000
- 23438 multiletter control sequences out of 15000+600000
- 7521 words of font info for 55 fonts, out of 8000000 for 9000
+ 23365 multiletter control sequences out of 15000+600000
+ 7513 words of font info for 54 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 48i,7n,66p,10376b,385s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,6n,66p,10376b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on andreas_version.pdf (43 pages).
+Output written on andreas_version.pdf (5 pages).

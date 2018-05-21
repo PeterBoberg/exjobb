@@ -2,24 +2,16 @@ This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: andreas_version.aux
 I couldn't open database file bib_common.bib
----line 142 of file andreas_version.aux
+---line 8 of file andreas_version.aux
  : \bibdata{bib_common
  :                    }
 I'm skipping whatever remains of this command
 The style file: ieeetr.bst
+I found no \citation commands---while reading file andreas_version.aux
 I found no database files---while reading file andreas_version.aux
-Warning--I didn't find a database entry for "who"
-Warning--I didn't find a database entry for "msb_report"
-Warning--I didn't find a database entry for "soc_olyckor"
-Warning--I didn't find a database entry for "av"
-Warning--I didn't find a database entry for "int_journ"
-Warning--I didn't find a database entry for "piza_uni"
-Warning--I didn't find a database entry for "neural_networks"
-Warning--I didn't find a database entry for "borrego"
-Warning--I didn't find a database entry for "yin"
 You've used 0 entries,
             1876 wiz_defined-function locations,
-            486 strings with 3558 characters,
+            477 strings with 3490 characters,
 and the built_in function-call counts, 20 in all, are:
 = -- 0
 > -- 0
@@ -58,4 +50,4 @@ warning$ -- 0
 while$ -- 0
 width$ -- 0
 write$ -- 2
-(There were 2 error messages)
+(There were 3 error messages)
