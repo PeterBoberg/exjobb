@@ -50,9 +50,9 @@
 	\section{Fall Detection Application: Evaluation}
 	\newpage
 	
-	\section{Discussion}
+	\section{Discussion \& Conclusions}
 	
-	In this chapter, the methods used in the study and their implications are analysed, the research questions are answered followed by a discussion of sustainability and ethical considerations.
+	In this chapter, the methods used in the study and their implications are analysed, the research questions are answered followed by a discussion of sustainability and ethical considerations. Lastly, the research project is summarized and suggestions for future research is presented.
 	
 	\subsection{Methods \& Implications}
 	
@@ -64,7 +64,7 @@
 	
 	\subsubsection{Case study: Development}
 	
-	The case study consisting of developing an application provided
+	The case study consisting of developing an application gave us the opportunity to test different approaches and ideas to see if the algorithm could be improved. Developing an application was necessary since we did not have access to the source code of any existing application.
 	
 	\subsubsection{Evaluation}
 	
@@ -76,10 +76,19 @@
 	The term \textit{validity} is referring to whether or not the research methods are measuring what the study is trying to answer. With respect to the first research question, RQ1, regarding how a fall detection application can be created, it should be clear that the case study is addressing this question since it is exactly what is done in the case study. Regarding the second question, RQ2, it is not as obvious. To answer how this kind of application affects battery life, you could argue that it would be better to measure the battery consumption of many different fall detection applications and draw conclusions based on that. This would however give pure statistical knowledge saying that application A consumes X amount of battery per hour and application B consumes Y. Without insight into how these applications function internally this kind of information says nothing -- it would not be possible to say why application A consumes more power than B, or the other way around. To perform such a comparison and to say why one application consumes more power than the other, it would be necessary to have the source code to the different applications, something that we did not have. Therefore this study can only say that if an application is developed the way that we did, you can expect that the battery consumption will be similar to the consumption in our measurements.
 	
 	\parag{Reliability}
-	\textit{Reliability} refers to how replicable or repeatable the research project is. Another research project that asks the same questions and and uses the same methods should ideally come to the same conclusions. Our first method was to perform a literature study with the intention to find a good algorithm that were to be used as a starting point for the case study. It should be noted that another researcher, with different background and experiences may have found another algorithm as a better starting point and ended up with an application that implements fall detection entirely different, and thus could have ended up with different conclusions. However, if another researcher would use the same starting point as we did, and make the same decisions along the way, s/he should end up with the same result, and therefore the work is repeatable. 
-	
+	\textit{Reliability} refers to how replicable or repeatable the research project is. Another research project that asks the same questions and and uses the same methods should ideally come to the same conclusions. Our first method was to perform a literature study with the intention to find a good algorithm that were to be used as a starting point for the case study. It should be noted that another researcher, with different background and experiences may have found another algorithm as a better starting point and ended up with an application that implements fall detection entirely different, and thus could have ended up with different conclusions. However, if another researcher would use the same starting point as we did, and make the same decisions along the way, s/he should end up with the same result, and therefore the work is repeatable.
 	
 	\subsection{Revisiting research questions}
+	
+	This section answers the research questions.
+	
+	\textbf{RQ1} \textit{How can a mobile application, that detects falling accidents using modern smart phones, be created?}
+	
+	Based on the case study, we saw that a mobile application can be created so that it successfully detects falling accidents using the accelerometer in a modern smart phone. The case study showed that it was beneficial to use only the vector length of the accelerometer data instead of using the x, y and z components. Using a finite state machine was useful for filtering out possible falls, and a pre-trained neural network was suitable to classify the possible falls.
+	
+	\textbf{RQ2} \textit{How will such an application affect the battery life of the mobile phone?}
+	
+	Based on the evaluation of the application developed in the case study, we can see that a fall detection application does have a minor impact on the battery life of the smart phone running the application. The evaluation shows that this impact is small enough to make this kind of application useful.
 	
 	\subsection{Sustainability \& Ethics}
 	
@@ -87,7 +96,18 @@
 	
 	\subsubsection{Ethics}
 	
-	\section{Conclusions}
+	\subsection{Summary}
+	
+	The purpose of this thesis was to evaluate the possibility of creating a mobile application that utilized sensors in the smart phone to detect falling accidents. Similar studies had already been conducted, and the result of some of these studies were used as a starting point. The development started with using a finite state machine to detect basic falls. The application were later refined by introducing machine learning beyond just a state machine. The state machine were used to gather data of potential falls, the collected data were analysed and specific features in the fall data were defined. These features were used in the creation of a pre-trained neural network model and this model proved to be functioning better than just the state machine. The research project ends in the conclusion that a fall detection application can successfully be created using this approach.
+	
+	An important aspect in the beginning of the project were the battery life of the application. The evaluation of the application showed that when using this approach, the battery consumption were not a problem.
+	
+	\subsection{Future research}
+	
+	This theses presents one possible way to create a fall detection application for smart phones, and the evaluation of the developed application is quite primitive. It would be possible to perform research with a wider evaluation. For example, one could perform experiments where a crash test dummy were equipped with a smart phone running the application. This crash test dummy could then be dropped from different heights and in different fall like events to see how well the application performs in a real life scenario.
+	
+	Another possibility would be to examine another way of creating a fall detection application, perhaps using another algorithm. It would then be possible to evaluate how well that application performs compared to the approach presented in this thesis.
+	
 	\newpage
 	
 	\bibliography{bib_common}
