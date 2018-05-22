@@ -9,6 +9,7 @@
 \setmainfont{Georgia}
 \usepackage{parskip}
 \usepackage{float}
+\usepackage{multicol}
 
 
 \newcommand\sectionfont{\normalfont\fontspec{Arial}\fontsize{14pt}{0}\bfseries}
@@ -658,55 +659,68 @@
 	
 	In the final product, where data collection functionality is removed, it is the values in the output vector that are used to finally decide if an event are to be classified as a fall accident or not. If the probability that the event belongs to the fall-class exceeds the other two, the application flags the event as a fall and presents the discard screen to the user, otherwise, the event will be automatically discarded by the application. 
 	
+	\newpage
 	\subsection{Application user interface}
 	
 	Below is a rundown of the application user interface, only the most relevant view are shown.
 	
 	\begin{figure}[H]
-		\centering
-		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/main-screen.jpg} }}%
-		\caption{The main interface of the application lets the user enable/disable fall detection as well as got to settings and toggle sonica alarm on/off}%
-		\label{fig:main-screen}%
+		\begin{multicols}{2}
+			\centering
+			\includegraphics[width=6cm]{../img/screenshots/main-screen.jpg}\par 
+			\includegraphics[width=6cm]{../img/screenshots/main-screen-android.png}\par 
+		\end{multicols}
+	\caption{The main interface of the application lets the user enable/disable fall detection as well as got to settings and toggle sonic alarm on/off. The iOS version is to the left, and Android to the right.}%
+	\label{fig:main-screen}%
 	\end{figure}
 	
 	\begin{figure}[H]
-		\centering
-		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/settings-screen.jpg} }}%
-		\caption{From the settings screen, the user can choose to view emergency contacts, his or hers profile and log out of the application}%
+		\begin{multicols}{2}
+			\centering
+			\includegraphics[width=6cm]{../img/screenshots/settings-screen.jpg}\par 
+			\includegraphics[width=6cm]{../img/screenshots/settings-screen-android.png}\par 
+		\end{multicols}
+		\caption{From the settings screen, the user can choose to view emergency contacts, his or hers profile and log out of the application. The iOS version is to the left, and Android to the right.}%
 		\label{fig:settings-screen}%
-	\end{figure}
+		\end{figure}
+
+		
+		\begin{figure}[H]
+			\begin{multicols}{2}
+				\centering
+				\includegraphics[width=6cm]{../img/screenshots/contacts-screen.jpg}\par 
+				\includegraphics[width=6cm]{../img/screenshots/contacts-screen-android.png}\par 
+			\end{multicols}
+			\caption{The contacts screen displays all emergency contacts defined by the user. The user may also add a new contact by tapping the + sign. The iOS version is to the left, and Android to the right.}%
+			\label{fig:contacts-screen}%
+		\end{figure}
 	
-	\begin{figure}[H]
-		\centering
-		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/contacts-screen.jpg} }}%
-		\caption{The contacts screen displays all emergency contacts defined by the user. The user may also add a new contact by tapping the + sign.}%
-		\label{fig:contacts-screen}%
-	\end{figure}
-	
-	
-	\begin{figure}[H]
-		\centering
-		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/contacts-detail-screen.jpg} }}%
-		\caption{The contact detail view let the user view contact details as well as edit them by pressing the edit button}%
-		\label{fig:contacts-detail-screen}%
-	\end{figure}
-	
-	\begin{figure}[H]
-		\centering
-		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/alarm-screen.jpg} }}%
-		\caption{The alarm screen is shown when the app detects a fall, the user now has 45 seconds to discard the event by pressing "I'm OK", or an email containing information and coordinates will be sent to the users emergency contacts when the timer fires}%
-		\label{fig:alarm-screen}%
-	\end{figure}
-	
-	
-	
+		\begin{figure}[H]
+			\begin{multicols}{2}
+				\centering
+				\includegraphics[width=6cm]{../img/screenshots/contacts-detail-screen.jpg}\par 
+				\includegraphics[width=6cm]{../img/screenshots/contacts-detail-screen-android.png}\par 
+			\end{multicols}
+			\caption{The contact detail view let the user view contact details as well as edit them by pressing the edit button. The iOS version is to the left, and Android to the right.}%
+			\label{fig:contacts-detail-screen}%	
+		\end{figure}
+
+		\begin{figure}[H]
+			\begin{multicols}{2}
+				\centering
+				\includegraphics[width=6cm]{../img/screenshots/alarm-screen.jpg}\par 
+				\includegraphics[width=6cm]{../img/screenshots/alarm-screen-android.png}\par 
+			\end{multicols}
+			\caption{The alarm screen is shown when the app detects a fall, the user now has 45 seconds to discard the event by pressing "I'm OK", or an email containing information and coordinates will be sent to the users emergency contacts when the timer fires. The iOS version is to the left, and Android to the right.}%
+			\label{fig:alarm-screen}%
+		\end{figure}
 	
 	\newpage
-	
 	\section{Fall Detection Application: Evaluation}
-	\newpage
 	
-		\section{Discussion \& Conclusions}
+	
+	\newpage
+	\section{Discussion \& Conclusions}
 	
 	In this chapter, the methods used in the study and their implications are analysed, the research questions are answered followed by a discussion of sustainability and ethical considerations. Lastly, the research project is summarized and suggestions for future research is presented.
 	
