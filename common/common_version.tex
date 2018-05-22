@@ -9,6 +9,7 @@
 \setmainfont{Georgia}
 \usepackage{parskip}
 \usepackage{float}
+\usepackage{multicol}
 
 \newcommand\sectionfont{\normalfont\fontspec{Arial}\fontsize{14pt}{0}\bfseries}
 \newcommand\subsectionfont{\normalfont\fontspec{Arial}\fontsize{13pt}{0}\bfseries}
@@ -719,50 +720,61 @@
 	
 	In the final product, where data collection functionality is removed, it is the values in the output vector that are used to finally decide if an event are to be classified as a fall accident or not. If the probability that the event belongs to the fall-class exceeds the other two, the application flags the event as a fall and presents the discard screen to the user, otherwise, the event will be automatically discarded by the application. 
 	
-	
+	\newpage
 \subsection{Application user interface}
 	
 	Below is a rundown of the application user interface, only the most relevant view are shown.
 	
 	\begin{figure}[H]
-		\centering
-		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/main-screen.jpg} }}%
-		\caption{The main interface of the application lets the user enable/disable fall detection as well as got to settings and toggle sonica alarm on/off}%
+		\begin{multicols}{2}
+			\centering
+			\includegraphics[width=6cm]{../img/screenshots/main-screen.jpg}\par 
+			\includegraphics[width=6cm]{../img/screenshots/main-screen-android.png}\par 
+		\end{multicols}
+		\caption{The main interface of the application lets the user enable/disable fall detection as well as got to settings and toggle sonic alarm on/off. The iOS version is to the left, and Android to the right.}%
 		\label{fig:main-screen}%
 	\end{figure}
 	
 	\begin{figure}[H]
-		
-\centering
-		\subfloat{{\includegraphics[width=6cm]{../img/screenshots/settings-screen.jpg} }}%
-		\caption{From the settings screen, the user can choose to view emergency contacts, his or hers profile and log out of the application}%
+		\begin{multicols}{2}
+			\centering
+			\includegraphics[width=6cm]{../img/screenshots/settings-screen.jpg}\par 
+			\includegraphics[width=6cm]{../img/screenshots/settings-screen-android.png}\par 
+		\end{multicols}
+		\caption{From the settings screen, the user can choose to view emergency contacts, his or hers profile and log out of the application. The iOS version is to the left, and Android to the right.}%
 		\label{fig:settings-screen}%
 	\end{figure}
 	
+	
 	\begin{figure}[H]
-		
-\centering
-		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/contacts-screen.jpg} }}%
-		\caption{The contacts screen displays all emergency contacts defined by the user. The user may also add a new contact by tapping the + sign.}%
+		\begin{multicols}{2}
+			\centering
+			\includegraphics[width=6cm]{../img/screenshots/contacts-screen.jpg}\par 
+			\includegraphics[width=6cm]{../img/screenshots/contacts-screen-android.png}\par 
+		\end{multicols}
+		\caption{The contacts screen displays all emergency contacts defined by the user. The user may also add a new contact by tapping the + sign. The iOS version is to the left, and Android to the right.}%
 		\label{fig:contacts-screen}%
 	\end{figure}
 	
-	
 	\begin{figure}[H]
-		\centering
-		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/contacts-detail-screen.jpg} }}%
-		\caption{The contact detail view let the user view contact details as well as edit them by pressing the edit button}%
-		\label{fig:contacts-detail-screen}%
+		\begin{multicols}{2}
+			\centering
+			\includegraphics[width=6cm]{../img/screenshots/contacts-detail-screen.jpg}\par 
+			\includegraphics[width=6cm]{../img/screenshots/contacts-detail-screen-android.png}\par 
+		\end{multicols}
+		\caption{The contact detail view let the user view contact details as well as edit them by pressing the edit button. The iOS version is to the left, and Android to the right.}%
+		\label{fig:contacts-detail-screen}%	
 	\end{figure}
 	
 	\begin{figure}[H]
-		\centering
-		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/alarm-screen.jpg} }}%
-		\caption{The alarm screen is shown when the app detects a fall, the user now has 45 seconds to discard the event by pressing "I'm OK", or an email containing information and coordinates will be sent to the users emergency contacts when the timer fires}%
+		\begin{multicols}{2}
+			\centering
+			\includegraphics[width=6cm]{../img/screenshots/alarm-screen.jpg}\par 
+			\includegraphics[width=6cm]{../img/screenshots/alarm-screen-android.png}\par 
+		\end{multicols}
+		\caption{The alarm screen is shown when the app detects a fall, the user now has 45 seconds to discard the event by pressing "I'm OK", or an email containing information and coordinates will be sent to the users emergency contacts when the timer fires. The iOS version is to the left, and Android to the right.}%
 		\label{fig:alarm-screen}%
 	\end{figure}
-	
-	
 	
 	
 	\newpage
@@ -816,6 +828,33 @@
 	\subsubsection{Sustainability}
 	
 	\subsubsection{Ethics}
+	
+	The IEEE Computer Society defines eight main principles in their \textit{Software Engineering Code of Ethics}. Each principle is divided into several more specific statements.
+	This section will briefly go through each principle and how it applies to this project.
+	
+	\parag{Public}
+	The first principle, called public, states that software engineers should act in accordance with the public interest. This principle states that the interest of the software engineer and the employer should be moderated with public good. Our belief is that this application will be good for the public, so it does not violate this statement. Further our belief is that the software is safe to use and does not harm the environment. Thus, this project does not violate this principle.
+	
+	\parag{Client and Employer}
+	The second principle states that one should act to suite the interests of the client and employer and consistent with the public interest. More specific software engineers should work in the area of their competence and be honest about limitations in their education or previous experience. Hopefully this report is transparent about the authors previous experience so that this project conforms to this principle.
+	
+	\parag{Product}
+	The principle about the product states that their products should meet the highest professional standards possible. In our case, since the developed product is a prototype in a field where a limited set of applications exist, it is hard to say what the standard should be. However, it should be clear in the report what kind of result you can expect from this kind of application.
+	
+	\parag{Judgement}
+	The judgement principle states that software engineers should maintain independence in their professional judgement, and not engage in bribery, double billing, etc. Since we have not engaged in such an activity the project does not violate this principle.
+	
+	\parag{Management}
+	The principle about management is applicable for leaders and managers in software engineering. Since this project does not have such a manager, the principle is not really applicable.
+	
+	\parag{Profession}
+	The profession principle states that software engineers should advance the reputation of the profession by promote public knowledge of software engineering, and obey laws regarding their work. Since this thesis is open for anyone to read this helps promote public knowledge, and as far as we know we have obeyed all laws that are applicable.
+	
+	\parag{Colleagues}
+	The principle about colleagues states that software engineers should be supportive of their colleagues and assist them in professional development. In this project, there were only two of us but we did support each other.
+	
+	\parag{Self}
+	The principle called self states that software engineers should participate in lifelong learning and strive to improve their knowledge. In this project, we have certainly learnt a lot so it conforms to this principle.
 	
 	\subsection{Summary}
 	
