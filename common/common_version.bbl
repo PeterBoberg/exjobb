@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{who}
 W.~H. Organization, ``Falls.''
@@ -30,6 +30,10 @@ S.~Abbatea, M.~Avvenutia, F.~Bonatesta, G.~Colaa, P.~Corsinia, and A.~Vecchioa,
 \bibitem{neural_networks}
 M.~Neilsen, ``Neural networks and deep learning.''
   http://neuralnetworksanddeeplearning.com/, Dec 2017.
+
+\bibitem{towards-data-sci}
+S.~Sharma, ``Activation function: Neural networks.''
+  https://towardsdatascience.com/, Sep 2017.
 
 \bibitem{borrego}
 M.~Borrego, E.~P. Douglas, and C.~T. Amelink, {\em Quantitative, Qualitative,
