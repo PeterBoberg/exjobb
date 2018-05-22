@@ -10,6 +10,7 @@
 \usepackage{parskip}
 \usepackage{float}
 
+
 \newcommand\sectionfont{\normalfont\fontspec{Arial}\fontsize{14pt}{0}\bfseries}
 \newcommand\subsectionfont{\normalfont\fontspec{Arial}\fontsize{13pt}{0}\bfseries}
 \newcommand\subsubsectionfont{\normalfont\fontspec{Arial}\fontsize{12pt}{0}\bfseries}
@@ -656,6 +657,40 @@
 	The trained and evaluated neural network are finally converted into two separate file formats that can be used natively in iOS and Android applications. The generated files are simply included in the mobile application project after what they can be used to make predictions on future real life events. The input to the models are a vector of length eight, containing the values of the eight features for an event extracted by the feature-extractor. The output is a vector of length three, containing the independent probabilities of class adherence for the same event. 
 	
 	In the final product, where data collection functionality is removed, it is the values in the output vector that are used to finally decide if an event are to be classified as a fall accident or not. If the probability that the event belongs to the fall-class exceeds the other two, the application flags the event as a fall and presents the discard screen to the user, otherwise, the event will be automatically discarded by the application. 
+	
+	\subsection{Application user interface}
+	
+	Below is a rundown of the application user interface, only the most relevant view are shown.
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/settings-screen.jpg} }}%
+		\caption{From the settings screen, the user can choose to view emergency contacts, his or hers profile and log out of the application}%
+		\label{fig:settings-screen}%
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/contacts-screen.jpg} }}%
+		\caption{The contacts screen displays all emergency contacts defined by the user. The user may also add a new contact by tapping the + sign.}%
+		\label{fig:contacts-screen}%
+	\end{figure}
+	
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/contacts-detail-screen.jpg} }}%
+		\caption{The contact detail view let the user view contact details as well as edit them by pressing the edit button}%
+		\label{fig:contacts-detail-screen}%
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/alarm-screen.jpg} }}%
+		\caption{The alarm screen is shown when the app detects a fall, the user now has 45 seconds to discard the event by pressing "I'm OK", or an email containing information and coordinates will be sent to the users emergency contacts when the timer fires}%
+		\label{fig:alarm-screen}%
+	\end{figure}
+	
 	
 	
 	
