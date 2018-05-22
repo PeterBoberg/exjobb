@@ -40,42 +40,49 @@
 
 \begin{document}
 
-\section{Result}
-		\subsection{Implementing a neural network}
-			The implementation of the neural network consists of three steps. The first step is related to data collection. The second step involves designing the network in terms on layers and neurons, \textit{this will from now on be referenced as the model}, as well as fitting and evaluating the model to make as accurate predictions as possible. The final step using the model in the application and evaluate its accurateness in real world scenarios. The full process from data collection to final model can be seen in figure \ref{fig:training-model}.
-			
-			\begin{figure}[H]
-				\centering
-				\subfloat{{\includegraphics[width=15cm]{../img/training-model.png} }}%
-				\caption{The process of collecting data and training the model}%
-				\label{fig:training-model}%
-			\end{figure}
-			
-		\subsubsection{Data collection}
-		In order to collect motion data, we intercept every event that passed through our state-machine and following feature-extractor described in \textit{5.3} and \textit{5.4}. Thus, for all events that are recognized as a potential fall candidate, we have an object with its own set of the eight features described in \textit{5.4} as well as the original 400 sample long array of acceleration data collected from the accelerometer. The features are to be used when training the model and the array of data points is only used for visualization of the event on our graphical tool. Each event is labeled according to the class is belongs to \textit{fall, run/walk, jump}). The last step is to save each event to a database. 
-		
-		When collecting data for the \textit{run/walk} and \textit{jump} classes, we placed the device in the trouser pocket (\textit{a normal place to keep the device in everyday life}) and walked, ran and jumped respectively. Collecting data for the \textit{fall} class was done by letting the phone fall from different altitudes ranging from 1,5 m up to 3 m and landing on different natural surfaces. A series of events simulating falling while walking was also done by simply walking/running with the device and drop it to the ground mid walk.
-		
-		In total, 210 samples were collected, evenly distributed between the different classes and devices.
+\subsection{Application user interface}
 
-		\subsubsection{Designing a model}
-			The neural network is built using \textit{Tensor Flow}, \textit{Keras} and the \textit{Python} programming language. After experimentation with the amount of hidden layers and neurons when training the model we arrived at the conclusion that a single hidden layer with seven neurons yielded the best possible accuracy given our data set. The activation function is set to \textit{sigmoid} for the hidden layer as well as the output layer. The result is a neural network with eight inputs, one for each feature, and three outputs, one for each class. 
-			
-			\begin{figure}[H]
-				\centering
-				\subfloat{{\includegraphics[width=15cm]{../img/neural-network-model.png} }}%
-				\caption{The neural network}%
-				\label{fig:neural-network}%
-			\end{figure}
+	Below is a rundown of the application user interface, only the most relevant view are shown.
 
-		\subsubsection{Training the model}
-			When training the model, we downloaded all the data samples from the database and printed them to a CSV-file using our stand alone graphical utility tool. The dataset is then split up between training-set, and evaluation-set on a ratio of 9:1. The training set contains the labeled training data whereas the evaluation-set contains unlabeled data for measurement and cross-validation. The network training program uses the commonly used feed-forward <-> back-propagation method \cite{neural_networks} to fit the model. 
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/main-screen.jpg} }}%
+		\caption{The main interface of the application lets the user enable/disable fall detection as well as got to settings and toggle sonica alarm on/off}%
+		\label{fig:main-screen}%
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/settings-screen.jpg} }}%
+		\caption{From the settings screen, the user can choose to view emergency contacts, his or hers profile and log out of the application}%
+		\label{fig:settings-screen}%
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/contacts-screen.jpg} }}%
+		\caption{The contacts screen displays all emergency contacts defined by the user. The user may also add a new contact by tapping the + sign.}%
+		\label{fig:contacts-screen}%
+	\end{figure}
+
+	
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/contacts-detail-screen.jpg} }}%
+		\caption{The contact detail view let the user view contact details as well as edit them by pressing the edit button}%
+		\label{fig:contacts-detail-screen}%
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\subfloat{{\includegraphics[width=8cm]{../img/screenshots/alarm-screen.jpg} }}%
+		\caption{The alarm screen is shown when the app detects a fall, the user now has 45 seconds to discard the event by pressing "I'm OK", or an email containing information and coordinates will be sent to the users emergency contacts when the timer fires}%
+		\label{fig:alarm-screen}%
+	\end{figure}
+
+
 
 		
-		\subsubsection{Using the model}
-			The trained and evaluated neural network are finally converted into two separate file formats that can be used natively in iOS and Android applications. The generated files are simply included in the mobile application project after what they can be used to make predictions on future real life events. The input to the models are a vector of length eight, containing the values of the eight features for an event extracted by the feature-extractor. The output is a vector of length three, containing the independent probabilities of class adherence for the same event. 
-			
-			In the final product, where data collection functionality is removed, it is the values in the output vector that are used to finally decide if an event are to be classified as a fall accident or not. If the probability that the event belongs to the fall-class exceeds the other two, the application flags the event as a fall and presents the discard screen to the user, otherwise, the event will be automatically discarded by the application. 
 
 \bibliography{bib_peter}
 \bibliographystyle{ieeetr}
