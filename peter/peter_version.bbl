@@ -1,14 +1,12 @@
 \begin{thebibliography}{1}
 
-\bibitem{int_journ}
-K.~Yildirim, G.~Ucar, T.~Keskin, and A.~Kavak, ``Fall detection using
-  smartphone-based application.'' International Journal of Applied Mathematics,
-  International Journal of Applied Mathematics, 08 2016.
+\bibitem{mit-neural-netwirks}
+L.~Hardesty, ``Explained: Neural networks.''
+  http://news.mit.edu/2017/explained-neural-networks-deep-learning-0414, 04
+  2017.
 
-\bibitem{piza_uni}
-S.~Abbatea, M.~Avvenutia, F.~Bonatesta, G.~Colaa, P.~Corsinia, and A.~Vecchioa,
-  ``A smartphone-based fall detection system.'' Dip. di Ingegneria
-  dell'Informazione, University of Pisa, 08 2012.
+\bibitem{towards-data-sci}
+S.~Sharma. https://towardsdatascience.com/, 09 2017.
 
 \bibitem{neural_networks}
 M.~Neilsen, ``Neural networks and deep learning.''
