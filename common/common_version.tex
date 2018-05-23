@@ -684,7 +684,12 @@
 		\label{fig:fall-data-peaks-and-valleys}%
 	\end{figure}
 	
-	\subsection{Implementing a neural network}
+	
+	 \subsection{Design of classification engine}
+	 
+	 The classification engine uses a neural network under the hood to make predictions on possible fall candidates. It accepts a object containing the eight features extracted from the feature extractor, and puts those features in a one dimensional array with each feature at a specified index. The array is then given to the machine learning model. The output from this model is another one dimensional array containing the predicted possibilities for each class respectively at specified indices. The classification engine then finds the highest prediction in the array and converts it to it´s corresponding class type \textit{Fall, Run/Walk or Jump} and returns this value..
+	 
+	\subsubsection{Implementing a neural network}
 	The implementation of the neural network consists of three steps. The first step is related to data collection. The second step involves designing the network in terms on layers and neurons, \textit{this will from now on be referenced as the model}, as well as fitting and evaluating the model to make as accurate predictions as possible. The final step using the model in the application and evaluate its accurateness in real world scenarios. The full process from data collection to final model can be seen in figure \ref{fig:training-model}.
 	
 	\begin{figure}[H]
@@ -712,7 +717,7 @@
 	\end{figure}
 	
 	\subsubsection{Training the model}
-	When training the model, we downloaded all the data samples from the database and printed them to a CSV-file using our stand alone graphical utility tool. The dataset is then split up between training-set, and evaluation-set on a ratio of 9:1. The training set contains the labeled training data whereas the evaluation-set contains unlabeled data for measurement and cross-validation. The network training program uses the commonly used feed-forward <-> back-propagation method \cite{neural_networks} to fit the model. 
+	When training the model, we downloaded all the data samples from the database and printed them to a CSV-file using our stand alone graphical utility tool. The dataset is then split up between training-set, and evaluation-set on a ratio of 9:1. The training set contains the labelled training data whereas the evaluation-set contains unlabelled data for measurement and cross-validation. The network training program uses the commonly used feed-forward <-> back-propagation method \cite{neural_networks} to fit the model. 
 	
 	
 	\subsubsection{Using the model}
