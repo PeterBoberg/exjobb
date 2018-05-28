@@ -20,7 +20,7 @@ Arbetsmilj{\"o}verket, ``Fallolyckor, kort arbetsskadefakta nr 3/2016.''
 \bibitem{int_journ}
 K.~Yildirim, G.~Ucar, T.~Keskin, and A.~Kavak, ``Fall detection using
   smartphone-based application.'' International Journal of Applied Mathematics,
-  International Journal of Applied Mathematics, 08 2016.
+  08 2016.
 
 \bibitem{piza_uni}
 S.~Abbate, M.~Avvenuti, F.~Bonatesta, G.~Cola, P.~Corsini, and A.~Vecchio, ``A
@@ -43,5 +43,9 @@ M.~Borrego, E.~P. Douglas, and C.~T. Amelink, {\em Quantitative, Qualitative,
 \bibitem{yin}
 R.~K. Yin, {\em Case Study Research: Design and Methods}.
 \newblock Beverly Hills, Calif: Sage publications, 1984.
+
+\bibitem{ieee-ethics}
+IEEE, ``Software engineering code of ethics.''
+  https://www.computer.org/web/education/code-of-ethics, 1999.
 
 \end{thebibliography}
