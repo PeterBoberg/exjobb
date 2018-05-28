@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  22 MAY 2018 15:26
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  28 MAY 2018 11:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -918,320 +918,30 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 2.
- [1
-
-] [2])
+)
 \tf@toc=\write4
 \openout4 = `andreas_version.toc'.
 
- [3]
+ [1
 
-LaTeX Warning: Citation `who' on page 4 undefined on input line 53.
-
-
-LaTeX Warning: Citation `who' on page 4 undefined on input line 53.
-
-
-LaTeX Warning: Citation `msb_report' on page 4 undefined on input line 63.
-
-
-LaTeX Warning: Citation `soc_olyckor' on page 4 undefined on input line 63.
-
-
-LaTeX Warning: Citation `msb_report' on page 4 undefined on input line 63.
-
-
-LaTeX Warning: Citation `av' on page 4 undefined on input line 67.
-
-[4]
-File: ../img/Fall_from_ground_women_and_men.png Graphic file (type QTm)
- <use  "../img/Fall_from_ground_women_and_men.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 71--73
- [][] 
- []
-
-File: ../img/Falls_from_elevated_height_men_and_women.png Graphic file (type QT
-m)
-<use  "../img/Falls_from_elevated_height_men_and_women.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 80--82
- [][] 
- []
-
-[5] [6] [7] [8] [9]
-
-LaTeX Warning: Citation `int_journ' on page 10 undefined on input line 146.
-
-
-LaTeX Warning: Citation `piza_uni' on page 10 undefined on input line 146.
-
-
-LaTeX Warning: Citation `int_journ' on page 10 undefined on input line 149.
-
-[10] [11]
-
-LaTeX Warning: Citation `int_journ' on page 12 undefined on input line 184.
-
-File: ../img/accelerometer-axis.jpg Graphic file (type QTm)
-<use  "../img/accelerometer-axis.jpg" > [12]
-File: ../img/Falling.png Graphic file (type QTm)
- <use  "../img/Falling.png" >
-File: ../img/Walking.png Graphic file (type QTm)
-
-<use  "../img/Walking.png" > [13]
-File: ../img/Sitting_down.png Graphic file (type QTm)
- <use  "../img/Sitting_down.png" >
-File: ../img/Jumping.png Graphic file (type QTm)
-
-<use  "../img/Jumping.png" > [14]
-
-LaTeX Warning: Citation `piza_uni' on page 15 undefined on input line 234.
-
-
-Overfull \hbox (0.49219pt too wide) in paragraph at lines 234--235
-[]\TU/Georgia(0)/m/n/12 ”Detection of falls should be carried out using only ac
-celeration-based
- []
-
-
-LaTeX Warning: Citation `piza_uni' on page 15 undefined on input line 236.
-
-
-LaTeX Warning: Citation `piza_uni' on page 15 undefined on input line 246.
-
-[15]
-Overfull \hbox (0.91759pt too wide) in paragraph at lines 257--258
-\TU/Georgia(0)/m/n/12 tain thresholds are detected, it once again signals that 
-activity is found
- []
-
-File: ../img/Abbatea_finite_state_machine.png Graphic file (type QTm)
-<use  "../img/Abbatea_finite_state_machine.png" > [16]
-File: ../img/AAMV_formula.png Graphic file (type QTm)
-
-<use  "../img/AAMV_formula.png" >
-
-LaTeX Warning: Citation `piza_uni' on page 17 undefined on input line 286.
-
-
-LaTeX Warning: Citation `piza_uni' on page 17 undefined on input line 286.
-
-[17]
-
-LaTeX Warning: Citation `neural_networks' on page 18 undefined on input line 30
-3.
-
-[18]
-
-LaTeX Warning: Citation `borrego' on page 19 undefined on input line 319.
-
-
-LaTeX Warning: Citation `borrego' on page 19 undefined on input line 321.
-
-
-LaTeX Warning: Citation `yin' on page 19 undefined on input line 331.
-
-[19] [20]
-File: ../img/method-phases.png Graphic file (type QTm)
- <use  "../img/method-phases.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 360--361
- [][] 
- []
-
-[21]
-File: ../img/method-development.png Graphic file (type QTm)
- <use  "../img/method-development.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 377--378
- [][] 
- []
-
-[22] [23] [24] [25] [26] [27]
-File: ../img/arch-outline.png Graphic file (type QTm)
- <use  "../img/arch-outline.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 465--466
- [][] 
- []
-
-[28]
-File: ../img/state-machine-2.png Graphic file (type QTm)
- <use  "../img/state-machine-2.png" >
-Overfull \hbox (68.13861pt too wide) in paragraph at lines 481--482
- [][] 
- []
-
-[29]
-File: ../img/fall-data-state-machine.png Graphic file (type QTm)
- <use  "../img/fall-data-state-machine.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 488--489
- [][] 
- []
-
-[30] [31]
-
-LaTeX Warning: Citation `piza_uni' on page 32 undefined on input line 519.
-
-File: ../img/fall-data-example.png Graphic file (type QTm)
-<use  "../img/fall-data-example.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 523--524
- [][] 
- []
-
-[32]
-File: ../img/fall-data-run-ios.png Graphic file (type QTm)
- <use  "../img/fall-data-run-ios.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 536--537
- [][] 
- []
-
-[33]
-File: ../img/fall-data-run-android.png Graphic file (type QTm)
- <use  "../img/fall-data-run-android.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 543--544
- [][] 
- []
-
-File: ../img/fall-data-fall-ios.png Graphic file (type QTm)
-<use  "../img/fall-data-fall-ios.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 550--551
- [][] 
- []
-
-[34]
-File: ../img/fall-data-fall-android.png Graphic file (type QTm)
- <use  "../img/fall-data-fall-android.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 558--559
- [][] 
- []
-
-[35]
-File: ../img/fall-data-impact-duration-android-highlight.png Graphic file (type
- QTm)
- <use  "../img/fall-data-impact-duration-android-highlight.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 572--573
- [][] 
- []
-
-File: ../img/fall-data-impact-peak-highlight.png Graphic file (type QTm)
-<use  "../img/fall-data-impact-peak-highlight.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 583--584
- [][] 
- []
-
-[36]
-File: ../img/fall-data-impact-peak-duration-highlight.png Graphic file (type QT
-m)
- <use  "../img/fall-data-impact-peak-duration-highlight.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 594--595
- [][] 
- []
-
-[37]
-File: ../img/fall-data-longest-valley-value-highlight.png Graphic file (type QT
-m)
- <use  "../img/fall-data-longest-valley-value-highlight.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 605--606
- [][] 
- []
-
-[38]
-File: ../img/fall-data-longest-valley-duration.png Graphic file (type QTm)
- <use  "../img/fall-data-longest-valley-duration.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 616--617
- [][] 
- []
-
-[39]
-File: ../img/fall-data-peaks-and-valleys.png Graphic file (type QTm)
- <use  "../img/fall-data-peaks-and-valleys.png" >
-Overfull \hbox (11.23311pt too wide) in paragraph at lines 631--632
- [][] 
- []
-
-[40]
-File: ../img/training-model.png Graphic file (type QTm)
- <use  "../img/training-model.png" >
-Overfull \hbox (39.68587pt too wide) in paragraph at lines 641--642
- [][] 
- []
-
-[41]
-Overfull \hbox (2.84142pt too wide) in paragraph at lines 647--648
-\TU/Georgia(0)/m/n/12 In order to collect motion data, we intercept every event
- that passed through
- []
-
-[42]
-File: ../img/neural-network-model.png Graphic file (type QTm)
- <use  "../img/neural-network-model.png" >
-Overfull \hbox (39.68587pt too wide) in paragraph at lines 658--659
- [][] 
- []
-
-
-LaTeX Warning: Citation `neural_networks' on page 43 undefined on input line 66
-4.
-
-
-Overfull \hbox (5.81277pt too wide) in paragraph at lines 664--665
-\TU/Georgia(0)/m/n/12 utility tool. The dataset is then split up between traini
-ng-set, and evaluation-
- []
-
-[43] [44]
-File: ../img/screenshots/main-screen.jpg Graphic file (type QTm)
- <use  "../img/screenshots/main-screen.jpg" >
-File: ../img/screenshots/main-screen-android.png Graphic file (type QTm)
-
-<use  "../img/screenshots/main-screen-android.png" >
-Underfull \hbox (badness 2197) in paragraph at lines 683--683
-[]\TU/Georgia(0)/m/n/12 Figure 28: |The main interface of the application lets 
-the user en-
- []
-
-File: ../img/screenshots/settings-screen.jpg Graphic file (type QTm)
-<use  "../img/screenshots/settings-screen.jpg" >
-File: ../img/screenshots/settings-screen-android.png Graphic file (type QTm)
-
-<use  "../img/screenshots/settings-screen-android.png" > [45]
-File: ../img/screenshots/contacts-screen.jpg Graphic file (type QTm)
-
-<use  "../img/screenshots/contacts-screen.jpg" >
-File: ../img/screenshots/contacts-screen-android.png Graphic file (type QTm)
-
-<use  "../img/screenshots/contacts-screen-android.png" > [46]
-File: ../img/screenshots/contacts-detail-screen.jpg Graphic file (type QTm)
-
-<use  "../img/screenshots/contacts-detail-screen.jpg" >
-File: ../img/screenshots/contacts-detail-screen-android.png Graphic file (type 
-QTm)
-
-<use  "../img/screenshots/contacts-detail-screen-android.png" > [47]
-File: ../img/screenshots/alarm-screen.jpg Graphic file (type QTm)
-
-<use  "../img/screenshots/alarm-screen.jpg" >
-File: ../img/screenshots/alarm-screen-android.png Graphic file (type QTm)
-
-<use  "../img/screenshots/alarm-screen-android.png" > [48] [49] [50] [51]
-Overfull \hbox (9.54558pt too wide) in paragraph at lines 758--760
+] [2]
+Overfull \hbox (9.54558pt too wide) in paragraph at lines 76--78
 \TU/Georgia(0)/m/n/12 same methods should ideally come to the same conclusions.
  Our first method
  []
 
-[52] [53] [54] [55] (./andreas_version.bbl
+[3] [4] [5] (./andreas_version.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [56] (./andreas_version.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+) [6] (./andreas_version.aux) ) 
 Here is how much of TeX's memory you used:
- 19888 strings out of 493005
- 419475 string characters out of 6134595
- 482396 words of memory out of 5000000
- 23567 multiletter control sequences out of 15000+600000
- 7521 words of font info for 55 fonts, out of 8000000 for 9000
+ 19752 strings out of 493005
+ 416069 string characters out of 6134595
+ 482078 words of memory out of 5000000
+ 23475 multiletter control sequences out of 15000+600000
+ 7513 words of font info for 54 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 48i,7n,66p,10376b,385s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,6n,66p,10376b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on andreas_version.pdf (56 pages).
+Output written on andreas_version.pdf (6 pages).
