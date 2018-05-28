@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  28 MAY 2018 11:00
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  28 MAY 2018 11:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -924,24 +924,18 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [1
 
-] [2]
-Overfull \hbox (9.54558pt too wide) in paragraph at lines 76--78
-\TU/Georgia(0)/m/n/12 same methods should ideally come to the same conclusions.
- Our first method
- []
-
-[3] [4] [5] (./andreas_version.bbl
+] (./andreas_version.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [6] (./andreas_version.aux) ) 
+) [2] (./andreas_version.aux) ) 
 Here is how much of TeX's memory you used:
- 19752 strings out of 493005
- 416069 string characters out of 6134595
- 482078 words of memory out of 5000000
- 23475 multiletter control sequences out of 15000+600000
- 7513 words of font info for 54 fonts, out of 8000000 for 9000
+ 19750 strings out of 493005
+ 415987 string characters out of 6134595
+ 476078 words of memory out of 5000000
+ 23474 multiletter control sequences out of 15000+600000
+ 7505 words of font info for 53 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  48i,6n,66p,10376b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on andreas_version.pdf (6 pages).
+Output written on andreas_version.pdf (2 pages).
