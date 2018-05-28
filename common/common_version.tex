@@ -933,7 +933,7 @@
 	
 	The test result shows that the iOS application successfully detects falls 80\% of the time where as the Android application had a success rate of 70\%. Once again, the iOS application has a slightly higher success rate,, but both of the applications detects falls in a vast majority of the tests. The reason for not getting a 100\% \textit{true-positives} might be due to that falling while standing on the ground does not produce a significant impact leading to the state machine firing.
 	
-	\subsubsection{Falling from 1.5 meters (Simulate falling from eg. a chair)}
+	\subsubsection{Falling from 1.5 m (Simulate falling from eg. a chair)}
 	\label{section:falling-from-1.5m}
 	The \textit{falling from 1.5m} test, was performed in a similar fashion to \textit{Falling from 1m} in section \ref{section:falling-from-1m}, the only difference was that the device was elevated by another 0.5 meters. The aim of this test was to replicate a person falling from eg. a chair or some other common slightly elevated house hold apparel. In this test we expect the application to successfully detect falls on all occasions, thus, we anticipate the number of \textit{true-positives} to be high and the number of \textit{false-negatives to be low}. The result can be seen in table \ref{table:fall-from-1.5m}
 	
@@ -1015,7 +1015,7 @@
 	
 	The case study consisting of developing an application gave us the opportunity to test different approaches and ideas to see if the algorithm could be improved. Developing an application was necessary since we did not have access to the source code of any existing application.
 	
-	\subsubsection{Evaluation}
+	\subsubsection{Case study: Evaluation}
 	
 	The evaluation of the application were conducted in a very small scale, and focusing on qualities of the application rather that performing tests with a lot of users. This means that we can only say that the application works well with condition that the circumstances are the same as in the evaluation. The limitations regarding evaluation include the fact that the evaluation of falls were performed by simply dropping the phone from an altitude. Our hope is that this is similar to an actual fall, but actual falls have not been tested. This is due to the fact that we could not perform the tests ourselves, since we would risk being injured during the test. We also did not have access to any kind of crash test dummy that could have been used for testing.
 	
@@ -1028,6 +1028,10 @@
 	
 	\parag{Reliability}
 	\textit{Reliability} refers to how replicable or repeatable the research project is. Another research project that asks the same questions and and uses the same methods should ideally come to the same conclusions. Our first method was to perform a literature study with the intention to find a good algorithm that were to be used as a starting point for the case study. It should be noted that another researcher, with different background and experiences may have found another algorithm as a better starting point and ended up with an application that implements fall detection entirely different, and thus could have ended up with different conclusions. However, if another researcher would use the same starting point as we did, and make the same decisions along the way, s/he should end up with the same result, and therefore the work is repeatable.
+	
+	\subsection{Test results}
+	The tests results shows a high overall accuracy score. The overall accuracy for the iOS and Android applications are 91\% and 83\% respectively. These numbers suggest that, based on our tests, the application is doing what it should in 91\% vs. 83\% of the time. The application is in each case accurately discarding non-fall events and presenting an alarm in case of a real fall is detected to up to those percentages.  Though the implementation is practically identical in both cases, differences in training data and the precision of the accelerometer might be a reason why the tests result differ somewhat between the two implementations. Weather 91\% vs. 83\% accuracy is to consider accurate enough might be up for discussion, however, we conciser the tests to be successful because the methods we used when training our model was very much detected when we later tested it using similar methods. This leads us to think that machine learning is a good candidate for these kinds of predictions, and that even more, and better training data would very likely lead to an even higher accuracy. 
+	
 	
 	\subsection{Revisiting research questions}
 	
