@@ -138,9 +138,20 @@
 		
 		\subsection{Disposition}
 		
+		In chapter \ref{section:theoretical-background}, the theoretical background is described. This includes related works, description of a similar existing application and some theory related to machine learning.
+		
+		Chapter \ref{section:methods} describes the methods \& methodology used in the project. This includes the research strategy, describing how the application is developed and how it is evaluated.
+		
+		The results of the first part of the case study is presented in chapter \ref{section:application-design}. The architecture of the developed application is described with enough detail to allow the reader to implement a similar application.
+		
+		In chapter \ref{section:application-evaluation}, the results of the evaluation is presented. This chapter shows the outcome of the tests performed during evaluation.
+		
+		Chapter \ref{section:discussion} summarizes and discusses the result, and presents the conclusions of the study.
 	\newpage
 	
-	\section{Theoretical Background}
+	\section{Theoretical Background} \label{section:theoretical-background}
+	
+	This chapter describes the theoretical background related to the project.
 	
 	\subsection{The physics of falling}
 	The physics of falling have been researched on several occasions and the results can be read in a multitude of scientific papers and reports. Much of the research done in this area tries to distinguish the characteristics of a fall in comparison to other motional patterns conducted on a daily basis. For a fall detection system to be considered as reliable it is imperative that it has the means to separate actual fall accidents from other patterns resulting from activities of daily living (further referenced as ADL) to a fair extent. The earth's gravitational pull produces a constant acceleration by 9.8 $m/s^{2}$ towards the ground. This constant acceleration is also referenced as \textit{g}. A fall towards the earth's surface would thus initially mean a decrease in acceleration with respect to this natural constant, followed by a rapid acceleration in the other direction as the device (and possibly the person wearing it) hits either the ground or another surface.
@@ -359,7 +370,7 @@
 	
 	
 	\newpage
-	\section{Methods and Methodology}
+	\section{Methods and Methodology} \label{section:methods}
 	
 	This chapter describes the research strategy and the methodologies used in the study, and how each methodology contributes to answering the research questions.
 	
@@ -450,17 +461,19 @@
 	
 	\subsubsection{Evaluating accuracy}
 	
-	The first step in the evaluation of the application will be to perform crash tests where we measure how well the application detects a fall, by dropping a mobile phone running the application several times from a height that we define as a fall and count the number of reported falls. The same test can then be performed with an existing application to compare how well the implemented algorithm compares to existing technology.
+	The first step in the evaluation of the application will be to perform crash tests where we measure how well the application detects a fall, by dropping a mobile phone running the application several times from a height that we define as a fall and count the number of reported falls. The different heights that we have chosen are 3 m, 1.5 m, and 1 m. Dropping the phone from 3 m is supposed to simulate falling from a ladder or similar, 1.5 m simulates falling from a stool or similar, with the phone in the pocket and 1 m simulates a fall from standing on the ground.
 	
-	Another measurement will be to drop the mobile phone running the application from a height that we do not define as a fall, and count how many falls are falsely detected. This number will also be compared with the result of running the same test with an existing application.
+	Another test will be to walk for a short distance and then immediately drop the phone. This is supposed to simulate falling while walking. The test will include walking a distance of 10 m and then dropping the phone from a height of 1 m.
 	
-	Yet another test will be to perform daily activities that can trigger a fall detection system, even though it is not a fall. Theses activities can be running, or walking with the phone in the pocket. A good fall detection software will not report many of these as falls. This will also be compared against an existing application.
+	Yet another test will be to perform daily activities that can trigger a fall detection system, even though it is not a fall. Theses activities can be running, or walking with the phone in the pocket. A good fall detection software will not report many of these as falls.
 	
 	We will perform each test 10 times each for Android and 10 times each for iOS. The tests that we will perform are the following:
 	
 	\begin{enumerate}
-		\item Drop the phone from a height of 3 m 
+		\item Drop the phone from a height of 3 m
+		\item Drop the phone from a height of 1.5 m
 		\item Drop the phone from a height of 1 m
+		\item Walk 10 m while carrying the phone, and drop the phone from a height of 1 m
 		\item Run 10 m while carrying the phone in the pocket, and stand still for 5 s afterwards
 		\item Walk 10 m while carrying the phone in the pocket, and stand still for 5 s afterwards
 		\item Jump with the phone in the pocket, and stand still for 5 s afterwards
@@ -472,7 +485,7 @@
 	In combination with this, we will also perform tests where we run the application for a certain amount of time and note how much battery life is left and compare this value with the percentage left after not running the application for the same amount of time.
 	
 	\newpage
-	\section{Fall Detection Application: Design}
+	\section{Fall Detection Application: Design} \label{section:application-design}
 	
 	This section describes the design of the fall detection application.
 	
@@ -807,11 +820,11 @@
 	
 	\newpage
 	
-	\section{Fall Detection Application: Evaluation}
+	\section{Fall Detection Application: Evaluation} \label{section:application-evaluation}
 	
 \newpage
 	
-	\section{Discussion \& Conclusions}
+	\section{Discussion \& Conclusions} \label{section:discussion}
 	
 	In this chapter, the methods used in the study and their implications are analysed, the research questions are answered followed by a discussion of sustainability and ethical considerations. Lastly, the research project is summarized and suggestions for future research is presented.
 	
@@ -828,6 +841,8 @@
 	The case study consisting of developing an application gave us the opportunity to test different approaches and ideas to see if the algorithm could be improved. Developing an application was necessary since we did not have access to the source code of any existing application.
 	
 	\subsubsection{Evaluation}
+	
+	The evaluation of the application were conducted in a very small scale, and focusing on qualities of the application rather that performing tests with a lot of users. This means that we can only say that the application works well with condition that the circumstances are the same as in the evaluation. The limitations regarding evaluation include the fact that the evaluation of falls were performed by simply dropping the phone from an altitude. Our hope is that this is similar to an actual fall, but actual falls have not been tested. This is due to the fact that we could not perform the tests ourselves, since we would risk being injured during the test. We also did not have access to any kind of crash test dummy that could have been used for testing.
 	
 	\subsubsection{Validity \& Reliability}
 	
