@@ -6,7 +6,7 @@ Database file #1: bib_common.bib
 Warning--I didn't find a database entry for "mit-neural-netwirks"
 You've used 10 entries,
             1876 wiz_defined-function locations,
-            528 strings with 4970 characters,
+            528 strings with 4965 characters,
 and the built_in function-call counts, 1457 in all, are:
 = -- 118
 > -- 70
