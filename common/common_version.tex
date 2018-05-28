@@ -843,7 +843,8 @@
 	The results from each of these test cases will now be presented in chronological order. 
 	
 	\subsubsection{Walk} 
-	The walking test was performed by simply walking with the device in the trouser pocket. We walked for 15 meters and stopped for 10 seconds, then repeated the process. The 10 second stop is definitely long enough for a possible motion-event to fall through the state machine and consequently consult the classification engine. Should that happen, we still expect the classification engine to not classify the event as a fall. Walking should not produce an alarm and we expect the fall detection system to discard all motion-events and thus get \textit{true negatives}. The result can be seen in table \ref{table:walk-test}. 
+	\label{section:walking-test}
+	The walking test was performed by simply walking with the device in the trouser pocket. We walked for 10 meters and stopped for 5 seconds, then repeated the process. The 5 second stop is definitely long enough for a possible motion-event to fall through the state machine and consequently consult the classification engine. Should that happen, we still expect the classification engine to not classify the event as a fall. Walking should not produce an alarm and we expect the fall detection system to discard all motion-events and thus get \textit{true negatives}. The result can be seen in table \ref{table:walk-test}. 
 	
 	\begin{table}[H]
 		\centering
@@ -861,7 +862,7 @@
 	
 	
 	\subsubsection{Run}
-	The run test was performed similar to the walking test in 1.1.1 but instead of walking, we would run for 15 meters and then stop for 10 seconds. Like the walking test, we expect the system to correctly discard all motion-events as non-fall. Running, like walking, should not produce any alarms and thus we expect to get \textit{true negatives}. The result can be see in table \ref{table:run-test}
+	The run test was performed similar to the walking test in \ref{section:walking-test} but instead of walking, we would run for 10 meters and then stop for 5 seconds. Like the walking test, we expect the system to correctly discard all motion-events as non-fall. Running, like walking, should not produce any alarms and thus we expect to get \textit{true negatives}. The result can be see in table \ref{table:run-test}
 	
 	
 	\begin{table}[H]
@@ -898,7 +899,7 @@
 	
 	\subsubsection{Falling while walking}
 	\label{section:falling-while-walking}
-	We tried to simulate falling while walking by holding the device tightly against the hip and then walk for 15m and drop the device to the ground while still walking. The device would thus produce a curved fall to the ground in contrast to a straight line the would be the result if a person would fall from for eg. a ladder. In this test we expected the application to produce alarms, since falling while walking is indeed still a fall. Thus, we want the number of \textit{true-positives} be high and the number of \textit{false-negatives} to be low. The results can be seen in table \ref{table:fall-while-walk}
+	We tried to simulate falling while walking by holding the device tightly against the hip and then walk for 10m and drop the device to the ground while still walking. The device would thus produce a curved fall to the ground in contrast to a straight line the would be the result if a person would fall from for eg. a ladder. In this test we expected the application to produce alarms, since falling while walking is indeed still a fall. Thus, we want the number of \textit{true-positives} be high and the number of \textit{false-negatives} to be low. The results can be seen in table \ref{table:fall-while-walk}
 	
 	\begin{table}[H]
 		\centering
