@@ -482,7 +482,6 @@
 	\subsubsection{Evaluating battery life}
 	
 	To evaluate how the application affects the battery life of the mobile phone, we will use the native functionality in the operating system available on Android and iOS respectively to measure the specific applications power consumption.
-	In combination with this, we will also perform tests where we run the application for a certain amount of time and note how much battery life is left and compare this value with the percentage left after not running the application for the same amount of time.
 	
 	\newpage
 	\section{Fall Detection Application: Design} \label{section:application-design}
@@ -989,20 +988,34 @@
 	
 	This gives us overall success rate: 
 	
-	iOS: $(100 + 100 + 90 + 90 + 80 + 90 + 90) / 7 = 0.914 = 91\%$
+	iOS: $(100 + 100 + 90 + 90 + 80 + 90 + 90) / 7 ≈ 91\%$
 	
 	
-	Android: $(100 +100 +90 +50 +70  + 70 + 100) / 7 = 0.828 = 83\%$
+	Android: $(100 +100 +90 +50 +70  + 70 + 100) / 7 ≈ 83\%$
 	
 	
 	One reason for the discrepancies between the application running on the iOS device and then one running on Android might be that the hardware accelerometer in the iOS device is of better quality and has better accuracy and precision. 
 	
+	\subsection{Evaluating battery life}
 	
-\newpage
+	To evaluate how the application affects battery life of the mobile phone we used embedded battery usage statistics. This kind of measurement tool is found natively in both iOS and Android and states the amount of battery used by each application. This is somewhat limited since we cannot choose which statistics to present, but still useful. The result of this measurement is presented in table \ref{table:battery-embedded}. The measurement shows that when running the application in background on iOS for 7.5 hours it consumes 14\%. On Android the measurement shows that running the application for 48 minutes in background and 6 minutes in foreground resulted in a 4\% battery usage. On both iOS and Android the battery used by our application where small compared to the battery usage of other applications.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|c|c|c|}
+			\hline
+			& Running time & Time in foreground & Battery usage \\ \hline
+			iOS     & 7h 30m & -- & 14\%        \\ \hline
+			Android & 0h 54m & 6m & 4\%        \\ \hline
+		\end{tabular}
+		\caption{The result of the embedded battery usage measurement}
+		\label{table:battery-embedded}
+	\end{table}
+	\newpage
 	
 	\section{Discussion \& Conclusions} \label{section:discussion}
 	
-	In this chapter, the methods used in the study and their implications are analysed, the research questions are answered followed by a discussion of sustainability and ethical considerations. Lastly, the research project is summarized and suggestions for future research is presented.
+	In this chapter, the methods used in the study and their implications are analysed, the research questions are answered followed by a discussion of the results, sustainability and ethical considerations. Lastly, the research project is summarized and suggestions for future research is presented.
 	
 	\subsection{Methods \& Implications}
 	

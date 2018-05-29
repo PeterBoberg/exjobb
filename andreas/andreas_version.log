@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  28 MAY 2018 11:53
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  28 MAY 2018 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -801,98 +801,300 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \colbreak@box=\box77
 \mc@col@check@num=\count180
 )
+(/usr/local/texlive/2017/texmf-dist/tex/latex/unicode-math/unicode-math.sty
+Package: unicode-math 2017/01/27 v0.8d Unicode maths in XeLaTeX and LuaLaTeX
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/ucharcat/ucharcat.sty
+Package: ucharcat 2015/11/19 v0.03 ucharcat for luaLaTeX (DPC)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2017/05/13 LaTeX2e option processing using LaTeX3 keys
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/base/fix-cm.sty
+Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/filehook/filehook.sty
+Package: filehook 2011/10/12 v0.5d Hooks for input files
+)
+\g__um_fam_int=\count181
+\g__um_primekern_muskip=\muskip16
+\l__um_primecount_int=\count182
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \unimathsetup with sig. 'm' on line 166.
+.................................................
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.s
+ty
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathfontface with sig. 'mO{}mO{}' on line 165.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setoperatorfont with sig. 'm' on line 169.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathfont with sig. 'O{}mO{}' on line 278.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \addnolimits with sig. 'm' on line 520.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \removenolimits with sig. 'm' on line 524.
+.................................................
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/unicode-math/unicode-math-table.t
+ex))) (/usr/local/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+\Gm@cnth=\count183
+\Gm@cntv=\count184
+\c@Gm@tempcnt=\count185
+\Gm@bindingoffset=\dimen199
+\Gm@wd@mp=\dimen256
+\Gm@odd@mp=\dimen257
+\Gm@even@mp=\dimen258
+\Gm@layoutwidth=\dimen259
+\Gm@layoutheight=\dimen260
+\Gm@layouthoffset=\dimen261
+\Gm@layoutvoffset=\dimen262
+\Gm@dimlist=\toks28
+)
 (./andreas_version.aux)
 \openout1 = `andreas_version.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-.................................................
-. fontspec info: "setup-math"
-. 
-. Adjusting the maths setup (use [no-math] to avoid this).
-.................................................
-\symlegacymaths=\mathgroup4
-LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 43.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 43.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 43.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 43.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 43.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 43.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 43.
-LaTeX Font Info:    Redeclaring math accent \check on input line 43.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 43.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 43.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \colon on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 43.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 43.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 43.
-LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 43.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/Georgia(0)/m/n on input line 43.
-LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 43.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/Georgia(0)/m/n on input line 43.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/Georgia(0)/m/n --> TU/Georgia(0)/m/n on input line 4
-3.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/Georgia(0)/m/it on input line 43.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/Georgia(0)/bx/n on input line 43.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 43.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 43.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/Georgia(0)/m/n --> TU/Georgia(0)/bx/n on input line 
-43.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/Georgia(0)/bx/it on input line 43.
-
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 43.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 43.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
  ABD: EveryShipout initializing macros
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 46.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 46.
+\g__fontspec_family_latinmodern-math.otf_int=\count186
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'latinmodern-math.otf(0)' created for font
+. 'latinmodern-math.otf' with options
+. [BoldItalicFont={},ItalicFont={},Script=Math,SizeFeatures={{Size=12-},{Size=8
+-12,Font=latinmodern-math.otf,Style=MathScript},{Size=-8,Font=latinmodern-math.
+otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf}].
+.  
+.  This font family consists of the following NFSS series/shapes:
+.  
+. - 'normal' (m/n) with NFSS spec.:
+. <12->"[latinmodern-math.otf]/OT:script=math;language=DFLT;"<8-12>"[latinmoder
+n-math.otf]/OT:script=math;language=DFLT;+ssty=0;"<-8>"[latinmodern-math.otf]/O
+T:script=math;language=DFLT;+ssty=1;"
+. - 'small caps'  (m/sc) with NFSS spec.: 
+. - 'bold' (bx/n) with NFSS spec.:
+. <->"[latinmodern-math.otf]/OT:script=math;language=DFLT;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: 
+.................................................
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 44.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/latinmodern-math.otf(0)/m/n on input
+ line 44.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 44.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/latinmodern-math.otf(0)/bx/n on inp
+ut line 44.
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'latinmodern-math.otf(1)' created for font
+. 'latinmodern-math.otf' with options
+. [BoldItalicFont={},ItalicFont={},Script=Math,SizeFeatures={{Size=12-},{Size=8
+-12,Font=latinmodern-math.otf,Style=MathScript},{Size=-8,Font=latinmodern-math.
+otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},Scale=1.00001,Font
+Adjustment={\fontdimen
+. 8\font =8.124pt\relax \relax \fontdimen 9\font =4.728pt\relax \relax
+. \fontdimen 10\font =5.328pt\relax \relax \fontdimen 11\font =8.232pt\relax
+. \relax \fontdimen 12\font =4.14pt\relax \relax \fontdimen 13\font
+. =4.356pt\relax \relax \fontdimen 14\font =4.356pt\relax \relax \fontdimen
+. 15\font =3.468pt\relax \relax \fontdimen 16\font =2.964pt\relax \relax
+. \fontdimen 17\font =2.964pt\relax \relax \fontdimen 18\font =3.0pt\relax
+. \relax \fontdimen 19\font =2.4pt\relax \relax \fontdimen 20\font =0pt\relax
+. \fontdimen 21\font =0pt\relax \fontdimen 22\font =3.0pt\relax \relax }].
+.  
+.  This font family consists of the following NFSS series/shapes:
+.  
+. - 'normal' (m/n) with NFSS spec.:
+. <12->s*[1.00001]"[latinmodern-math.otf]/OT:script=math;language=DFLT;"<8-12>s
+*[1.00001]"[latinmodern-math.otf]/OT:script=math;language=DFLT;+ssty=0;"<-8>s*[
+1.00001]"[latinmodern-math.otf]/OT:script=math;language=DFLT;+ssty=1;"
+. - 'small caps'  (m/sc) with NFSS spec.: 
+. and font adjustment code:
+. \fontdimen 8\font =8.124pt\relax \relax \fontdimen 9\font =4.728pt\relax
+. \relax \fontdimen 10\font =5.328pt\relax \relax \fontdimen 11\font
+. =8.232pt\relax \relax \fontdimen 12\font =4.14pt\relax \relax \fontdimen
+. 13\font =4.356pt\relax \relax \fontdimen 14\font =4.356pt\relax \relax
+. \fontdimen 15\font =3.468pt\relax \relax \fontdimen 16\font =2.964pt\relax
+. \relax \fontdimen 17\font =2.964pt\relax \relax \fontdimen 18\font
+. =3.0pt\relax \relax \fontdimen 19\font =2.4pt\relax \relax \fontdimen
+. 20\font =0pt\relax \fontdimen 21\font =0pt\relax \fontdimen 22\font
+. =3.0pt\relax \relax 
+. - 'bold' (bx/n) with NFSS spec.:
+. <->s*[1.00001]"[latinmodern-math.otf]/OT:script=math;language=DFLT;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: 
+. and font adjustment code:
+. \fontdimen 8\font =8.124pt\relax \relax \fontdimen 9\font =4.728pt\relax
+. \relax \fontdimen 10\font =5.328pt\relax \relax \fontdimen 11\font
+. =8.232pt\relax \relax \fontdimen 12\font =4.14pt\relax \relax \fontdimen
+. 13\font =4.356pt\relax \relax \fontdimen 14\font =4.356pt\relax \relax
+. \fontdimen 15\font =3.468pt\relax \relax \fontdimen 16\font =2.964pt\relax
+. \relax \fontdimen 17\font =2.964pt\relax \relax \fontdimen 18\font
+. =3.0pt\relax \relax \fontdimen 19\font =2.4pt\relax \relax \fontdimen
+. 20\font =0pt\relax \fontdimen 21\font =0pt\relax \fontdimen 22\font
+. =3.0pt\relax \relax 
+.................................................
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 44.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> TU/latinmodern-math.otf(1)/m/n on inpu
+t line 44.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 44.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> TU/latinmodern-math.otf(1)/bx/n on inp
+ut line 44.
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'latinmodern-math.otf(2)' created for font
+. 'latinmodern-math.otf' with options
+. [BoldItalicFont={},ItalicFont={},Script=Math,SizeFeatures={{Size=12-},{Size=8
+-12,Font=latinmodern-math.otf,Style=MathScript},{Size=-8,Font=latinmodern-math.
+otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},Scale=0.99999,Font
+Adjustment={\fontdimen
+. 8\font =0.48pt\relax \relax \fontdimen 9\font =2.4pt\relax \relax \fontdimen
+. 10\font =2.004pt\relax \relax \fontdimen 11\font =1.332pt\relax \relax
+. \fontdimen 12\font =7.2pt\relax \relax \fontdimen 13\font =0pt\relax }].
+.  
+.  This font family consists of the following NFSS series/shapes:
+.  
+. - 'normal' (m/n) with NFSS spec.:
+. <12->s*[0.99999]"[latinmodern-math.otf]/OT:script=math;language=DFLT;"<8-12>s
+*[0.99999]"[latinmodern-math.otf]/OT:script=math;language=DFLT;+ssty=0;"<-8>s*[
+0.99999]"[latinmodern-math.otf]/OT:script=math;language=DFLT;+ssty=1;"
+. - 'small caps'  (m/sc) with NFSS spec.: 
+. and font adjustment code:
+. \fontdimen 8\font =0.48pt\relax \relax \fontdimen 9\font =2.4pt\relax \relax
+. \fontdimen 10\font =2.004pt\relax \relax \fontdimen 11\font =1.332pt\relax
+. \relax \fontdimen 12\font =7.2pt\relax \relax \fontdimen 13\font =0pt\relax 
+. - 'bold' (bx/n) with NFSS spec.:
+. <->s*[0.99999]"[latinmodern-math.otf]/OT:script=math;language=DFLT;"
+. - 'bold small caps'  (bx/sc) with NFSS spec.: 
+. and font adjustment code:
+. \fontdimen 8\font =0.48pt\relax \relax \fontdimen 9\font =2.4pt\relax \relax
+. \fontdimen 10\font =2.004pt\relax \relax \fontdimen 11\font =1.332pt\relax
+. \relax \fontdimen 12\font =7.2pt\relax \relax \fontdimen 13\font =0pt\relax 
+.................................................
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 4
+4.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
+t line 44.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 44.
 
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> TU/latinmodern-math.otf(2)/bx/n on inp
+ut line 44.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(85.35826pt, 674.33032pt, 85.35826pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=426.79135pt
+* \textheight=674.33032pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-23.91173pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 14.4002pt on input line 47.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.00015pt on input line 47.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0001pt on input line 47.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 14.39977pt on input line 47.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 9.99985pt on input line 47.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.9999pt on input line 47.
 
 LaTeX Warning: No \author given.
 
-\g__fontspec_family_Arial_int=\count181
+\g__fontspec_family_Arial_int=\count187
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -912,36 +1114,36 @@ LaTeX Warning: No \author given.
 . - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
 .................................................
 (./andreas_version.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 12.00018pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.41495pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.97696pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 11.99982pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.41469pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.97679pt on input line 2.
 )
 \tf@toc=\write4
 \openout4 = `andreas_version.toc'.
 
  [1
 
-] [2]
-Overfull \hbox (9.54558pt too wide) in paragraph at lines 78--80
-\TU/Georgia(0)/m/n/12 same methods should ideally come to the same conclusions.
- Our first method
- []
-
-[3] [4] [5] [6] [7] (./andreas_version.bbl
+] [2] (./andreas_version.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [8] (./andreas_version.aux) ) 
+) [3] (./andreas_version.aux) ) 
 Here is how much of TeX's memory you used:
- 19752 strings out of 493005
- 416069 string characters out of 6134595
- 480078 words of memory out of 5000000
- 23475 multiletter control sequences out of 15000+600000
- 7513 words of font info for 54 fonts, out of 8000000 for 9000
+ 24254 strings out of 493005
+ 483025 string characters out of 6134595
+ 631994 words of memory out of 5000000
+ 27920 multiletter control sequences out of 15000+600000
+ 6486 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 48i,6n,66p,10376b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,8n,71p,10376b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on andreas_version.pdf (8 pages).
+Output written on andreas_version.pdf (3 pages).
