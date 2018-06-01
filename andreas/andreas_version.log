@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  28 MAY 2018 15:26
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.22)  1 JUN 2018 11:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1079,21 +1079,6 @@ ut line 44.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.4002pt on input line 47.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.00015pt on input line 47.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0001pt on input line 47.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.39977pt on input line 47.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.99985pt on input line 47.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.9999pt on input line 47.
-
-LaTeX Warning: No \author given.
-
 \g__fontspec_family_Arial_int=\count187
 .................................................
 . fontspec info: "defining-font"
@@ -1126,24 +1111,338 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 8.41469pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
 (Font)              scaled to size 5.97679pt on input line 2.
-)
+ [1
+
+])
 \tf@toc=\write4
 \openout4 = `andreas_version.toc'.
 
- [1
+ [2]
 
-] [2] (./andreas_version.bbl
+LaTeX Warning: Citation `who' on page 3 undefined on input line 50.
+
+
+LaTeX Warning: Citation `who' on page 3 undefined on input line 50.
+
+
+LaTeX Warning: Citation `msb_report' on page 3 undefined on input line 60.
+
+
+LaTeX Warning: Citation `soc_olyckor' on page 3 undefined on input line 60.
+
+
+LaTeX Warning: Citation `msb_report' on page 3 undefined on input line 60.
+
+
+LaTeX Warning: Citation `av' on page 3 undefined on input line 64.
+
+File: ../img/Fall_from_ground_women_and_men.png Graphic file (type QTm)
+<use  "../img/Fall_from_ground_women_and_men.png" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: ../img/Falls_from_elevated_height_men_and_women.png Graphic file (type QT
+m)
+<use  "../img/Falls_from_elevated_height_men_and_women.png" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3] [4] [5] [6]
+
+LaTeX Warning: Reference `section:application-evaluation' on page 7 undefined o
+n input line 143.
+
+
+LaTeX Warning: Reference `section:discussion' on page 7 undefined on input line
+ 145.
+
+[7]
+
+LaTeX Warning: Citation `int_journ' on page 8 undefined on input line 156.
+
+
+LaTeX Warning: Citation `piza_uni' on page 8 undefined on input line 156.
+
+
+LaTeX Warning: Citation `int_journ' on page 8 undefined on input line 159.
+
+[8] [9]
+
+LaTeX Warning: Citation `int_journ' on page 10 undefined on input line 194.
+
+
+Overfull \hbox (1.75385pt too wide) in paragraph at lines 194--195
+\TU/Georgia(0)/m/n/12 tional types [[]]. In their research, they measured the r
+esponse from a LSM330DLC
+ []
+
+File: ../img/accelerometer-axis.jpg Graphic file (type QTm)
+<use  "../img/accelerometer-axis.jpg" > [10]
+File: ../img/Falling.png Graphic file (type QTm)
+ <use  "../img/Falling.png" >
+File: ../img/Walking.png Graphic file (type QTm)
+
+<use  "../img/Walking.png" >
+File: ../img/Sitting_down.png Graphic file (type QTm)
+ <use  "../img/Sitting_down.png" > [11]
+File: ../img/Jumping.png Graphic file (type QTm)
+
+<use  "../img/Jumping.png" >
+
+LaTeX Warning: Citation `piza_uni' on page 12 undefined on input line 244.
+
+
+LaTeX Warning: Citation `piza_uni' on page 12 undefined on input line 246.
+
+
+LaTeX Warning: Citation `piza_uni' on page 12 undefined on input line 256.
+
+[12]
+
+LaTeX Warning: Reference `fig:Abbate-state-machine' on page 13 undefined on inp
+ut line 258.
+
+
+Overfull \hbox (20.15787pt too wide) in paragraph at lines 261--262
+[]\TU/Georgia(0)/m/n/12 The \TU/Georgia(0)/m/it/12 sampling \TU/Georgia(0)/m/n/
+12 state is the normal state that the process resides in until \TU/Georgia(0)/m
+/it/12 threshold-
+ []
+
+File: ../img/Abbatea_finite_state_machine.png Graphic file (type QTm)
+<use  "../img/Abbatea_finite_state_machine.png" > [13]
+File: ../img/AAMV_formula.png Graphic file (type QTm)
+
+<use  "../img/AAMV_formula.png" >
+
+LaTeX Warning: Citation `piza_uni' on page 14 undefined on input line 296.
+
+
+LaTeX Warning: Citation `piza_uni' on page 14 undefined on input line 296.
+
+
+LaTeX Warning: Citation `neural_networks' on page 14 undefined on input line 31
+3.
+
+[14]
+
+LaTeX Warning: Citation `neural_networks' on page 15 undefined on input line 31
+9.
+
+[15]
+
+LaTeX Warning: Citation `towards-data-sci' on page 16 undefined on input line 3
+46.
+
+
+LaTeX Warning: Citation `towards-data-sci' on page 16 undefined on input line 3
+53.
+
+File: ../img/neural-network-overview.png Graphic file (type QTm)
+<use  "../img/neural-network-overview.png" >
+
+LaTeX Warning: Citation `neural_networks' on page 16 undefined on input line 36
+5.
+
+[16] [17]
+
+LaTeX Warning: Citation `borrego' on page 18 undefined on input line 381.
+
+
+LaTeX Warning: Citation `borrego' on page 18 undefined on input line 383.
+
+
+LaTeX Warning: Citation `yin' on page 18 undefined on input line 393.
+
+[18] [19]
+File: ../img/method-phases.png Graphic file (type QTm)
+ <use  "../img/method-phases.png" > [20]
+File: ../img/method-development.png Graphic file (type QTm)
+
+<use  "../img/method-development.png" > [21] [22]
+File: ../img/architecture-outline.png Graphic file (type QTm)
+
+<use  "../img/architecture-outline.png" > [23]
+File: ../img/thresholds.png Graphic file (type QTm)
+ <use  "../img/thresholds.png" >
+[24]
+File: ../img/state-machine-3.png Graphic file (type QTm)
+ <use  "../img/state-machine-3.png" >
+Overfull \hbox (31.34726pt too wide) in paragraph at lines 540--541
+ [][] 
+ []
+
+[25]
+File: ../img/fall-data-state-machine.png Graphic file (type QTm)
+ <use  "../img/fall-data-state-machine.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 549--550
+ [][] 
+ []
+
+[26] [27]
+
+LaTeX Warning: Citation `piza_uni' on page 28 undefined on input line 580.
+
+File: ../img/fall-data-example.png Graphic file (type QTm)
+<use  "../img/fall-data-example.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 584--585
+ [][] 
+ []
+
+[28]
+File: ../img/fall-data-run-ios.png Graphic file (type QTm)
+ <use  "../img/fall-data-run-ios.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 595--596
+ [][] 
+ []
+
+[29]
+File: ../img/fall-data-run-android.png Graphic file (type QTm)
+ <use  "../img/fall-data-run-android.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 602--603
+ [][] 
+ []
+
+File: ../img/fall-data-fall-ios.png Graphic file (type QTm)
+<use  "../img/fall-data-fall-ios.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 609--610
+ [][] 
+ []
+
+[30]
+File: ../img/fall-data-fall-android.png Graphic file (type QTm)
+ <use  "../img/fall-data-fall-android.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 616--617
+ [][] 
+ []
+
+[31]
+File: ../img/fall-data-impact-duration-android-highlight.png Graphic file (type
+ QTm)
+ <use  "../img/fall-data-impact-duration-android-highlight.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 627--628
+ [][] 
+ []
+
+File: ../img/fall-data-impact-peak-highlight.png Graphic file (type QTm)
+<use  "../img/fall-data-impact-peak-highlight.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 638--639
+ [][] 
+ []
+
+[32]
+File: ../img/fall-data-impact-peak-duration-highlight.png Graphic file (type QT
+m)
+ <use  "../img/fall-data-impact-peak-duration-highlight.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 649--650
+ [][] 
+ []
+
+[33]
+File: ../img/fall-data-longest-valley-value-highlight.png Graphic file (type QT
+m)
+ <use  "../img/fall-data-longest-valley-value-highlight.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 660--661
+ [][] 
+ []
+
+[34]
+File: ../img/fall-data-longest-valley-duration.png Graphic file (type QTm)
+ <use  "../img/fall-data-longest-valley-duration.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 671--672
+ [][] 
+ []
+
+[35]
+File: ../img/fall-data-peaks-and-valleys.png Graphic file (type QTm)
+ <use  "../img/fall-data-peaks-and-valleys.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 686--687
+ [][] 
+ []
+
+[36]
+File: ../img/training-model.png Graphic file (type QTm)
+ <use  "../img/training-model.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 701--702
+ [][] 
+ []
+
+[37]
+Overfull \hbox (7.81921pt too wide) in paragraph at lines 711--712
+[]\TU/Georgia(0)/m/n/12 In total, 210 samples were collected, evenly distribute
+d between the different classes
+ []
+
+File: ../img/neural-network-model.png Graphic file (type QTm)
+<use  "../img/neural-network-model.png" >
+Overfull \hbox (2.89452pt too wide) in paragraph at lines 718--719
+ [][] 
+ []
+
+[38]
+
+LaTeX Warning: Citation `neural_networks' on page 39 undefined on input line 72
+4.
+
+
+Overfull \hbox (6.13118pt too wide) in paragraph at lines 724--725
+\TU/Georgia(0)/m/n/12 contains unlabelled data for measurement and cross-valida
+tion. The network train-
+ []
+
+[39]
+Overfull \hbox (4.51334pt too wide) in paragraph at lines 743--744
+\TU/Georgia(0)/m/n/12 Initially we had not intended to implement a machine lear
+ning model in the project,
+ []
+
+[40]
+File: ../img/screenshots/main-screen.jpg Graphic file (type QTm)
+ <use  "../img/screenshots/main-screen.jpg" >
+File: ../img/screenshots/main-screen-android.png Graphic file (type QTm)
+
+<use  "../img/screenshots/main-screen-android.png" > [41]
+File: ../img/screenshots/settings-screen.jpg Graphic file (type QTm)
+
+<use  "../img/screenshots/settings-screen.jpg" >
+File: ../img/screenshots/settings-screen-android.png Graphic file (type QTm)
+
+<use  "../img/screenshots/settings-screen-android.png" > [42]
+File: ../img/screenshots/contacts-screen.jpg Graphic file (type QTm)
+
+<use  "../img/screenshots/contacts-screen.jpg" >
+File: ../img/screenshots/contacts-screen-android.png Graphic file (type QTm)
+
+<use  "../img/screenshots/contacts-screen-android.png" > [43]
+File: ../img/screenshots/contacts-detail-screen.jpg Graphic file (type QTm)
+
+<use  "../img/screenshots/contacts-detail-screen.jpg" >
+File: ../img/screenshots/contacts-detail-screen-android.png Graphic file (type 
+QTm)
+
+<use  "../img/screenshots/contacts-detail-screen-android.png" > [44]
+File: ../img/screenshots/alarm-screen.jpg Graphic file (type QTm)
+
+<use  "../img/screenshots/alarm-screen.jpg" >
+File: ../img/screenshots/alarm-screen-android.png Graphic file (type QTm)
+
+<use  "../img/screenshots/alarm-screen-android.png" > [45]
+(./andreas_version.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [3] (./andreas_version.aux) ) 
-Here is how much of TeX's memory you used:
- 24254 strings out of 493005
- 483025 string characters out of 6134595
- 631994 words of memory out of 5000000
- 27920 multiletter control sequences out of 15000+600000
- 6486 words of font info for 60 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 48i,8n,71p,10376b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
+) [46] (./andreas_version.aux)
 
-Output written on andreas_version.pdf (3 pages).
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 24387 strings out of 493005
+ 485991 string characters out of 6134595
+ 639401 words of memory out of 5000000
+ 28017 multiletter control sequences out of 15000+600000
+ 5543 words of font info for 50 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 48i,8n,71p,10376b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on andreas_version.pdf (46 pages).
