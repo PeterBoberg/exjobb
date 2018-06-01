@@ -114,19 +114,11 @@
 	
 	\subsection{Sustainability \& Ethics}
 	
-	This section describes some important questions regarding the sustainability \& ethics of the project.
-	
-	\subsubsection{Sustainability}
-	
 	Since the application will not replace any existing technology, it is difficult to discuss in which way the application will affect the environment. Our project will be focusing on software alone and will only use hardware that already exists, and thus it will not affect the environment in greater extent. One could however argue that the application will run on a cell phone, which will draw more current if it runs an additional application in the background. Therefore, our project will affect the environment, but it is hard to say how great such an effect will be.
 	
 	From a social perspective we hope that the application will contribute to the society in a positive way, since the intention is that the application will help to minimize the negative consequences of accidents related to falling. Hopefully, the finished application will contribute to a better working environment for the users of the application, since an accident may be discovered earlier.  
 	
-	\subsubsection{Ethics}
-	
-	One important question when it comes to ethics is how personal data in the application will be handled. The users of the application will need to enter things like password, email address, etc., which should be regarded as sensitive data that must not be viewed by a third party. We need to make sure that the application does not have any obvious security vulnerability, that makes it possible for a malicious person or organization to acquire the sensitive data in the application.
-	
-	Another important question is what guarantees the application provides to its users. Since the application is supposed to help users in case of an accident, it will be negative if the application turns out to function worse than the users expected. The cases when the user is involved in an accident, but the application fails to register this, must be kept to a minimum. But it must also be clear in the description of the application that such cases may occur.
+	One important question regarding ethics is what guarantees the application provides to its users. Since the application is supposed to help users in case of an accident, it will be negative if the application turns out to function worse than the users expected. The cases when the user is involved in an accident, but the application fails to register this, must be kept to a minimum. But it must also be clear in the description of the application that such cases may occur.
 	
 	\subsection{Methods}
 	
@@ -141,6 +133,8 @@
 	The results of the first part of the case study is presented in chapter \ref{section:application-design}. The architecture of the developed application is described with enough detail to allow the reader to implement a similar application.
 	
 	In chapter \ref{section:application-evaluation}, the results of the evaluation is presented. This chapter shows the outcome of the tests performed during evaluation.
+	
+	In chapter \ref{section:result-summary}, the results are summarized and the research questions are answered.
 	
 	Chapter \ref{section:discussion} discusses the result, and presents the conclusions of the study.
 	\newpage
@@ -517,7 +511,7 @@
 		\item Lower Motionless Threshold, \textit{LMT}
 	\end{itemize}
 	
-	The upper motionless threshold is 1.5 g, the lower motionless threshold is 0.5g, and the impact thresholds are different for Android and iOS. The impact threshold is 2.5g for Android and 4g for iOS.
+	The upper motionless threshold is 1.5 g, the lower motionless threshold is 0.5 g, and the impact thresholds are different for Android and iOS. The impact threshold is 2.5 g for Android and 4 g for iOS.
 	
 	\begin{figure}[H]
 		\centering
@@ -542,7 +536,7 @@
 		\label{fig:state-machine}%
 	\end{figure}
 	
-	Figure \ref{fig:fall-data-state-machine} shows a visualization of the state machine in action. The time periods for the different states are highlighted with the same colors as in figure \ref{fig:state-machine}. In the figure, you can see how the accelerometer vector length \textit{a} varies over time, and how the state machine passes through the different states. The different thresholds \textit{IT}, \textit{UMT} and \textit{LMT} are also shown with line representations. The figure shows that when the accelerometer data drops below \textit{LMT} the state machine goes to the state called \textit{Falling}. When the data goes over that threshold again the state machine is in the \textit{Post falling} state for a short time. When the accelerometer data goes above \textit{IT} the state machine enters the \textit{Impact} state, and roughly 2 s later it enters the \textit{Motionless} state. The accelerometer data is in the interval \([LMT, UMT]\) for an additional 2 s and after that the state machine is in the \textit{Fall detected} state.
+	Figure \ref{fig:fall-data-state-machine} shows a visualization of the state machine in action. The time periods for the different states are highlighted with the same colors as in figure \ref{fig:state-machine}. In the figure, you can see how the accelerometer vector length \textit{a} varies over time, and how the state machine passes through the different states. The different thresholds \textit{IT}, \textit{UMT} and \textit{LMT} are also shown with line representations. The figure shows that when the accelerometer data drops below \textit{LMT} the state machine goes to the state called \textit{Falling}. When the data goes over that threshold again, the state machine is in the \textit{Post falling} state for a short time. When the accelerometer data goes above \textit{IT} the state machine enters the \textit{Impact} state, and roughly 2 s later it enters the \textit{Motionless} state. The accelerometer data is in the interval \([LMT, UMT]\) for an additional 2 s and after that the state machine is in the \textit{Fall detected} state.
 	
 	\begin{figure}[H]
 		\centering
@@ -557,11 +551,11 @@
 	
 	\subsubsection{Falling state}
 	
-	The falling state represents that the phone is falling freely, and it should have an acceleration close to zero, or at least under the lower motionless threshold. If the accelerometer vector length exceeds the lower motionless threshold but not the impact threshold, a transition is made to the post falling state. If the accelerometer vector length exceeds the impact threshold a transition is made to the impact state.
+	The falling state represents that the phone is falling freely, and it should have an acceleration close to zero, or at least under the lower motionless threshold. If the accelerometer vector length exceeds the lower motionless threshold, but not the impact threshold, a transition is made to the post falling state. If the accelerometer vector length exceeds the impact threshold, a transition is made to the impact state.
 	
 	\subsubsection{Post falling state}
 	
-	The post falling state is a state between the falling state and the impact state. It exists to allow a slight lag between the free falling and the impact. If the accelerometer vector length exceeds the impact threshold the machine enters the impact state. If the time since the machine entered the current state exceeds the time limit 0.1 s, a transition is made back to the normal state. This is because no impact occurred in the allowed time window.
+	The post falling state is a state between the falling state and the impact state. It exists to allow a slight lag between the free falling and the impact. If the accelerometer vector length exceeds the impact threshold, the machine enters the impact state. If the time since the machine entered the current state exceeds the time limit 0.1 s, a transition is made back to the normal state. This is because no impact occurred in the allowed time window.
 	
 	\subsubsection{Impact state}
 	
@@ -577,7 +571,7 @@
 	
 	\subsection{Feature Extractor} \label{section:feature-extractor}
 	
-	The purpose of the feature extractor is to take the data in the ring buffer and extract 8 defined features from it. The 8 features will then be used in the neural network. The features are similar to the features defined by Abbate et al. \cite{piza_uni}, but redefined. The data coming from the ring buffer and the features defined by the feature extractor is visualized for one example case in \ref{fig:fall-data-example}. In the figure, one recorded potential fall is graphed. On the vertical axis is the acceleration vector length \textit{a} and on the horizontal axis is time measured in milliseconds. The different thresholds \textit{Impact Threshold}, \textit{Upper Motionless Threshold} and \textit{Lower Motionless Threshold} are shown with line representations. The top of the figure contains some information about this potential fall. It states that the device is an iPhone, meaning that this particular case was recorded on an iPhone. It also prints the operating system of the phone used for recording, and the date. The data shows the \textit{impact start} and \textit{impact end} in milliseconds, stating where the impact starts and end. After that comes the eight features of the fall, \textit{Average acceleration variation}, \textit{Impact duration}, \textit{Impact peak value}, \textit{Impact peak duration}, \textit{Longest valley value}, \textit{Longest valley duration}, \textit{Number of peaks prior to impact} and \textit{Number of valleys prior to impact}. It also states the classification type that was entered when the potential fall was recorded. In this case, it was an actual fall. The classification number is the integer representation of that classification. 
+	The purpose of the feature extractor is to take the data in the ring buffer and extract 8 defined features from it. The 8 features will then be used in the neural network. The features are similar to the features defined by Abbate et al. \cite{piza_uni}, but redefined. The data coming from the ring buffer and the features defined by the feature extractor are visualized for one example case in figure \ref{fig:fall-data-example}. In the figure, one recorded potential fall is graphed. On the vertical axis is the acceleration vector length \textit{a} and on the horizontal axis is time measured in milliseconds. The different thresholds \textit{Impact Threshold}, \textit{Upper Motionless Threshold} and \textit{Lower Motionless Threshold} are shown with line representations. The top of the figure contains some information about this potential fall. It states that the device is an iPhone, meaning that this particular case was recorded on an iPhone. It also prints the operating system of the phone used for recording, and the date. The data shows the \textit{impact start} and \textit{impact end} in milliseconds, stating where the impact starts and end. After that comes the eight features of the fall: \textit{Average acceleration variation}, \textit{Impact duration}, \textit{Impact peak value}, \textit{Impact peak duration}, \textit{Longest valley value}, \textit{Longest valley duration}, \textit{Number of peaks prior to impact} and \textit{Number of valleys prior to impact}. It also states the classification type that was entered when the potential fall was recorded. In this case, it was an actual fall. The classification number is the integer representation of that classification. 
 	
 	\begin{figure}[H]
 		\centering
@@ -588,7 +582,7 @@
 	
 	\subsubsection{Average acceleration variation}
 	
-	The first feature that the extractor should find is the average acceleration variation. This feature is calculated using the formula in figure \ref{fig:aamv-formula} and is supposed to measure how much the acceleration varies after the initial impact peak. Figures \ref{fig:fall-data-run-ios} and \ref{fig:fall-data-run-android} shows examples of where this variation is significant, as compared to figures \ref{fig:fall-data-fall-ios} and \ref{fig:fall-data-fall-android} where the variation is small. Because the difference is so significant between the different classification types it is a good feature to measure. A small variation means that the body exposed to the fall came to a quick stop after the impact. A large variation on the other hand means that there was some smaller impact or shaking after the impact. This indicates that the body did not come to a quick stop.
+	The first feature that the extractor should find is the average acceleration variation. This feature is calculated using the formula in figure \ref{fig:aamv-formula} and is supposed to measure how much the acceleration varies after the initial impact peak. Figures \ref{fig:fall-data-run-ios} and \ref{fig:fall-data-run-android} shows examples of where this variation is significant, as compared to figures \ref{fig:fall-data-fall-ios} and \ref{fig:fall-data-fall-android} where the variation is small. Because the difference is so significant between the different classification types, it is a good feature to measure. A small variation means that the body exposed to the fall came to a quick stop after the impact. A large variation on the other hand means that there was some smaller impact or shaking after the impact. This indicates that the body did not come to a quick stop.
 	
 	\begin{figure}[H]
 		\centering
@@ -636,7 +630,7 @@
 	\begin{figure}[H]
 		\centering
 		\subfloat{{\includegraphics[width=15cm]{../img/fall-data-impact-peak-highlight.png} }}%
-		\caption{Visualization of impact peak value. This fall has a significant impact peak value of around \textit{8.6g}}%
+		\caption{Visualization of impact peak value. This fall has a significant impact peak value of around 8.6 g}%
 		\label{fig:fall-data-impact-peak}%
 	\end{figure}
 	
@@ -675,7 +669,7 @@
 	
 	\subsubsection{Number of peaks prior to impact}
 	
-	The number of peaks prior to impact represents the number of continuous time intervals before the impact start, where each sample in the interval exceeds the impact threshold. Peaks prior to impact are highlighted in green in figure \ref{fig:fall-data-peaks-and-valleys}. Simply put, this feature measures how many times before the impact, the threshold is exceeded. This is supposed to relate to the number of steps taken by the user before the fall. A higher value means that the user may have been walking or running, while a low value means that the user where still before the fall.
+	The number of peaks prior to impact represents the number of continuous time intervals before the impact start, where each sample in the interval exceeds the impact threshold. Peaks prior to impact are highlighted in green in figure \ref{fig:fall-data-peaks-and-valleys}. Simply put, this feature measures how many times before the impact the threshold is exceeded. This is supposed to relate to the number of steps taken by the user before the fall. A higher value means that the user may have been walking or running, while a low value means that the user where still before the fall.
 	
 	\subsubsection{Number of valleys prior to impact}
 	
@@ -689,9 +683,9 @@
 	\end{figure}
 	
 	
-	\subsection{Classification Engine}
+	\subsection{Classification Engine} \label{section:classification-engine}
 	
-	The classification engine uses a neural network under the hood to make predictions on possible fall candidates. It accepts an object containing the eight features extracted from the feature extractor, and puts those features in a one dimensional array with each feature at a specified index. The array is then given to the machine learning model. The output from this model is another one dimensional array containing the predicted possibilities for each class respectively at specified indices. The classification engine then finds the highest prediction in the array and converts it to it´s corresponding class type \textit{Fall, Run/Walk or Jump} and returns this value.
+	The classification engine uses a neural network under the hood to make predictions on possible fall candidates. It accepts an object containing the eight features extracted from the feature extractor, and puts those features in a one dimensional array with each feature at a specified index. The array is then given to the machine learning model. The output from this model is another one dimensional array containing the predicted possibilities for each class respectively at specified indices. The classification engine then finds the highest prediction in the array and converts it to its corresponding class type, \textit{Fall, Run/Walk or Jump}, and returns this value.
 	
 	\subsubsection{Implementing a neural network}
 	The implementation of the neural network consists of three steps. The first step is related to data collection. The second step involves designing the network in terms on layers and neurons, \textit{this will from now on be referenced as the model}, as well as fitting and evaluating the model to make as accurate predictions as possible. The final step using the model in the application and evaluate its accurateness in real world scenarios. The full process from data collection to final model can be seen in figure \ref{fig:training-model}.
@@ -704,7 +698,7 @@
 	\end{figure}
 	
 	\subsubsection{Data collection}
-	In order to collect motion data, we intercept every event that passed through our state-machine and following feature-extractor described in sections \ref{section:state-machine} and \ref{section:feature-extractor}. Thus, for all events that are recognized as a potential fall candidate, we have an object with its own set of the eight features described in section \ref{section:feature-extractor} as well as the original 400 sample long array of acceleration data collected from the accelerometer. The features are to be used when training the model and the array of data points is only used for visualization of the event on our graphical tool. Each event is labeled according to the class it belongs to: \textit{fall, run/walk or jump}. The last step is to save each event to a database. 
+	In order to collect motion data, we intercept every event that passed through our state machine and following feature extractor, described in sections \ref{section:state-machine} and \ref{section:feature-extractor}. Thus, for all events that are recognized as a potential fall candidate, we have an object with its own set of the eight features described in section \ref{section:feature-extractor}, as well as the original 400 sample long array of acceleration data collected from the accelerometer. The features are to be used when training the model and the array of data points is only used for visualization of the event on our graphical tool. Each event is labeled according to the class it belongs to: \textit{fall, run/walk or jump}. The last step is to save each event to a database. 
 	
 	When collecting data for the \textit{run/walk} and \textit{jump} classes, we placed the device in the trouser pocket (a normal place to keep the device in everyday life) and walked, ran and jumped respectively. Collecting data for the \textit{fall} class was done by letting the phone fall from different altitudes, ranging from 1.5 m up to 3 m, and landing on different natural surfaces. A series of events simulating falling while walking was also done by simply walking/running with the device and drop it to the ground mid walk.
 	
@@ -721,11 +715,11 @@
 	\end{figure}
 	
 	\subsubsection{Training the model}
-	When training the model, we downloaded all the data samples from the database and printed them to a CSV-file using our standalone graphical utility tool. The dataset is then split up between training-set, and evaluation-set on a ratio of 9:1. The training set contains the labelled training data, whereas the evaluation-set contains unlabelled data for measurement and cross-validation. The network training program uses the commonly used feed-forward <-> back-propagation method \cite{neural_networks} to fit the model. 
+	When training the model, we downloaded all the data samples from the database and printed them to a CSV-file, using our standalone graphical utility tool. The dataset is then split up between training-set, and evaluation-set on a ratio of 9:1. The training set contains the labelled training data, whereas the evaluation-set contains unlabelled data for measurement and cross-validation. The network training program uses the commonly used feed-forward <-> back-propagation method \cite{neural_networks} to fit the model. 
 	
 	
 	\subsubsection{Using the model}
-	The trained and evaluated neural network are finally converted into two separate file formats that can be used natively in iOS and Android applications. The generated files are simply included in the mobile application project after what they can be used to make predictions on future real life events. The input to the models are a vector of length eight, containing the values of the eight features for an event extracted by the feature-extractor. The output is a vector of length three, containing the independent probabilities of class adherence for the same event. 
+	The trained and evaluated neural network are finally converted into two separate file formats that can be used natively in iOS and Android applications. The generated files are simply included in the mobile application project after what they can be used to make predictions on future real life events. The input to the models are a vector of length eight, containing the values of the eight features for an event extracted by the feature extractor. The output is a vector of length three, containing the independent probabilities of class adherence for the same event. 
 	
 	In the final product, where data collection functionality is removed, it is the values in the output vector that are used to finally decide if an event are to be classified as a fall accident or not. If the probability that the event belongs to the fall-class exceeds the other two, the application flags the event as a fall and presents the discard screen to the user, otherwise, the event will be automatically discarded by the application. 
 	
@@ -740,9 +734,9 @@
 	
 	\subsubsection{Using a neural network}
 	
-	Initially we had not intended to implement a machine learning model in the project, since we did not think that it would be much better than just using a state machine. But since Abbate et al. had used a neural network for their implementation we decided to give it a try. We defined the features that were fed into the neural network slightly different. The first main difference where that we did not include their \textit{Activity Ration Index} since the difference in value for that feature between the different classes were small. The other main difference were that we did not use their \textit{Step Count Index}, since we defined \textit{Number of peaks prior to impact} and \textit{Number of valleys prior to impact} instead, distinguishing from peaks and valleys instead of just counting steps. 
+	Initially we had not intended to implement a machine learning model in the project, since we did not think that it would be much better than just using a state machine. But since Abbate et al. had used a neural network for their implementation, we decided to give it a try. We defined the features that were fed into the neural network slightly different. The first main difference was that we did not include their \textit{Activity Ration Index}, since the difference in value for that feature between the different classes was small. The other main difference was that we did not use their \textit{Step Count Index}, since we defined \textit{Number of peaks prior to impact} and \textit{Number of valleys prior to impact} instead, distinguishing from peaks and valleys instead of just counting steps. 
 	
-	After we had decided which features to extract we started to experiment with the neural network. We started out with the same neural network that they had used, with 8 inputs, 8 neurons and 4 output classes, but we fed the network with our 8 features instead of theirs. While experimenting with collecting data and training the model we realized that one of the 4 output classes, \textit{Hit device}, were never encountered. This is probably due to the difference in the state machine, indicating that our state machine had successfully filtered out that class before reaching the machine learning model. Since that class were never detected there were no need to keep it in the neural network, so we removed it.
+	After we had decided which features to extract, we started to experiment with the neural network. We started out with the same neural network that they had used, with 8 inputs, 8 neurons and 4 output classes, but we fed the network with our 8 features instead of theirs. While experimenting with collecting data and training the model we realized that one of the 4 output classes, \textit{Hit device}, were never encountered. This is probably due to the difference in the state machine, indicating that our state machine had successfully filtered out that class before reaching the machine learning model. Since that class were never detected there were no need to keep it in the neural network, so we removed it.
 	
 	To see if the accuracy in the model could be improved while training, we experimented with adding additional layers of neurons. We tried to use 2, 3 or 4 layers of neurons instead of just one, but the experiments showed that the accuracy in the model decreased, for this reason we removed the additional layers and went back to a single layer of neurons.
 	
@@ -752,14 +746,18 @@
 	
 	\subsubsection{Android}
 	
-	In Android, it is possible to define a background task by creating a class that extends \texttt{android.app.Service}. We chose to create a Service that communicates with our state machine and classification engine, and if a fall is  detected the Service broadcasts the fall to any registered \\ \texttt{android.content.BroadcastReceiver}.
+	In Android, it is possible to define a background task by creating a class that extends \texttt{android.app.Service}. We chose to create a Service that communicates with our state machine and classification engine, and if a fall is  detected the Service broadcasts the fall to any registered  \texttt{android.content.BroadcastReceiver}.
 	
 	\subsubsection{iOS}
-	iOS is very strict with regards to allowing applications to do background processing , only a few types of background tasks are allowed such as playing audio, getting location updates or downloading content from the internet to mention some. However, by signing up for one of the allowed background modes, the app can be kept alive in the background and thus perform other tasks in the meantime such as sampling the accelerometer. Since location updates is needed to alert emergency contact about the users location in case of a fall accident, our choice of background mode is location services.
+	iOS is very strict with regards to allowing applications to do background processing, only a few types of background tasks are allowed such as playing audio, getting location updates or downloading content from the internet to mention some. However, by signing up for one of the allowed background modes, the app can be kept alive in the background and thus perform other tasks in the meantime such as sampling the accelerometer. Since location updates is needed to alert emergency contact about the user's location in case of a fall accident, our choice of background mode is location services.
 	
+	\newpage
 	\subsection{Application user interface}
 	
-	Below is a rundown of the application user interface, only the most relevant view are shown.
+	Below is a rundown of the application user interface, only the most relevant views are shown. 
+	
+	\subsubsection{Main screen}
+	Figure \ref{fig:main-screen} shows the main interface of the application, presented to the user when the application starts. This interface lets the user enable/disable fall detection as well as go to settings and toggle sonic alarm on/off.
 	
 	\begin{figure}[H]
 		\begin{multicols}{2}
@@ -767,9 +765,13 @@
 			\includegraphics[width=6cm]{../img/screenshots/main-screen.jpg}\par 
 			\includegraphics[width=6cm]{../img/screenshots/main-screen-android.png}\par 
 		\end{multicols}
-		\caption{The main interface of the application lets the user enable/disable fall detection as well as go to settings and toggle sonic alarm on/off. The iOS version is to the left, and Android to the right.}%
+		\caption{The main interface of the application. The iOS version is to the left, and Android to the right.}%
 		\label{fig:main-screen}%
 	\end{figure}
+
+	\newpage
+	\subsubsection{Settings screen}
+	From the settings screen, seen in figure \ref{fig:settings-screen}, the user can choose to view emergency contacts, his or her profile and log out of the application.
 	
 	\begin{figure}[H]
 		\begin{multicols}{2}
@@ -777,10 +779,14 @@
 			\includegraphics[width=6cm]{../img/screenshots/settings-screen.jpg}\par 
 			\includegraphics[width=6cm]{../img/screenshots/settings-screen-android.png}\par 
 		\end{multicols}
-		\caption{From the settings screen, the user can choose to view emergency contacts, his or hers profile and log out of the application. The iOS version is to the left, and Android to the right.}%
+		\caption{The settings screen. The iOS version is to the left, and Android to the right.}%
 		\label{fig:settings-screen}%
 	\end{figure}
 	
+	\newpage
+	\subsubsection{Contacts screen}
+	
+	The contacts screen, shown in figure \ref{fig:contacts-screen}, displays all emergency contacts defined by the user. The user may also add a new contact by tapping the + sign. 
 	
 	\begin{figure}[H]
 		\begin{multicols}{2}
@@ -788,9 +794,14 @@
 			\includegraphics[width=6cm]{../img/screenshots/contacts-screen.jpg}\par 
 			\includegraphics[width=6cm]{../img/screenshots/contacts-screen-android.png}\par 
 		\end{multicols}
-		\caption{The contacts screen displays all emergency contacts defined by the user. The user may also add a new contact by tapping the + sign. The iOS version is to the left, and Android to the right.}%
+		\caption{The contacts screen. The iOS version is to the left, and Android to the right.}%
 		\label{fig:contacts-screen}%
 	\end{figure}
+
+\newpage
+\subsubsection{Contact detail view}
+	
+	The contact detail view, shown in figure \ref{fig:contacts-detail-screen}, lets the user view contact details as well as edit them by pressing the edit button. 
 	
 	\begin{figure}[H]
 		\begin{multicols}{2}
@@ -798,9 +809,14 @@
 			\includegraphics[width=6cm]{../img/screenshots/contacts-detail-screen.jpg}\par 
 			\includegraphics[width=6cm]{../img/screenshots/contacts-detail-screen-android.png}\par 
 		\end{multicols}
-		\caption{The contact detail view let the user view contact details as well as edit them by pressing the edit button. The iOS version is to the left, and Android to the right.}%
+		\caption{Contact detail view. The iOS version is to the left, and Android to the right.}%
 		\label{fig:contacts-detail-screen}%	
 	\end{figure}
+	
+	\newpage
+	\subsubsection{Alarm screen}
+	
+	The alarm screen, seen in figure \ref{fig:alarm-screen}, is shown when the app detects a fall. The user now has 45 seconds to discard the event by pressing "I'm OK", or an email containing information and coordinates will be sent to the users emergency contacts.
 	
 	\begin{figure}[H]
 		\begin{multicols}{2}
@@ -808,9 +824,173 @@
 			\includegraphics[width=6cm]{../img/screenshots/alarm-screen.jpg}\par 
 			\includegraphics[width=6cm]{../img/screenshots/alarm-screen-android.png}\par 
 		\end{multicols}
-		\caption{The alarm screen is shown when the app detects a fall, the user now has 45 seconds to discard the event by pressing "I'm OK", or an email containing information and coordinates will be sent to the users emergency contacts when the timer fires. The iOS version is to the left, and Android to the right.}%
+		\caption{The alarm screen. The iOS version is to the left, and Android to the right.}%
 		\label{fig:alarm-screen}%
 	\end{figure}
+
+	\newpage
+	\section{Result summary} \label{section:result-summary}
+	
+	This chapter summarizes the result presented in the previous chapters, and answers the research questions.
+	
+	\subsection{Fall Detection Application: Design}
+	
+	Our final design makes use of the accelerometer data from the embedded sensor in the smartphone. Vector length is calculated instead of using the x, y and z components.
+	
+	As stated in section \ref{section:application-design}, the design consists of the following components:
+	
+	\begin{itemize}
+		\item Ring buffer
+		\item State machine
+		\item Feature extractor
+		\item Classification Engine
+	\end{itemize}
+
+	The accelerometer data is fed into the ring buffer and state machine. The ring buffer holds the last 8 seconds of accelerometer data. The state machine is used to find possible fall candidates.
+	
+	The state machine is described in section \ref{section:state-machine} and has the following states:
+	
+	\begin{itemize}
+		\item Normal
+		\item Falling
+		\item Post falling
+		\item Impact
+		\item Motionless
+		\item Fall detected
+	\end{itemize}
+
+	The thresholds used by the state machine are:
+	
+	\begin{itemize}
+		\item Impact threshold, 2.5 g for Android and 4 g for iOS
+		\item Upper motionless threshold, 1.5 g
+		\item Lower motionless threshold, 0.5 g
+	\end{itemize}
+	
+	In case the state machine finds a possible fall, the content of the ring buffer is transferred to the feature extractor.
+	
+	As described in section \ref{section:feature-extractor}, the feature extractor extracts the following features:
+	
+	\begin{itemize}
+		\item Average acceleration variation
+		\item Impact duration
+		\item Impact peak value
+		\item Impact peak duration
+		\item Longest valley value
+		\item Longest valley duration
+		\item Number of peaks prior to impact
+		\item Number of valleys prior to impact
+	\end{itemize}
+
+	The features extracted are fed into the classification engine, described in section \ref{section:classification-engine}. The classification engine uses a pre-trained neural network to classify the possible fall candidates. The hidden layer consists of 7 neurons and the output classes were:
+	
+	\begin{itemize}
+		\item Fall
+		\item Run/Walk
+		\item Jump
+	\end{itemize}
+
+	\subsection{Fall Detection Application: Evaluation}
+	
+	The chosen criteria for evaluation was:
+	
+	\begin{itemize}
+		\item Accuracy
+		\item Battery life
+	\end{itemize}  
+	
+	The accuracy was evaluated by performing tests mimicking real-world scenarios. The tests chosen were:
+	
+	\begin{itemize}
+		\item Walk
+		\item Run
+		\item Jump
+		\item Falling while walking
+		\item Falling from 1 m
+		\item Falling from 1.5 m
+		\item Falling from 3 m
+	\end{itemize}
+
+	The results from the tests were summarized by taking the mean value of all tests. This gave a success rate of 91\% for iOS and 83\% for Android.
+	
+	The evaluation of battery life was performed by using the device's embedded battery usage statistics. This showed that running the iOS application for 7.5 hours resulted in a 14\% battery usage, and running the Android application for 54 minutes resulted in a 4\% battery usage.
+	
+	\subsection{Answering research questions}
+	
+	This section answers the research questions.
+	
+	\textbf{RQ1} \textit{How can a mobile application, that detects falling accidents using modern smartphones, be created?}
+	
+	Based on the case study, we saw that a mobile application can be created so that it successfully detects falling accidents using the accelerometer in a modern smartphone. The case study showed that it was beneficial to use only the vector length of the accelerometer data instead of using the x, y and z components. Using a finite state machine was useful for filtering out possible falls, and a pre-trained neural network was suitable to classify these possible falls.
+	
+	\textbf{RQ2} \textit{How can such an application be evaluated?}
+	
+	The case study showed that this kind of application can be evaluated in terms of accuracy and battery life. The accuracy can be measured by performing a series of test in a real-world setting. The battery life can be evaluated by using the embedded battery usage statistics tool found in Android and iOS.
+	
+	\newpage
+	\section{Discussion \& Conclusions} \label{section:discussion}
+	
+	In this chapter, the methods used in the study and their implications are analysed, the research questions are answered followed by a discussion of the results, sustainability and ethical considerations. Lastly, the research project is summarized and suggestions for future research is presented.
+	
+	\subsection{Methods \& Implications}
+	
+	This section analyses the methods used and the validity and reliability of this study.
+	
+	\subsubsection{Literature study}
+	
+	Since very similar studies had already been conducted before we started this research project, it was necessary to perform a literature study before starting the development process. Without this literature study we would not have known how previous researchers had reasoned and it would have been likely that we had repeated old mistakes and ended up with a lesser application.
+	
+	\subsubsection{Case study: Development}
+	
+	The case study consisting of developing an application gave us the opportunity to test different approaches and ideas to see if the algorithm could be improved. Developing an application was necessary, since we did not have access to the source code of any existing application.
+	
+	\subsubsection{Case study: Evaluation}
+	
+	The evaluation of the application were conducted in a very small scale, and focusing on qualities of the application rather that performing tests with a lot of users. This means that we can only say that the application works well with condition that the circumstances are the same as in the evaluation. The limitations regarding evaluation include the fact that the evaluation of falls were performed by simply dropping the phone from an altitude. Our hope is that this is similar to an actual fall, but actual falls have not been tested. This is due to the fact that we could not perform the tests ourselves, since we would risk being injured during the test. We also did not have access to any kind of crash test dummy that could have been used for testing.
+	
+	\subsubsection{Validity \& Reliability}
+	
+	This section discusses the validity and reliability of the study.
+	
+	\parag{Validity}
+	The term \textit{validity} is referring to whether or not the research methods are measuring what the study is trying to answer. With respect to the first research question, RQ1, regarding how a fall detection application can be created, it should be clear that the case study is addressing this question since it is exactly what is done in the case study. Regarding the second question, RQ2, it is not as obvious. To answer how this kind of application affects battery life, you could argue that it would be better to measure the battery consumption of many different fall detection applications and draw conclusions based on that. This would however give pure statistical knowledge saying that application A consumes X amount of battery per hour and application B consumes Y. Without insight into how these applications function internally this kind of information says nothing -- it would not be possible to say why application A consumes more power than B, or the other way around. To perform such a comparison, and to say why one application consumes more power than the other, it would be necessary to have the source code to the different applications. This was something that we did not have. Therefore this study can only say that if an application is developed the way that we did, you can expect that the battery consumption will be similar to the consumption in our measurements.
+	
+	\parag{Reliability}
+	\textit{Reliability} refers to how replicable or repeatable the research project is. Another research project that asks the same questions and and uses the same methods should ideally come to the same conclusions. Our first method was to perform a literature study with the intention to find a good algorithm that were to be used as a starting point for the case study. It should be noted that another researcher, with different background and experiences may have found another algorithm as a better starting point and ended up with an application that implements fall detection entirely different, and thus could have ended up with different conclusions. However, if another researcher would use the same starting point as we did, and make the same decisions along the way, s/he should end up with the same result, and therefore the work is repeatable.
+	
+	\subsection{Result}
+	
+	This section discusses the result.
+	
+	\subsubsection{Fall Detection Application: Design}
+	
+	Our design used a state machine to filter out possible fall candidates. This means that the most basic cases, that are not at all similar to falling are never reported. This is beneficial since it means that the feature extractor and classification engine needs to analyse fewer events. Even though the feature extractor were designed to be effective when it comes to performance, it needs to go through all of the data in the ring buffer containing at least 400 samples. This operation would be practically impossible to perform for each accelerometer update. The benefit of introducing the \textit{Falling} state was that we could filter out more unwanted events, which further improves the performance.
+	
+	\subsubsection{Fall Detection Application: Evaluation}
+	
+	The results from the evaluation of accuracy shows a high overall success rate. The overall accuracy for the iOS and Android applications are 91\% and 83\% respectively. These numbers suggest that, based on our tests, the application is doing what it should in 91\% vs. 83\% of the time. The application is in each case accurately discarding non-fall events and presenting an alarm in case of a real fall is detected to up to those percentages.  Though the implementation is practically identical in both cases, differences in training data and the precision of the accelerometer might be a reason why the tests result differ somewhat between the two implementations. Weather 91\% vs. 83\% accuracy is to consider accurate enough might be up for discussion, however, we conciser the tests to be successful because the methods we used when training our model was very much detected when we later tested it using similar methods. This leads us to think that machine learning is a good candidate for these kinds of predictions, and that even more, and better training data would very likely lead to an even higher accuracy. 
+	
+	\subsection{Sustainability \& Ethics}
+	
+	This project did not produce any new hardware, but used only hardware that already existed. Because of this it is hard to say in which way the project may have affected the environment. Since the project had a focus on minimizing the battery consumption of the application, and it turns out that the application had only a small impact on battery life, this project should have a minimal impact on the environment.
+	
+	The small impact that this project does have on the environment must also be put in relation to the benefits of the project. The architecture described could be used to create a refined application that detects falling accidents, which could be of great use for the society.
+	
+	The IEEE Computer Society defines eight main principles in their \textit{Software Engineering Code of Ethics} \cite{ieee-ethics}. In our opinion, this project conforms to all of the principles.
+	
+	\subsection{Summary}
+	
+	The purpose of this thesis was to evaluate the possibility of creating a mobile application that utilized sensors in the smartphone to detect falling accidents. Similar studies had already been conducted, and the result of some of these studies were used as a starting point. The development started with using a finite state machine to detect basic falls. The application was later refined by introducing machine learning beyond just a state machine. The state machine was used to gather data of potential falls, the collected data was analysed and specific features in the fall data were defined. These features were used in the creation of a pre-trained neural network model and this model proved to be functioning better than just the state machine. The research project ends in the conclusion that a fall detection application can successfully be created using this approach.
+	
+	An important aspect in the beginning of the project was the battery life of the application. The evaluation of the application showed that when using this approach, the battery consumption was not a problem.
+	
+	\subsection{Future research}
+	
+	This theses presents one possible way to create a fall detection application for smartphones, and the evaluation of the developed application is quite primitive. It would be possible to perform research with a wider evaluation. For example, one could perform experiments where a crash test dummy were equipped with a smartphone running the application. This crash test dummy could then be dropped from different heights and in different fall like events to see how well the application performs in a real life scenario.
+	
+	Another possibility would be to examine another way of creating a fall detection application, perhaps using another algorithm. It would then be possible to evaluate how well that application performs compared to the approach presented in this thesis.
+	
+	\newpage
 	
 	\bibliography{bib_common}
 	\bibliographystyle{ieeetr}
