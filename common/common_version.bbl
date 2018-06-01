@@ -1,16 +1,17 @@
 \begin{thebibliography}{10}
 
 \bibitem{who}
-W.~H. Organization, ``Falls.''
-  http://www.who.int/mediacentre/factsheets/fs344/en/, 2018 03.
+{{World Health Organization}}, ``Falls.''
+  \\http://www.who.int/mediacentre/factsheets/fs344/en/, 2018 03.
 
 \bibitem{msb_report}
-M.~f{\"o}r sammh{\"a}llskydd~och beredskap, ``Fallolyckor - statistik och
-  analys.'' https://www.msb.se/RibData/Filer/pdf/27442.pdf, 2018 03.
+{{Myndigheten f{\"o}r sammh{\"a}llskydd och beredskap}}, ``Fallolyckor -
+  statistik och analys.'' https://www.msb.se/RibData/Filer/pdf/27442.pdf, 2018
+  03.
 
 \bibitem{soc_olyckor}
-``Fler d{\"o}r av fallolyckor.''
-  http://www.socialstyrelsen.se/nyheter/2016/flerdoravfallolyckor, 03 2018.
+Socialstyrelsen, ``Fler d{\"o}r av fallolyckor.''
+  \\http://www.socialstyrelsen.se/nyheter/2016/flerdoravfallolyckor, 03 2018.
 
 \bibitem{av}
 Arbetsmilj{\"o}verket, ``Fallolyckor, kort arbetsskadefakta nr 3/2016.''
@@ -45,7 +46,8 @@ R.~K. Yin, {\em Case Study Research: Design and Methods}.
 \newblock Beverly Hills, Calif: Sage publications, 1984.
 
 \bibitem{ieee-ethics}
-IEEE, ``Software engineering code of ethics.''
-  https://www.computer.org/web/education/code-of-ethics, 1999.
+{{Institue of Electrical and Electronics Engineers}}, ``Software engineering
+  code of ethics.'' https://www.computer.org/web/education/code-of-ethics,
+  1999.
 
 \end{thebibliography}
