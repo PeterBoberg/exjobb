@@ -169,7 +169,7 @@
 		\item Climbing stairs
 	\end{itemize}
 	
-	The result shows that the number of \textit{false positives} were 9/25 on the falls scenario, and the number of \textit{false positives} were 7/25 on the jumping scenario. This means that their algorithm missed 9 out of 25 actual falls, and falsely flagged 7 out of 25 jumps as falls. In all other scenarios the number of \textit{false negatives/false positives} was zero. They conclude by saying that their algorithm had a hard time distinguishing between falling and jumping, but performed good in the other scenarios. 
+	The result shows that the number of \textit{false positives} were 9/25 on the falls scenario, and the number of \textit{false positives} were 7/25 on the jumping scenario. This means that their algorithm missed 9 out of 25 actual falls, and falsely flagged 7 out of 25 jumps as falls. In all other scenarios the number of \textit{false negatives/false positives} was zero. They conclude by saying that their algorithm had a hard time distinguishing between falling and jumping, but performed good in the other scenarios, it is however not disclosed exactly how they tested the \textit{falling} scenario.
 	
 	
 	\subsubsection{Abbate et al.}
@@ -184,7 +184,7 @@
 
 	The output of the neural network is a vector of independent probabilities [\textit{0, 1}] that the classified event belongs to each of the four classes. If the probability of the falls class exceed all the other classes, the event is considered as a fall accident and an alarm is presented on screen. The user can thus, discard the alarm if it was false, or the alarm will be sent to a number of contacts o a contact list. 
 
-	The evaluation of their neural network model shows a 100\% success rate in classifying events correctly. However, they used the same set of data to train their neural network as they did to evaluate and cross-validate it, which tends to yield higher a evaluation score. Further, from having put their application in the hands of three test persons, who used the application in an everyday fashion, excluding falling, for three days, they concluded that no false positives were alerted. This measurement is good for evaluating the discernment of false positives, but it says nothing about the implementations ability to not discard a real fall accident as well. 
+	The evaluation of their neural network model shows a 100\% success rate in classifying events correctly. However, they used the same set of data to train their neural network as they did to evaluate and cross-validate it, which tends to yield higher a evaluation score. Further, from having put their application in the hands of three test persons, who used the application in an everyday fashion, excluding falling, for three days, they concluded that no false positives were alerted. This measurement is good for evaluating the applications ability to discard of false positives, but it says nothing about the implementations ability to not discard a real fall accident as well. 
 	
 	\subsubsection{Existing application: FallSafety}
 	
@@ -253,9 +253,9 @@
 	|\vec{v}|=\sqrt{x^2+y^2+z^2}
 	\end{equation}
 	
-	This vector is the overall acceleration imposed on the device (and possibly the person carrying it). They proceed by defining a \textit{fall-like-event} as "an acceleration greater than \textit{3g} followed by a period of \textit{2500ms} without further peaks exceeding the threshold." \cite[p~5]{piza_uni}. They further argue that the threshold \textit{3g} is chosen since it has been widely used in other types of fall detection systems. According to their experiments, a post-fall event usually means that the body of the unfortunate becomes lying still on the ground after a period of about \textit{1000ms}. This interval, which resides within the \textit{2500ms} interval prior to fall detection, is often due to minor peaks following the main impact as a result of that parts of the body/device may hit the ground at different times. 
+	This vector is the overall acceleration imposed on the device (and possibly the person carrying it). They proceed by defining a \textit{fall-like event} as "an acceleration greater than \textit{3g} followed by a period of \textit{2500ms} without further peaks exceeding the threshold." \cite[p~5]{piza_uni}. They further argue that the threshold \textit{3g} is chosen since it has been widely used in other types of fall detection systems. According to their experiments, a post-fall event usually means that the body of the unfortunate becomes lying still on the ground after a period of about \textit{1000ms}. This interval, which resides within the \textit{2500ms} interval prior to fall detection, is often due to minor peaks following the main impact as a result of that parts of the body/device may hit the ground at different times. 
 	
-	Abbate et al. tries to establish their algorithm using a \textit{finite-state-machine} with five distinct states, seen in figure \ref{fig:Abbate-state-machine}.
+	Abbate et al. tries to establish their algorithm using a \textit{finite-state-machine} with five distinct states, seen in figure \ref{fig:abbatea-state-machine}.
 	
 	\begin{itemize}
 		\item The \textit{sampling} state is the normal state that the process resides in until \textit{threshold-peak} is detected.
@@ -469,10 +469,10 @@
 		\item Drop the phone from a height of 3 m
 		\item Drop the phone from a height of 1.5 m
 		\item Drop the phone from a height of 1 m
-		\item Walk 10 m while carrying the phone, and drop the phone from a height of 1 m
-		\item Run 10 m while carrying the phone in the pocket, and stand still for 5 s afterwards
-		\item Walk 10 m while carrying the phone in the pocket, and stand still for 5 s afterwards
-		\item Jump with the phone in the pocket, and stand still for 5 s afterwards
+		\item Walk 10 m while holding the phone close to the trouser pocket, and drop the phone from a height of 1 m
+		\item Run 10 m while carrying the phone in the trouser pocket, and stand still for 5 s afterwards
+		\item Walk 10 m while carrying the phone in the trouser pocket, and stand still for 5 s afterwards
+		\item Jump with the phone in the trouser pocket, and stand still for 5 s afterwards
 	\end{enumerate}
 	
 	\subsubsection{Evaluating battery life}
@@ -721,7 +721,7 @@
 	\end{figure}
 	
 	\subsubsection{Training the model}
-	When training the model, we downloaded all the data samples from the database and printed them to a CSV-file using our standalone graphical utility tool. The dataset is then split up between training-set, and evaluation-set on a ratio of 9:1. The training set contains the labelled training data, whereas the evaluation-set contains unlabelled data for measurement and cross-validation. The network training program uses the commonly used feed-forward <-> back-propagation method \cite{neural_networks} to fit the model. 
+	When training the model, we downloaded all the data samples from the database and printed them to a CSV-file using our standalone graphical utility tool. The dataset is then split up between training-set, and evaluation-set on a ratio of 9:1. The training set contains the labelled training data, whereas the evaluation-set contains unlabelled data for measurement and cross-validation. The network training program uses the commonly used feed-forward <-> back-propagation method \cite{neural_networks} to fit the model. When evaluating  out trained network using a mathematical approach in python, we reached an accuracy of 87\%.
 	
 	
 	\subsubsection{Using the model}
@@ -740,7 +740,7 @@
 	
 	\subsubsection{Using a neural network}
 	
-	Initially we had not intended to implement a machine learning model in the project, since we did not think that it would be much better than just using a state machine. But since Abbate et al. had used a neural network for their implementation we decided to give it a try. We defined the features that were fed into the neural network slightly different. The first main difference where that we did not include their \textit{Activity Ration Index} since the difference in value for that feature between the different classes were small. The other main difference were that we did not use their \textit{Step Count Index}, since we defined \textit{Number of peaks prior to impact} and \textit{Number of valleys prior to impact} instead, distinguishing from peaks and valleys instead of just counting steps. 
+	Initially we had not intended to implement a machine learning model in the project, since we did not think that it would be much better than just using a state machine. But since Abbate et al. had used a neural network for their implementation we decided to give it a try. We defined the features that were fed into the neural network slightly different. The first main difference where that we did not include their \textit{Activity Ratio Index} since the difference in value for that feature between the different classes were small. The other main difference were that we did not use their \textit{Step Count Index}, since we defined \textit{Number of peaks prior to impact} and \textit{Number of valleys prior to impact} instead, distinguishing from peaks and valleys instead of just counting steps. 
 	
 	After we had decided which features to extract we started to experiment with the neural network. We started out with the same neural network that they had used, with 8 inputs, 8 neurons and 4 output classes, but we fed the network with our 8 features instead of theirs. While experimenting with collecting data and training the model we realized that one of the 4 output classes, \textit{Hit device}, were never encountered. This is probably due to the difference in the state machine, indicating that our state machine had successfully filtered out that class before reaching the machine learning model. Since that class were never detected there were no need to keep it in the neural network, so we removed it.
 	
@@ -816,14 +816,15 @@
 	\newpage
 	
 	\section{Fall Detection Application: Evaluation} \label{section:application-evaluation}
-		Evaluation of the application was done by conducting a series of test in a real-world setting. The test aims to evaluate two things, the accurateness of the fall detection system, and the impact on battery this system implies. All tests scenarios were identical on the iOS and Android platform. 
+	Evaluation of the application was done by conducting a series of test in a real-world setting. The test aims to evaluate two things, the accurateness of the fall detection system, and the impact on battery this system implies. All tests scenarios were identical on the iOS and Android platform. 
 	
-	In the case of accurateness, the measurements are expressed in terms of \textit{false positives, true positives, false negatives and true negatives}.Depending on the test, we continuously strived for either true negatives or true positives, since these terms states that the outcome of the test is also what were expected  beforehand (\textit{either true or false}). The other two terms implies the opposite, that the outcome was reversed to what was expected (\textit{either true or false}).
+	In the case of accurateness, the measurements are expressed in terms of \textit{false positives, true positives, false negatives and true negatives}.Depending on the test, we continuously strived for either true negatives or true positives, since these states that the outcome of the test is also what were expected  beforehand (\textit{either true or false}). The other two terms implies the opposite, that the outcome was reversed to what was expected (\textit{either true or false}).
 	
 	
 	
 	\subsection{Evaluating accuracy} 
-	When evaluating the accurateness of the fall detection algorithm we constructed a total of seven tests cases that would mimic real life situations that might trigger an alarm. Each test case was repeated 10 times on an iOS and Android device respectively. The tests were performed outdoors under equal circumstances. Test cases were as follows:
+	When evaluating the accurateness of the fall detection algorithm, we constructed a total of seven test cases that would mimic real life situations that might trigger an alarm. Each test case was repeated 10 times on an iOS and Android device respectively. The tests were performed outdoors under equal circumstances. Test cases were as follows:
+	
 	\begin{itemize}
 		\item Walk.
 		\item Run.
@@ -845,7 +846,7 @@
 		\centering
 		\begin{tabular}{|l|c|c|c|}
 			\hline
-			& True negative & False positive & Success rate \\ \hline
+			& True negative (correct) & False positive (incorrect) & Success rate \\ \hline
 			iOS     & 10            & 0              & 100\%        \\ \hline
 			Android & 10            & 0              & 100\%        \\ \hline
 		\end{tabular}
@@ -857,14 +858,14 @@
 	
 	
 	\subsubsection{Run}
-	The run test was performed similar to the walking test in \ref{section:walking-test} but instead of walking, we would run for 10 meters and then stop for 5 seconds. Like the walking test, we expect the system to correctly discard all motion-events as non-fall. Running, like walking, should not produce any alarms and thus we expect to get \textit{true negatives}. The result can be see in table \ref{table:run-test}
+	The run test was performed similar to the walking test in \ref{section:walking-test}, but instead of walking, we would run for 10 meters and then stop for 5 seconds. Like the walking test, we expect the system to correctly discard all motion-events as non-fall. Running, like walking, should not produce any alarms and thus we expect to get \textit{true negatives}. The result can be see in table \ref{table:run-test}.
 	
 	
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{|l|c|c|c|}
 			\hline
-			& True negative & False positive & Success rate \\ \hline
+			& True negative (correct) & False positive (incorrect)& Success rate \\ \hline
 			iOS     & 10            & 0              & 100\%        \\ \hline
 			Android & 10            & 0              & 100\%        \\ \hline
 		\end{tabular}
@@ -876,13 +877,13 @@
 	
 	
 	\subsubsection{Jump}
-	The jump test was done by keeping the device in the trouser pocket and jump from a stare case elevated by approximately 40 cm and land on the feet on solid asphalt. This test, like the walk and run test, should preferably not produce any alarms. However, since the acceleration curve for a jump is very similar to that of a fall, we anticipated this test to be quite a challenge for our system since every jump would certainly slip through the state machine and get classified. The only barrier left is thus the classification engine who hopefully would classify each tests as a non-fall. We expected to get \textit{true negatives}. The results can be seen in table \ref{table:jump-test}.
+	The jump test was done by keeping the device in the trouser pocket and jump from a stare case elevated by approximately 40 cm and land on the feet on solid asphalt. This test, like the walk and run test, should preferably not produce any alarms. However, since the acceleration curve for a jump is very similar to that of a fall, we anticipated this test to be quite a challenge for our system since every jump would certainly slip through the state machine and get classified. The only barrier left is thus the classification engine, who hopefully would classify each tests as a non-fall. We expected to get \textit{true negatives}. The results can be seen in table \ref{table:jump-test}.
 	
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{|l|c|c|c|}
 			\hline
-			& True negative & False positive & Success rate \\ \hline
+			& True negative (correct) & False positive (incorrect) & Success rate \\ \hline
 			iOS     & 9            & 1             & 90\%        \\ \hline
 			Android & 9            & 1              & 90\%        \\ \hline
 		\end{tabular}
@@ -894,13 +895,13 @@
 	
 	\subsubsection{Falling while walking}
 	\label{section:falling-while-walking}
-	We tried to simulate falling while walking by holding the device tightly against the hip and then walk for 10m and drop the device to the ground while still walking. The device would thus produce a curved fall to the ground in contrast to a straight line the would be the result if a person would fall from for eg. a ladder. In this test we expected the application to produce alarms, since falling while walking is indeed still a fall. Thus, we want the number of \textit{true-positives} be high and the number of \textit{false-negatives} to be low. The results can be seen in table \ref{table:fall-while-walk}
+	We tried to simulate falling while walking by holding the device tightly against the hip and then walk for 10m and drop the device to the ground while still walking. The device would thus produce a curved fall to the ground in contrast to a straight line that would be the result if a person would fall from for e.g. a ladder. In this test we expected the application to produce alarms, since falling while walking is indeed still a fall. Thus, we want the number of \textit{true positives} to be high and the number of \textit{false negatives} to be low. The results can be seen in table \ref{table:fall-while-walk}.
 	
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{|l|c|c|c|}
 			\hline
-			& True positive & False negative & Success rate \\ \hline
+			& True positive (correct) & False negative (incorrect) & Success rate \\ \hline
 			iOS     & 9            & 1             & 90\%        \\ \hline
 			Android & 5            & 5              & 50\%        \\ \hline
 		\end{tabular}
@@ -908,58 +909,58 @@
 		\label{table:fall-while-walk}
 	\end{table}
 	
-	As can be seen, the iOS application successfully recognizes the event as a fall 90\% of the times where as the Android application had some difficulties to do so in 50\% of the times.
+	As can be seen, the iOS application successfully recognizes the event as a fall 90\% of the times whereas the Android application had some difficulties to do so in 50\% of the times.
 	
 	
-	\subsubsection{Falling  from 1m ( Simulate falling while standing on the ground)}
+	\subsubsection{Falling  from 1 m (simulate falling while standing on the ground)}
 	\label{section:falling-from-1m}
-	The  \textit{falling from 1m} test was performed by simply dropping the device to the ground from 1m altitude. The aim of this test was to replicate if a person would fall while standing still on the ground and having the device in the trouser pockets. Of course we were expecting the application to produce alarm in this case to the greatest extent. Thus, similar to the \textit{Falling while walking} test described in section \ref{section:falling-while-walking}, we anticipated the number if \textit{true-positives} to be high and the number of \textit{false-negatives} to be low. The result can be seen in table \ref{table:fall-from-1m}
+	The  \textit{falling from 1m} test was performed by simply dropping the device to the ground from 1m altitude. The aim of this test was to replicate if a person would fall while standing still on the ground and having the device in the trouser pockets. Of course we were expecting the application to produce alarms to the greatest extent in this case. Thus, similar to the \textit{Falling while walking} test described in section \ref{section:falling-while-walking}, we anticipated the number if \textit{true positives} to be high and the number of \textit{false negatives} to be low. The result can be seen in table \ref{table:fall-from-1m}
 	
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{|l|c|c|c|}
 			\hline
-			& True positive & False negative & Success rate \\ \hline
+			& True positive (correct) & False negative (incorrect) & Success rate \\ \hline
 			iOS     & 8            & 2             & 80\%        \\ \hline
 			Android & 7            & 3              & 70\%        \\ \hline
 		\end{tabular}
-		\caption{The result of the fall from 1m test}
+		\caption{The result of the fall from 1 m test}
 		\label{table:fall-from-1m}
 	\end{table}
 	
-	The test result shows that the iOS application successfully detects falls 80\% of the time where as the Android application had a success rate of 70\%. Once again, the iOS application has a slightly higher success rate,, but both of the applications detects falls in a vast majority of the tests. The reason for not getting a 100\% \textit{true-positives} might be due to that falling while standing on the ground does not produce a significant impact leading to the state machine firing.
+	The test result shows that the iOS application successfully detects falls 80\% of the time, whereas the Android application had a success rate of 70\%. Once again, the iOS application has a slightly higher success rate, but both of the applications detects falls in a vast majority of the tests. The reason for not getting a 100\% \textit{true positives} might be due to that falling while standing on the ground does not produce a significant impact leading to the state machine firing.
 	
-	\subsubsection{Falling from 1.5 m (Simulate falling from eg. a chair)}
+	\subsubsection{Falling from 1.5 m (simulate falling from  for e.g. a chair)}
 	\label{section:falling-from-1.5m}
-	The \textit{falling from 1.5m} test, was performed in a similar fashion to \textit{Falling from 1m} in section \ref{section:falling-from-1m}, the only difference was that the device was elevated by another 0.5 meters. The aim of this test was to replicate a person falling from eg. a chair or some other common slightly elevated house hold apparel. In this test we expect the application to successfully detect falls on all occasions, thus, we anticipate the number of \textit{true-positives} to be high and the number of \textit{false-negatives to be low}. The result can be seen in table \ref{table:fall-from-1.5m}
+	The \textit{falling from 1.5 m} test, was performed in a similar fashion to \textit{Falling from 1 m} in section \ref{section:falling-from-1m}, the only difference was that the device was elevated by an additional 0.5 meters. The aim of this test was to replicate a person falling from eg. a chair or some other common slightly elevated house hold apparel. In this test we expect the application to successfully detect falls on all occasions, thus, we anticipate the number of \textit{true positives} to be high and the number of \textit{false negatives} to be low. The result can be seen in table \ref{table:fall-from-1.5m}.
 	
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{|l|c|c|c|}
 			\hline
-			& True positive & False negative & Success rate \\ \hline
+			& True positive (correct) & False negative (incorrect) & Success rate \\ \hline
 			iOS     & 9            & 1             & 90\%        \\ \hline
 			Android & 7            & 3              & 70\%        \\ \hline
 		\end{tabular}
-		\caption{The result of the fall from 1.5m test}
+		\caption{The result of the fall from 1.5 m test}
 		\label{table:fall-from-1.5m}
 	\end{table}
 	
-	The result shown that the iOS application successfully detects fall in 90\% of the time where as the Android application has a success rate of 70\%
+	The result shows that the iOS application successfully detects fall in 90\% of the time whereas the Android application has a success rate of 70\%.
 	
 	
-	\subsubsection{Falling from 3m (Simulate falling from a ladder)}
+	\subsubsection{Falling from 3 m (simulate falling from for e.g a ladder)}
 	The \textit{falling from 3m} test was conducted by letting the device fall freely from an altitude of 3m. The aim of this test was to simulate a fall from a higher elevation, namely a ladder or something similar. A fall from an altitude of 3m should definitely trigger an alarm and thus, like the tests in \ref{section:falling-from-1m} and \ref{section:falling-from-1.5m} we wanted to get as many \textit{true-positives} as possible, thus minimizing the number of \textit{false-negatives}. The results can be seen in table \ref{table:fall-from-3m}
 	
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{|l|c|c|c|}
 			\hline
-			& True positive & False negative & Success rate \\ \hline
+			& True positive (correct) & False negative (incorrect) & Success rate \\ \hline
 			iOS     & 9            & 1             & 90\%        \\ \hline
 			Android & 10           & 0             & 100\%        \\ \hline
 		\end{tabular}
-		\caption{The result of the fall from 3m test}
+		\caption{The result of the fall from 3 m test}
 		\label{table:fall-from-3m}
 	\end{table}
 	
@@ -967,18 +968,18 @@
 	
 	\newpage
 	
-	\subsubsection{Summarizing accuracy}
-	The overall results show that there exists some differences between the application running on an iOS device and it´s Android counterpart. For each device, we can calculate the overall success rate by the equation in \ref{equation:overall-success}
+	\subsubsection{Summarizing accuracy tests}
+	The overall results show that there exists some differences between the application running on an iOS device and its Android counterpart. For each device, we can calculate the overall success rate by the following equation in \ref{equation:overall-success}
 	
 	\begin{equation}
 	\label{equation:overall-success}
-	\sum_{k=1}^{n} S_{k} / n
+	s = \sum_{k=1}^{n} s_{k} / n
 	\end{equation}
 	
 	where:
 	\begin{itemize}
 		\item $n$ it the number ot test cases (7 in total)
-		\item  $S$ is the success rate for that test case
+		\item  $s_{k}$ is the success rate for test case $k$
 	\end{itemize}
 	
 	
@@ -990,12 +991,31 @@
 	Android: $(100 +100 +90 +50 +70  + 70 + 100) / 7 ≈ 83\%$
 	
 	
-	One reason for the discrepancies between the application running on the iOS device and then one running on Android might be that the hardware accelerometer in the iOS device is of better quality and has better accuracy and precision. 
+	\parag{Possible causes of discrepancies}
+	One reason for the discrepancies in fall detection between the application running on the iOS device and then one running on Android might be that the hardware accelerometer in the iOS device is of better quality and has better accuracy and precision. This is especially relevant in the \textit{falling while walking} test shown in \ref{section:falling-while-walking}. When studying the curves emitted by the iOS and Android accelerometers in our graphical utility tool we noticed that the difference between the peaks caused by walking steps and the single impact peak caused by falling to the ground were significantly greater on iOS. The larger the difference between the impact peak and any other peaks in the curve, the easier it is for the neural network to do a proper fall-classification. In the example figures \ref{fig:difference-ios-fall-while-walk} and \ref{fig:difference-android-fall-while-walk} we see that the difference between the impact peak and the second largest peak is roughly \textit{5.9 g} for iOS versus  roughly \textit{0.7}  on Android. 
+	
+	\begin{figure}[H]
+		
+		\centering
+		
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-run-and-fall-ios.png} }}%
+		\caption{An example of a curve emitted by the iOS accelerometer when falling while walking, the difference between the impact peak and the second largest peak is in this case roughly \textit{5.9 g}}%
+		\label{fig:difference-ios-fall-while-walk}%
+	\end{figure}
+	
+	\begin{figure}[H]
+		
+		\centering
+		
+		\subfloat{{\includegraphics[width=14cm]{../img/fall-data-run-and-fall-android.png} }}%
+		\caption{An example of a curve emitted by the Android accelerometer when falling while walking, the difference between the impact peak and the second largest peak is in this case roughly \textit{0.7 g}}%
+		\label{fig:difference-android-fall-while-walk}%
+	\end{figure}
 	
 	\subsection{Evaluating battery life}
 	
-	To evaluate how the application affects battery life of the mobile phone we used embedded battery usage statistics. This kind of measurement tool is found natively in both iOS and Android and states the amount of battery used by each application. This is somewhat limited since we cannot choose which statistics to present, but still useful. The result of this measurement is presented in table \ref{table:battery-embedded}. The measurement shows that when running the application in background on iOS for 7.5 hours it consumes 14\%. On Android the measurement shows that running the application for 48 minutes in background and 6 minutes in foreground resulted in a 4\% battery usage. On both iOS and Android the battery used by our application where small compared to the battery usage of other applications.
-	
+	To evaluate how the application affects battery life of the mobile phone,, we used embedded battery usage statistics. This kind of measurement tool is found natively in both iOS and Android and states the amount of battery used by each application. This is somewhat limited since we cannot choose which statistics to present, but still useful. The result of this measurement is presented in table \ref{table:battery-embedded}. The measurement shows that running the application in background on iOS for 7.5 hours consumes 14\% of the battry. On Android, the measurement shows that running the application for 48 minutes in background and 6 minutes in foreground resulted in a 4\% battery usage. On both iOS and Android the battery usage was in line with that of other applications.
+
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{|l|c|c|c|}
@@ -1009,9 +1029,20 @@
 	\end{table}
 	\newpage
 	
+	\subsection{Comparison with related evaluation methods}
+	Yildirim et al. evaluated their solution using five people carrying devices with the application installed. Those five people then carried out experiments where they would test the classes \textit{fall, jump, sit, lay down, and climb stairs}. Each class was tested five times by each individual, resulting in a total of 25 tests for each class. They do not disclose exactly how they performed the tests (for e.g what altitudes were used when falling). Finally, they conclude by stating that their approach, using merely a threshold based algorithm as a detector, reached a 100\% success rate in discarding the classes \textit{sit, lay down and climbing stairs} as non-falls. However, they state that their solution had difficulties in detecting real falls, as well as differentiate between jumps and falls. Their solution falsely missed 9/25 real falls, and further falsely classified 7/25 jumps as falls. 
+	
+	
+	Abbate et al. used another evaluation method. They initially evaluated the bare accuracy of their neural network using a mathematical approach and reached a 100\% score. They did, however, use the same data set when training the model as when they evaluated it, which to a great extent improves the derived accuracy of the network. They further evaluated the actual application using three test persons. The individuals would use it in normal day situations for a period of 82 hours and performed activities such as \textit{jumping, running, walking, sitting, lying down, hitting the sensor and driving a car}. They conclude by stating that their solution reported no falls for these activities, which is a good result with regards to discarding ot false alarms. They do not, however, disclose any information about their application's ability to properly detect a real fall.
+	
+	
+	Our evaluation method is a combination of these two methods. We evaluated the accuracy of our neural network using a mathematical approach in Python, but in contrary to Abbate et al. we split our data set in two parts, resulting in a 90 \% training and 10\%  evaluation set. This gave us a derived accuracy of 87\%. By using different sets of data for training and evaluation, the "derived accuracy" measurement gives us a value that is more close to the actual accuracy of the network. Further, in common with both Yildirim et al. and Abbate et al. we tested our application in real life scenarios, but used two people (ourselves) instead of five and three, respectively. The test cases also differed to some extent, where our test cases were tailored to test the design of \textit{our} state machine as well as \textit{our} neural network. The major difference in evaluation is that, in contrary to Abbate et al., we also included tests that aimed to examine the applications ability to detect real falls. 
+
+	Neither Abbate et al. or Yildirim et al. does any measurements on battery consumption, although it is mentioned that accelerometer update frequency has an impact om battery in their thesis's. We, on the other hand, did a rudimentary evaluation of battery consumption.
+	
 	\section{Discussion \& Conclusions} \label{section:discussion}
 	
-	In this chapter, the methods used in the study and their implications are analysed, the research questions are answered followed by a discussion of the results, sustainability and ethical considerations. Lastly, the research project is summarized and suggestions for future research is presented.
+	In this chapter, the methods used in the study and their implications are analyzed, the research questions are answered followed by a discussion of the results, sustainability and ethical considerations. Lastly, the research project is summarized and suggestions for future research is presented.
 	
 	\subsection{Methods \& Implications}
 	
