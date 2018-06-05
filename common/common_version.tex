@@ -11,7 +11,11 @@
 \usepackage{float}
 \usepackage{multicol}
 \usepackage{unicode-math}
+\usepackage{changepage}
 \usepackage[margin=3cm]{geometry}
+
+\newcommand\cleartooddpage{\clearpage
+	\ifodd\value{page}\else\null\clearpage\fi}
 
 \newcommand\sectionfont{\normalfont\fontspec{Arial}\fontsize{14pt}{0}\bfseries}
 \newcommand\subsectionfont{\normalfont\fontspec{Arial}\fontsize{13pt}{0}\bfseries}
@@ -43,13 +47,13 @@
 
 \begin{document}
 	\tableofcontents
-	\newpage
 	
+	\cleartooddpage
 	\section{Introduction}
 	
 	Accidents related to falling is a major issue in our society. In fact, according to the World Health Organization, "Falls are the second leading cause of accidental or unintentional injury deaths worldwide" \cite{who}. Globally, an average of 37.3 million people (Jan 2018) suffer from injuries related to a fall each year, which are severe enough to seek medical attention. Out of these, no less than an estimated 640 000 individuals die as a direct consequence of the fall \cite{who}. Fall  related accidents are therefore to be considered as a significant world wide health problem. 
 	
-	Although age is identified as a key driving factor behind fall related injuries, it is not by far the only reason that people hurt themselves this way every year.  Other risk factors include 
+	Although age is identified as a key driving factor behind fall related injuries, it is not by far the only reason that people hurt themselves this way every year.  Other risk factors include:
 	\begin{itemize}
 		\item Occupations which require you to work at an elevated height.
 		\item Alcohol and substance abuse.
@@ -57,11 +61,11 @@
 		\item Sporting.	
 	\end{itemize}
 	
-	In Sweden alone, statistics shows even darker figures. Here, falling is the single one reason responsible for the greatest number of accident related fatalities, hospitalizations, and visits to emergency clinics, outnumbering traffic accidents, who come in second \cite[p~3,5]{msb_report}. On top of that, in Sweden, falling is together with poisoning, the type of accident who poses the biggest annual growth, having duplicated the amount of yearly incidents since 2000 \cite{soc_olyckor}. Studies have also shown that peoples perception target traffic accidents as the the most common cause of the above \cite[p~5]{msb_report}. That is however not true, but a reasonable explanation for this is according to MSB (Swedish Civil Contingencies Agency) that most fall related accidents happen in a domestic area and are thus not as dramatic as a car accident or a fire for example. This tend to give this type of accident less space in the common media. 
+	In Sweden alone, statistics shows even darker figures. Here, falling is the single one reason responsible for the greatest number of accident related fatalities, hospitalizations, and visits to emergency clinics, outnumbering traffic accidents, who come in second \cite[p~3,5]{msb_report}. On top of that, in Sweden, falling is together with poisoning, the type of accident who poses the biggest annual growth, having duplicated the amount of yearly incidents since 2000 \cite{soc_olyckor}. Studies have also shown that peoples perception target traffic accidents as the most common cause of the above \cite[p~5]{msb_report}. That is however not true, but a reasonable explanation for this is according to MSB (Swedish Civil Contingencies Agency) that most fall related accidents happen in a domestic area and are thus not as dramatic as a car accident or a fire for example. This tend to give this type of accident less space in the common media. 
 	
 	\subsection{Background}
 	
-	Work environments are a common ground for falling accidents. The work force in Sweden is by no means an exception to this. The Swedish work environment authority (Arbetsmiljöverket) published a study in 2016, claiming that fall accidents are the most versus second most common reason for absence in work due to accident, for women and men respectively \cite[p~1]{av}. This does not only have an impact on the lives of the individual and his or her family, it also poses serious economical damage to the society in general, and the affected organizations in particular. The diagrams shown in figure \ref{fig:Men-Women-Falling-From-Same-Ellevation} and \ref{fig:Men-And-Women-Falling-Form-Elevated-height} illustrates the amount of reported fall related accidents per 1000 employed men and women respectively, in the most affected occupations . 
+	Work environments are a common ground for falling accidents. The work force in Sweden is by no means an exception to this. The Swedish work environment authority (Arbetsmiljöverket) published a study in 2016, claiming that fall accidents are the most versus second most common reason for absence in work due to accident, for women and men respectively \cite[p~1]{av}. This does not only have an impact on the lives of the individual and his or her family, it also poses serious economical damage to the society in general, and the affected organizations in particular. The diagrams shown in figure \ref{fig:Men-Women-Falling-From-Same-Ellevation} and \ref{fig:Men-And-Women-Falling-Form-Elevated-height} illustrates the amount of reported fall related accidents per 1000 employed men and women respectively, in the most affected occupations. 
 	
 	\begin{figure}[h]
 		\centering
@@ -80,14 +84,14 @@
 		\label{fig:Men-And-Women-Falling-Form-Elevated-height}%
 	\end{figure}
 	
-	In relation to the above statistics, minimizing the duration between the occurrence of the fall accident and treatment can in some cases be imperative. This is especially the case where significant trauma to the head is present. In such cases, the sooner an injured person gets treatment, the better the odds of recovering. In cases where a fall accident is occurring in the presence of others, reporting the accident to a medical professional might often be a quick task. However, many fall accidents occur without any other human being around to detect it. In such cases, and especially if the victim is unconscious, alerting medical staff might not be possible.
+	In relation to the above statistics, minimizing the duration between the occurrence of the fall accident and treatment can in some cases be imperative. This is especially the case where significant trauma to the head is present. In such cases, the sooner an injured person gets treatment, the better the odds of recovering. In cases where a fall accident is occurring in the presence of others, reporting the accident to a medical professional might often be a quick task. However, many fall accidents occur without any other human being around to detect them. In such cases, and especially if the victim is unconscious, alerting medical staff might not be possible.
 	
 	
 	\subsection{Problem}
 	
 	Falling accidents are common, and it is important that a person who suffers an accident, is aided as quickly as possible to minimize the consequences of the accident. Since a person who suffers a fall may end up in a situation where the person is unable to call for help, for example, because the person is injured or unconscious, an application that could send an automatic alarm could be of great use. An automatic alarm would help minimize the time between the accident and help arriving. Without the alarm, it could take a long time before the person is found by passers-by. For this reason, we want to investigate the possibility of creating a mobile application that can detect falling accidents and report to registered contacts. A mobile application has the advantage that most people already have a smartphone, so if a mobile application could accomplish the task successfully, the cost would be minimized since there will be no need for additional hardware.
 	
-	This leads us to wonder if it is possible to create such an application. It may be difficult to achieve accuracy in fall detection using only the sensors in the mobile phones that exists on the market today. And if falls were successfully detected, would it be possible to filter out other activities in daily life that resembles falls such as running, jumping or sitting down fast and remain only with the actual falling accidents?
+	This leads us to wonder if it is possible to create such an application. It may be difficult to achieve accuracy in fall detection using only the sensors in the mobile phones that exists on the market today. And if potential falls were successfully detected, would it be possible to filter out  activities in daily life that resembles falls such as running, jumping or sitting down fast and remain only with the actual falling accidents?
 	
 	Another question that arises is how this kind of application can be evaluated in terms of accuracy and battery life. Evaluating the accuracy is important since it will indicate how well the developed application performs. Evaluating battery life is important since the application will be useless if it drains to much battery. This kind of application may have a significant impact on battery life, since it will be necessary to continuously read the sensor values.
 	
@@ -112,7 +116,7 @@
 	
 	The goal of the project is to create an application that, in an effective way, can detect falling accidents and inform concerned contacts. This application should target employees in fields such as operations, construction, etc., and should run in the users cell phone. The user of the application should be able to register contact information to relatives, colleagues, etc. After that the user can activate the protection in the application by selecting the appropriate option, for example by pressing a button in the application. The user is supposed to do this before starting a critical operation, such as performing work on an elevated height or similar. When the protection in the application is activated, the application makes use of the device's embedded accelerometer to register changes in velocity. If the user would carry the device running the application with the protection active, while the user would suffer a falling accident, the application would detect this and enter a warning state. In the warning state the application will notify the user that a fall has been detected and that the application soon will send an alarm to registered contacts. If the time limit for the warning state exceeds without any action from the user, an alarm will be sent to the registered contacts using for example SMS.
 	
-	\subsection{Sustainability \& Ethics}
+	\subsection{Sustainability and Ethics}
 	
 	Since the application will not replace any existing technology, it is difficult to discuss in which way the application will affect the environment. Our project will be focusing on software alone and will only use hardware that already exists, and thus it will not affect the environment in greater extent. One could however argue that the application will run on a cell phone, which will draw more current if it runs an additional application in the background. Therefore, our project will affect the environment, but it is hard to say how great such an effect will be.
 	
@@ -122,13 +126,13 @@
 	
 	\subsection{Methods}
 	
-	The first part of the research will be to perform a literature study, where we will gain deeper knowledge in the subject, and find out what earlier attempts have been made to solve this problem. The literature study will give a good starting point for the rest of the study. The next step will be a case study where we develop a mobile application that uses sensors available in smartphones to achieve accurate fall detection. Developing such an application will give us the opportunity to test theories and ideas found in the literature study. Lastly, the applications impact on battery life will be tested by performing experiments using mobile phones running the application.
+	The first part of the research will be to perform a literature study, where we will gain deeper knowledge in the subject, and find out what earlier attempts have been made to solve this problem. The literature study will give a good starting point for the rest of the study. The next step will be a case study where we develop a mobile application that uses sensors available in smartphones to achieve accurate fall detection. Developing such an application will give us the opportunity to test theories and ideas found in the literature study. Lastly, the applications accuracy and impact on battery life will be tested by performing experiments using mobile phones running the application.
 	
 	\subsection{Disposition}
 	
 	In chapter \ref{section:theoretical-background}, the theoretical background is described. This includes related works, description of a similar existing application and some theory related to machine learning.
 	
-	Chapter \ref{section:methods} describes the methods \& methodology used in the project. This includes the research strategy, describing how the application is developed and how it is evaluated.
+	Chapter \ref{section:methods} describes the methods and methodology used in the project. This includes the research strategy, describing how the application is developed and how it is evaluated.
 	
 	The results of the first part of the case study is presented in chapter \ref{section:application-design}. The architecture of the developed application is described with enough detail to allow the reader to implement a similar application.
 	
@@ -136,9 +140,9 @@
 	
 	In chapter \ref{section:result-summary}, the results are summarized and the research questions are answered.
 	
-	Chapter \ref{section:discussion} discusses the result, and presents the conclusions of the study.
-	\newpage
+	Chapter \ref{section:discussion} discusses the result and methods used in the study.
 	
+	\cleartooddpage
 	\section{Theoretical Background} \label{section:theoretical-background}
 	
 	This chapter describes the theoretical background related to the project.
@@ -176,7 +180,7 @@
 		\item Sitting/Lying
 	\end{itemize}
 	
-	The output of the neural network is a vector of independent probabilities [\textit{0, 1}] that the classified event belongs to each of the four classes. If the probability of the falls class exceed all the other classes, the event is considered as a fall accident and an alarm is presented on screen. The user can thus discard the alarm if it was false, or the alarm will be sent to a number of contacts in a contact list. 
+	The output of the neural network is a vector of independent probabilities that the classified event belongs to each of the four classes. If the probability of the falls class exceed all the other classes, the event is considered as a fall accident and an alarm is presented on screen. The user can thus discard the alarm if it was false, or the alarm will be sent to a number of contacts in a contact list. 
 	
 	The evaluation of their neural network model shows a 100\% success rate in classifying events correctly. However, they used the same set of data to train their neural network as they did to evaluate and cross-validate it, which tends to yield higher evaluation score. Further, from having put their application in the hands of three test persons, who used the application in an everyday fashion, excluding falling, for three days, they concluded that no false positives were alerted. This measurement is good for evaluating the discernment of false positives, but it says nothing about the implementations ability to not discard a real fall accident as well. 
 	
@@ -214,7 +218,7 @@
 	\end{figure}
 	
 	
-	Sitting down on a surface shows a similar pattern to falling with regards to a sudden drop in acceleration followed by a rapid spike and a longer period of non-movement, see figure \ref{fig:Pattern-Sittin}. The magnitude of these values are however far less than in the case of a fall and should thus be easy to single out. When a person sits down, s/he usually makes a soft movement towards the surface, which is matched by the lesser accelerational magnitude in all three directions \textit{X, Y} and \textit{Z}.
+	Sitting down on a surface shows a similar pattern to falling, with regards to a sudden drop in acceleration followed by a rapid spike and a longer period of non-movement, see figure \ref{fig:Pattern-Sittin}. The magnitude of these values are however far less than in the case of a fall and should thus be easy to single out. When a person sits down, s/he usually makes a soft movement towards the surface, which is matched by the lesser accelerational magnitude in all three directions \textit{X, Y} and \textit{Z}.
 	
 	\begin{figure}[H]
 		\centering
@@ -249,7 +253,7 @@
 	
 	This vector is the overall acceleration imposed on the device (and possibly the person carrying it). They proceed by defining a \textit{fall-like-event} as "an acceleration greater than \textit{3 g} followed by a period of \textit{2500 ms} without further peaks exceeding the threshold." \cite[p~5]{piza_uni}. They further argue that the threshold \textit{3 g} is chosen since it has been widely used in other types of fall detection systems. According to their experiments, a post-fall event usually means that the body of the unfortunate becomes lying still on the ground after a period of about \textit{1000 ms}. This interval, which resides within the \textit{2500 ms} interval prior to fall detection, is often due to minor peaks following the main impact as a result of that parts of the body/device may hit the ground at different times. 
 	
-	Abbate et al. tries to establish their algorithm using a \textit{finite-state-machine} with five distinct states, seen in figure \ref{fig:Abbate-state-machine}.
+	Abbate et al. tries to establish their algorithm using a \textit{finite-state-machine} with five distinct states, seen in figure \ref{fig:abbatea-state-machine}.
 	
 	\begin{itemize}
 		\item The \textit{sampling} state is the normal state that the process resides in until \textit{threshold-peak} is detected.
@@ -316,8 +320,6 @@
 	
 	Between the neurons in each layer are connections. Every single connection has a weight which is determined when training the neural network. Each neuron also have an activation function and a bias.
 	
-	\newpage
-	
 	The output of each neuron is calculated according to the following formula:
 	
 	\begin{equation}
@@ -359,7 +361,7 @@
 	When training a neural network, the individual weights are set to random values initially. All labeled training data is then fed into the network, this is called \textit{feed-forward}. At the end of each data sample feed, the output probability is compared to that particular sample's class using a loss function, the weight are then adjusted to better be able to predict the class and the process repeats. The adjustment of weights is called \textit{back-propagation}. A run through of all the samples in the training data set (feed-forward) followed by equally as many adjustments to weights (back-propagation) is called an \textit{epoch}. Training a neural network usually involves many epochs. When the network has been trained, the accuracy can be measured, using a test data set with unlabeled data \cite{neural_networks}.
 	
 	
-	\newpage
+	\cleartooddpage
 	\section{Methods and Methodology} \label{section:methods}
 	
 	This chapter describes the research strategy and the methodologies used in the study, and how each methodology contributes to answering the research questions.
@@ -378,9 +380,9 @@
 	
 	\subsubsection{Inductive and deductive methods}
 	
-	An \textit{inductive} research method can be viewed as a bottom-up approach, where the researcher begins by collecting data that is relevant to the subject. After that, the data is analyzed, with the intention to develop a theory that explains the patterns observed in the data.
+	An \textit{inductive} research method \cite{inductive} can be viewed as a bottom-up approach, where the researcher begins by collecting data that is relevant to the subject. After that, the data is analyzed, with the intention to develop a theory that explains the patterns observed in the data.
 	
-	A \textit{deductive} method is a top-down approach, where a hypothesis is developed from existing theory. After the hypothesis is formulated, it is tested with the intent to confirm or falsify it.
+	A \textit{deductive} method \cite{deductive} is a top-down approach, where a hypothesis is developed from existing theory. After the hypothesis is formulated, it is tested with the intent to confirm or falsify it.
 	
 	\subsubsection{Case studies}
 	
@@ -402,14 +404,14 @@
 	The literature study that we will perform will focus on finding an algorithm that can be used to accurately detect a fall. Performing a literature study will give us a wider understanding of the subject as well as a good starting point for the study. The result of the literature study will show which algorithm for fall detection that would be proposed by previous studies. We will use this algorithm as a starting point for our own implementation, where we will try to improve the algorithm. The outcome of the literature study is presented in the theoretical background.
 	
 	\parag{Case Study: Developing a mobile application}
-	The second part of our research will be a case study where we implement a fall detection system. We will use the algorithm found in the literature study and implement it for Android and iOS using the sensors available in the smartphones. Developing the application will give us an opportunity to test the algorithm on real devices, and a platform where we can experiment in order to improve the algorithm. The result of the development will give us the ability to answer how technology available in smartphones can be used to implement the algorithm found in the literature study.
+	The second part of our research will be a case study where we implement a fall detection system. We will use the algorithm found in the literature study and implement it for Android and iOS, using the sensors available in the smartphones. Developing the application will give us an opportunity to test the algorithm on real devices, and a platform where we can experiment in order to improve the algorithm. The result of the development will give us the ability to answer how technology available in smartphones can be used to implement the algorithm found in the literature study.
 	
 	\parag{Evaluating the implemented mobile application}
 	The third part of our research will be to evaluate the implemented algorithm by performing experiments where the mobile application is used to detect falls. This evaluation will focus on how accurate the application is, but also on how it affects the battery life of the device.
 	
 	\subsubsection{Research Process}
 	
-	In this thesis project, the work is divided in phases as seen in figure \ref{fig:research-process}. The first phase, the problem statement serves to formulate the problem that the thesis will try to solve. The second phase is the literature study, where reports from earlier studies are collected and read to give us a deeper understanding of the subject. The third phase is the analysis phase, where the results of the literature study is analyzed in order to find an algorithm that will be suitable as a starting point for the application. After the analysis phase the case study begins, where we implement the mobile application. After the case study phase the evaluation phase starts, where the final version of the application developed in the case study is evaluated. After that, the conclusion phase starts, where the results are summarized and conclusions formulated. 
+	In this thesis project, the work is divided in several phases, as seen in figure \ref{fig:research-process}. The first phase, the problem statement serves to formulate the problem that the thesis will try to solve. The second phase is the literature study, where reports from earlier studies are collected and read to give us a deeper understanding of the subject. The third phase is the analysis phase, where the results of the literature study are analyzed in order to find an algorithm that will be suitable as a starting point for the application. After the analysis phase the case study begins, where we implement the mobile application. In the evaluation phase, the final version of the application developed in the case study is evaluated. Finally, the conclusion phase starts, where the results are summarized and conclusions formulated. 
 	
 	\begin{figure}[H]
 		\centering
@@ -451,7 +453,7 @@
 	
 	\subsubsection{Evaluating accuracy}
 	
-	The first step in the evaluation of the application will be to perform crash tests where we measure how well the application detects a fall, by dropping a mobile phone running the application several times from a height that we define as a fall and count the number of reported falls. The different heights that we have chosen are 3 m, 1.5 m, and 1 m. Dropping the phone from 3 m is supposed to simulate falling from a ladder or similar, 1.5 m simulates falling from a stool or similar, with the phone in the pocket and 1 m simulates a fall from standing on the ground.
+	The first step in the evaluation of the application will be to perform crash tests, where we measure how well the application detects a fall, by dropping a mobile phone running the application several times from a height that we define as a fall and count the number of reported falls. The different heights that we have chosen are 3 m, 1.5 m, and 1 m. Dropping the phone from 3 m is supposed to simulate falling from a ladder or similar, 1.5 m simulates falling from a stool or similar, with the phone in the pocket and 1 m simulates a fall from standing on the ground.
 	
 	Another test will be to walk for a short distance and then immediately drop the phone. This is supposed to simulate falling while walking. The test will include walking a distance of 10 m and then dropping the phone from a height of 1 m.
 	
@@ -473,19 +475,19 @@
 	
 	To evaluate how the application affects the battery life of the mobile phone, we will use the native functionality in the operating system available on Android and iOS respectively to measure the specific applications power consumption.
 	
-	\newpage
+	\cleartooddpage
 	\section{Fall Detection Application: Design} \label{section:application-design}
 	
 	This section describes the design of the fall detection application.
 	
 	\subsection{Architecture outline}
-	The overall architecture of the application consists of several steps as visualized in figure \ref{fig:arch-outline}. All readings from the accelerometer is continuously pushed to a ring buffer.	This ring buffer holds the last 8 seconds of accelerometer data. On top of this, a \textit{Finite State Machine} is used as a first barrier to filter out the most common movements of the device. If a fall-like event were to manipulate the state machine into its final state, the ring buffer is transferred over to a \textit{Feature Extractor}. In this step, the buffer is analyzed and a total of 8 "features" are extracted (as similar to the Abbate et al. approach). These features represent important aspects of the movement of the device for the last 8 seconds. The 8 features are then put inside a data-object and fed into a \textit{Classification Engine} which consists of a neural network. This classification engine have the responsibility to classify the event based on the given features. The output classes of the neural network are: \textit{Fall}, \textit{Jump} and \textit{Run/Walk}. The neural network calculates the independent probability of the event's belonging to each of the three classes. If the probability of the event belonging to the \textit{Fall} class exceeds the other two, the event is considered a fall. 
+	The overall architecture of the application consists of several steps, as visualized in figure \ref{fig:arch-outline}. All readings from the accelerometer is continuously pushed to a ring buffer.	This ring buffer holds the last 8 seconds of accelerometer data. On top of this, a \textit{Finite State Machine} is used as a first barrier to filter out the most common movements of the device. If a fall-like event were to manipulate the state machine into its final state, the ring buffer is transferred over to a \textit{Feature Extractor}. In this step, the buffer is analyzed and a total of 8 "features" are extracted (as similar to the Abbate et al. approach). These features represent important aspects of the movement of the device for the last 8 seconds. The 8 features are then put inside a data-object and fed into a \textit{Classification Engine}, which consists of a neural network. This classification engine have the responsibility to classify the event based on the given features. The output classes of the neural network are: \textit{Fall}, \textit{Jump} and \textit{Run/Walk}. The neural network calculates the independent probability of the event's belonging to each of the three classes. If the probability of the event belonging to the \textit{Fall} class exceeds the other two, the event is considered a fall. 
 	
-	In the case of an event being classified as a fall, the application will present a screen along with a sonic alarm signal. The user will then have 45 seconds to discard the event or a message will be sent to a set of predefined contacts, notifying them about what's happened.
+	In the case of an event being classified as a fall, the application will present a screen along with a sonic alarm signal. The user will then have 45 seconds to discard the event, or a message will be sent to a set of predefined contacts, notifying them about what's happened.
 	
 	\begin{figure}[H]
 		\centering
-		\subfloat{{\includegraphics[width=14cm]{../img/architecture-outline.png} }}%
+		\subfloat{{\includegraphics[width=9cm]{../img/architecture-outline.png} }}%
 		\caption{Outline of the fall detection application}%
 		\label{fig:arch-outline}% 
 	\end{figure}
@@ -493,17 +495,15 @@
 	\subsection{Accelerometer Data}
 	The accelerometer is the sensor used for fall detection. Using the accelerometer on the Android and iOS system is similar. Updates from the accelerometer are pushed to listening code that acts upon those updates. Updates come in the form of an data-object containing information about the device's acceleration on all three axes (\textit{X}, \textit{Y} and \textit{Z}) at that moment in time. The accelerometer's update frequency is configurable on both Android and iOS devices and we chose an update frequency of \textit{50 Hz}, since it provides a reasonable balance between accuracy in measurements and battery consumption. 
 	
-	On each update, the resultant vector is calculated according to formula \ref{vectorlength} in section \ref{section:approach-by-abbate} and the result is fed to both the ring buffer and the state machine.
-	
-	\subsection{Ring Buffer}
-	
-	A ring buffer is used to hold the last 8 seconds of data recorded by the accelerometer. Initially the ring buffer is empty, but for each accelerometer update the ring buffer is called with the accelerometer vector length as input. Before the ring buffer is full, it simply saves the data. When the ring buffer is filled up, it overwrites the data in FIFO order, so that it keeps the most recent data in the buffer and the oldest data is removed. With our configuration, the ring buffer has a fixed length of \(50 Hz * 8 s = 400\) samples.
+	On each update, the resultant vector is calculated according to formula \ref{vectorlength} in section \ref{section:approach-by-abbate}, and the result is fed to both the ring buffer and the state machine.
 	
 	\subsection{State Machine} \label{section:state-machine}
 	
-	For basic fall detection, a finite-state machine were used, see figure \ref{fig:state-machine}. The purpose of the state machine is to filter out possible falls that should be analyzed. The length of the resultant vector \textit{a}, coming from the accelerometer, is fed as input to the state machine. The possible values for this input are in the interval \( [0, \infty) \), since vector length cannot be negative. The state machine reads the vector length \textit{a} and the time since the machine entered the current state \textit{t}, and changes state based on different conditions for each state. If the state machine would reach its final state, this would mean that a potential fall has been detected.
+	For basic fall detection, a finite-state machine was used. The purpose of the state machine is to filter out possible falls that should be analyzed. The length of the resultant vector \textit{a}, coming from the accelerometer, is fed as input to the state machine. The possible values for this input are in the interval \( [0, \infty) \), since vector length cannot be negative. The state machine reads the vector length \textit{a} and the time since the machine entered the current state \textit{t}, and changes state based on different conditions for each state. If the state machine would reach its final state, this would mean that a potential fall has been detected.
 	
-	The thresholds used can be seen in figure \ref{fig:thresholds} and are defined as:
+	\subsubsection{Thresholds}
+	
+	The state machine uses a number of thresholds. They can be seen in figure \ref{fig:thresholds} and are defined as:
 	
 	\begin{itemize}
 		\item Impact Threshold, \textit{IT}
@@ -568,6 +568,10 @@
 	\subsubsection{Fall detected state}
 	
 	In the fall detected state, a potential fall has been detected. The machine takes action to inform the rest of the application that the data in the ring buffer should be analyzed to see if this was an actual fall.
+	
+	\subsection{Ring Buffer}
+	
+	A ring buffer is used to hold the last 8 seconds of data recorded by the accelerometer. Initially the ring buffer is empty, but for each accelerometer update the ring buffer is called with the accelerometer vector length as input. Before the ring buffer is full, it simply saves the data. When the ring buffer is filled up, it overwrites the data in FIFO order, so that it keeps the most recent data in the buffer and the oldest data is removed. With our configuration, the ring buffer has a fixed length of \(50 Hz * 8 s = 400\) samples.
 	
 	\subsection{Feature Extractor} \label{section:feature-extractor}
 	
@@ -827,7 +831,7 @@
 		\label{fig:alarm-screen}%
 	\end{figure}
 	
-	\newpage
+	\cleartooddpage
 	\section{Fall Detection Application: Evaluation} \label{section:application-evaluation}
 	Evaluation of the application was done by conducting a series of test in a real-world setting. The test aims to evaluate two things, the accurateness of the fall detection system, and the impact on battery this system implies. All tests scenarios were identical on the iOS and Android platform. 
 	
@@ -979,8 +983,6 @@
 	
 	The result shown that the iOS application successfully detects fall in 90\% of the time where as the Android application has a success rate of 100\%
 	
-	\newpage
-	
 	\subsubsection{Summarizing accuracy tests}
 	The overall results show that there exists some differences between the application running on an iOS device and its Android counterpart. For each device, we can calculate the overall success rate by the following equation:
 	
@@ -1025,7 +1027,6 @@
 		\label{fig:difference-android-fall-while-walk}%
 	\end{figure}
 	
-	\newpage
 	\subsection{Evaluating battery life}
 	
 	To evaluate how the application affects battery life of the mobile phone,, we used embedded battery usage statistics. This kind of measurement tool is found natively in both iOS and Android and states the amount of battery used by each application. This is somewhat limited since we cannot choose which statistics to present, but still useful. The result of this measurement is presented in table \ref{table:battery-embedded}. The measurement shows that running the application in background on iOS for 7.5 hours consumes 14\% of the battery. On Android, the measurement shows that running the application for 48 minutes in background and 6 minutes in foreground resulted in a 4\% battery usage. On both iOS and Android the battery usage was in line with that of other applications.
@@ -1041,7 +1042,6 @@
 		\caption{The result of the embedded battery usage measurement}
 		\label{table:battery-embedded}
 	\end{table}
-	\newpage
 	
 	\subsection{Comparison with related evaluation methods}
 	Yildirim et al. evaluated their solution using five people carrying devices with the application installed. Those five people then carried out experiments where they would test the classes \textit{fall, jump, sit, lay down, and climb stairs}. Each class was tested five times by each individual, resulting in a total of 25 tests for each class. They do not disclose exactly how they performed the tests (for e.g what altitudes were used when falling). Finally, they conclude by stating that their approach, using merely a threshold based algorithm as a detector, reached a 100\% success rate in discarding the classes \textit{sit, lay down and climbing stairs} as non-falls. However, they state that their solution had difficulties in detecting real falls, as well as differentiate between jumps and falls. Their solution falsely missed 9/25 real falls, and further falsely classified 7/25 jumps as falls. 
@@ -1053,7 +1053,8 @@
 	Our evaluation method is a combination of these two methods. We evaluated the accuracy of our neural network using a mathematical approach in Python, but in contrary to Abbate et al. we split our data set in two parts, resulting in a 90 \% training and 10\%  evaluation set. This gave us a derived accuracy of 87\%. By using different sets of data for training and evaluation, the "derived accuracy" measurement gives us a value that is more close to the actual accuracy of the network. Further, in common with both Yildirim et al. and Abbate et al. we tested our application in real life scenarios, but used two people (ourselves) instead of five and three, respectively. The test cases also differed to some extent, where our test cases were tailored to test the design of \textit{our} state machine as well as \textit{our} neural network. The major difference in evaluation is that, in contrary to Abbate et al., we also included tests that aimed to examine the applications ability to detect real falls. 
 
 	Neither Abbate et al. or Yildirim et al. does any measurements on battery consumption, although it is mentioned that accelerometer update frequency has an impact on battery life in their thesis's. We, on the other hand, did a rudimentary evaluation of battery consumption.
-		\newpage
+	
+	\cleartooddpage
 	\section{Result summary} \label{section:result-summary}
 	
 	This chapter summarizes the result presented in the previous chapters, and answers the research questions.
@@ -1152,7 +1153,7 @@
 	
 	The case study showed that this kind of application can be evaluated in terms of accuracy and battery life. The accuracy can be measured by performing a series of test in a real-world setting. The battery life can be evaluated by using the embedded battery usage statistics tool found in Android and iOS.
 	
-	\newpage
+	\cleartooddpage
 	\section{Discussion \& Conclusions} \label{section:discussion}
 	
 	In this chapter, the methods used in the study and their implications are analyzed, the research questions are answered followed by a discussion of the results, sustainability and ethical considerations. Lastly, the research project is summarized and suggestions for future research is presented.
@@ -1214,8 +1215,8 @@
 	This theses presents one possible way to create a fall detection application for smartphones, and the evaluation of the developed application is quite primitive. It would be possible to perform research with a wider evaluation. For example, one could perform experiments where a crash test dummy were equipped with a smartphone running the application. This crash test dummy could then be dropped from different heights and in different fall like events to see how well the application performs in a real life scenario.
 	
 	Another possibility would be to examine another way of creating a fall detection application, perhaps using another algorithm. It would then be possible to evaluate how well that application performs compared to the approach presented in this thesis.
-	\newpage
-		
+	
+	\cleartooddpage
 	\bibliography{bib_common}
 	\bibliographystyle{ieeetr}
 
